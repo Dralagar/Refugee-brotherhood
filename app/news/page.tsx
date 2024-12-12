@@ -64,7 +64,7 @@ const NewsPage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.parallaxBackground}></div>
-      <animated.div style={fadeIn} className={styles.content}>
+      <animated.div>
         <h1 className={styles.title}>Latest Updates</h1>
         <div className={styles.categoryFilter}>
           <button className={styles.active}>All</button>

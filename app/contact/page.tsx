@@ -1,37 +1,22 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useSpring, a, animated } from '@react-spring/web';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import styles from '../styles/Contact.module.css';
-import emailjs from '@emailjs/browser';
 
 const ContactPage = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   });
 
-  const fadeIn = useSpring({
-    from: { opacity: 0 },
-    to: { opacity: 1 },
-    config: { duration: 500 }
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
     console.log(formData);
   };
+
   return (
-    <animated.div style={fadeIn} className={styles.container}>
+    <div className={styles.container}>
       <div className={styles.content}>
         <h1>Contact Us</h1>
         <div className={styles.contactGrid}>
@@ -39,21 +24,16 @@ const ContactPage = () => {
             <h2>Get in Touch</h2>
             <p>We're here to help and answer any questions you might have.</p>
             <div className={styles.infoItem}>
-              <i className="fas fa-envelope"></i>
               <span>contact@refugeebrotherhood.org</span>
             </div>
             <div className={styles.infoItem}>
-              <i className="fas fa-phone"></i>
               <span>+1 (555) 123-4567</span>
             </div>
-            <div className={styles.infoItem}>
-              <i className="fas fa-map-marker-alt"></i>
-              <span>123 Refugee Support Street, City, Country</span>
-            </div>
           </div>
-
+          
           <form onSubmit={handleSubmit} className={styles.contactForm}>
             <div className={styles.formGroup}>
+              <label htmlFor="name">Name</label>
               <input
                 type="text"
                 id="name"
@@ -76,8 +56,7 @@ const ContactPage = () => {
               <textarea
                 id="message"
                 value={formData.message}
-                onChange={handleChange}
-                placeholder="Your Message"
+                onChange={(e) => setFormData({...formData, message: e.target.value})}
                 required
               ></textarea>
             </div>
@@ -87,8 +66,8 @@ const ContactPage = () => {
           </form>
         </div>
       </div>
-    </animated.div>
+    </div>
   );
-}
+};
 
 export default ContactPage;
