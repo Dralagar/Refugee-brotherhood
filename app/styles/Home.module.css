@@ -1,0 +1,364 @@
+/* General Container Styles */
+.container {
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    padding-top: 80px;
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #f8f9fa;
+}
+
+.mainContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: #007bff;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+.heroBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../public/images/rb12.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 600px;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.2;
+}
+
+.hero p {
+    margin: 20px 0;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    line-height: 1.6;
+}
+
+.learnMore {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.learnMore:hover {
+    background-color: #0056b3;
+}
+
+/* Second Section */
+.twoColumn {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 4rem 1rem;
+}
+
+@media (min-width: 768px) {
+    .twoColumn {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.videoContainer, .textContainer {
+    flex: 1;
+    padding: 20px;
+    min-width: 300px;
+    height: 300px;
+}
+
+.fundraisingIcons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+    padding: 2rem 1rem;
+}
+
+.fundraisingIcon {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.fundraisingIcon:hover {
+    background-color: #0056b3;
+}
+
+.moreWays {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.moreWays p {
+    margin-right: 5px;
+}
+
+.milestoneIcons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.milestoneIcon {
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: 50%;
+    text-align: center;
+}
+
+/* Programs Section */
+.twoColumnImage {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 4rem 1rem;
+}
+
+@media (min-width: 768px) {
+    .twoColumnImage {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.column {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 300px;
+}
+
+.column img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.column h4 {
+    margin-top: 20px;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.column p {
+    margin-top: 10px;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* News and Stories Section */
+.newsStories {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.newsStories h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 20px;
+}
+
+.newsCards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 1rem;
+}
+
+@media (min-width: 768px) {
+    .newsCards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .newsCards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.newsCard {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 2rem;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.newsCard h2 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin-bottom: 10px;
+}
+
+.newsCard p {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+}
+
+.moreNews {
+    margin-top: 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.moreNews span {
+    margin-left: 5px;
+}
+
+/* Footer */
+.footer {
+    background-color: #153448;
+    color: #DFD0B8;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+}
+
+@media (min-width: 768px) {
+    .row {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.column {
+    flex: 1;
+    text-align: center;
+    padding: 1rem;
+}
+
+.column h3, .column h4 {
+    margin-bottom: 0.5rem;
+}
+
+.column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.column li {
+    margin: 0.5rem 0;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0.5rem 0;
+}
+
+.icon {
+    font-size: 1.5rem;
+    color: #DFD0B8;
+    transition: color 0.3s;
+}
+
+.icon:hover {
+    color: #948979;
+}
+
+.emailInput {
+    padding: 0.5rem;
+    border: 1px solid #DFD0B8;
+    border-radius: 5px 0 0 5px;
+    max-width: 200px;
+}
+
+.subscribeButton {
+    padding: 0.5rem 1rem;
+    background-color: #DFD0B8;
+    color: #153448;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.subscribeButton:hover {
+    background-color: #948979;
+}
+
+.copyright {
+    font-size: 0.9rem;
+    color: #948979;
+    text-align: center;
+}

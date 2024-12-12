@@ -1,0 +1,247 @@
+.container {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.main {
+  padding-top: 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.heroSection {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+              url('/images/hero-background.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  margin-bottom: 3rem;
+}
+
+.heroSection h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 1rem;
+}
+
+.heroSection p {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contentWrapper {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.donationSection {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.impactGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.impactCard {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.impactCard:hover {
+  transform: translateY(-5px);
+}
+
+.impactAmount {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #007bff;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.donationGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.donationButton {
+  padding: 1rem;
+  font-size: 1.2rem;
+  background: white;
+  border: 2px solid #007bff;
+  color: #007bff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.donationButton:hover,
+.donationButton.selected {
+  background: #007bff;
+  color: white;
+}
+
+.customAmount {
+  grid-column: 1 / -1;
+}
+
+.customInput {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+}
+
+.paymentMethods {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.paymentIcons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.paymentIcon {
+  font-size: 2rem;
+  color: #6c757d;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.formGroup input,
+.formGroup textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.donationFrequency {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.frequencyButton {
+  padding: 1rem;
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.frequencyButton:hover,
+.frequencyButton.selected {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.2rem;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submitButton:hover {
+  background: #218838;
+}
+
+.sidebar {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+}
+
+.impactStory {
+  text-align: center;
+}
+
+.impactImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+@media (max-width: 1024px) {
+  .contentWrapper {
+    grid-template-columns: 1fr;
+  }
+  
+  .sidebar {
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding-top: 60px;
+  }
+  
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+  
+  .donationSection,
+  .sidebar {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSection {
+    padding: 3rem 1rem;
+  }
+  
+  .contentWrapper {
+    padding: 0 1rem;
+  }
+  
+  .donationGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
