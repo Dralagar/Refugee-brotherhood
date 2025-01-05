@@ -279,7 +279,7 @@ const DonatePage: React.FC = () => {
             <div className={styles.impactStory}>
               <h3>Your Impact in Action</h3>
               <Image
-                src="/images/impact.jpg"
+                src="/images/impact.png"
                 alt="Impact Story"
                 width={400}
                 height={300}
