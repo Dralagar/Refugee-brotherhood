@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
-import type { Stripe as StripeType, StripeElements } from '@stripe/stripe-js';
+import type { Stripe as StripeType, StripeElements, StripeCardElement } from '@stripe/stripe-js';
 import styles from '../styles/Donate.module.css';
 import Image from 'next/image';
 import { FaCreditCard, FaPaypal, FaApplePay, FaGooglePay } from 'react-icons/fa';
@@ -22,9 +22,7 @@ const DonatePage: React.FC = () => {
     email: '',
     message: ''
   });
-  const [clientSecret, setClientSecret] = useState<string>('');
-  const [cardElement, setCardElement] = useState<any>(null);
-  const [stripe, setStripe] = useState<StripeType | null>(null);
+  const [cardElement, setCardElement] = useState<StripeCardElement | null>(null);
   const [elements, setElements] = useState<StripeElements | null>(null);
 
   const donationAmounts = [10, 25, 50, 100];
@@ -85,22 +83,31 @@ const DonatePage: React.FC = () => {
       if (!stripe) throw new Error('Stripe failed to initialize');
 
       // Confirm the payment
-      const { error: stripeError } = await stripe.confirmCardPayment(clientSecret, {
-        payment_method: {
-          card: cardElement,
-          billing_details: {
-            name: `${formData.firstName} ${formData.lastName}`,
-            email: formData.email,
-          },
-        },
-      });
+      if (elements) {
+        const card = elements.getElement('card');
+        if (card) {
+          const { error: stripeError } = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+              card: card,
+              billing_details: {
+                name: `${formData.firstName} ${formData.lastName}`,
+                email: formData.email,
+              },
+            },
+          });
 
-      if (stripeError) {
-        throw new Error(stripeError.message);
+          if (stripeError) {
+            throw new Error(stripeError.message);
+          }
+
+          // Handle successful payment
+          window.location.href = '/donation-success';
+        } else {
+          throw new Error('Card element not found');
+        }
+      } else {
+        throw new Error('Stripe elements not initialized');
       }
-
-      // Handle successful payment
-      window.location.href = '/donation-success';
 
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Payment failed');
@@ -113,7 +120,6 @@ const DonatePage: React.FC = () => {
     const initializeStripe = async () => {
       const stripeInstance = await stripePromise;
       if (stripeInstance) {
-        setStripe(stripeInstance);
         setElements(stripeInstance.elements());
       }
     };
@@ -285,7 +291,7 @@ const DonatePage: React.FC = () => {
                 height={300}
                 className={styles.impactImage}
               />
-              <p>"Thanks to generous donors like you, we've helped over 1,000 families find safety and rebuild their lives."</p>
+              <p>&quot;Thanks to generous donors like you, we&apos;ve helped over 1,000 families find safety and rebuild their lives.&quot;</p>
             </div>
           </aside>
         </div>
