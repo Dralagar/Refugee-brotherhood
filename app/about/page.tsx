@@ -22,7 +22,7 @@ const ContactPage = () => {
         <div className={styles.contactGrid}>
           <div className={styles.contactInfo}>
             <h2>Get in Touch</h2>
-            <p>We're here to help and answer any questions you might have.</p>
+            <p>We are here to help and answer any questions you might have.</p>
             <div className={styles.infoItem}>
               <span>contact@refugeebrotherhood.org</span>
             </div>

@@ -22,7 +22,7 @@ interface ContactOffice {
   coordinates: { lat: number; lng: number };
 }
 
-const ContactPage = () => {
+const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -37,9 +37,7 @@ const ContactPage = () => {
   const [selectedOffice, setSelectedOffice] = useState<number>(0);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Simulated fetch of office locations
   useEffect(() => {
-    // In real app, this would be an API call
     setOffices([
       {
         id: 1,
@@ -64,7 +62,6 @@ const ContactPage = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
       console.log(formData);
       alert('Message sent successfully!');
@@ -96,10 +93,9 @@ const ContactPage = () => {
       <div className={styles.content}>
         <h1 className={styles.mainTitle}>Contact Us</h1>
         <p className={styles.subtitle}>
-          We're committed to supporting refugees. Reach out to us for any assistance or inquiries.
+          We&apos;re committed to supporting refugees. Reach out to us for any assistance or inquiries.
         </p>
 
-        {/* Services Grid */}
         <div className={styles.servicesGrid}>
           {supportServices.map(service => (
             <div key={service.id} className={styles.serviceCard}>
@@ -110,11 +106,9 @@ const ContactPage = () => {
         </div>
 
         <div className={styles.contactGrid}>
-          {/* Left Column - Enhanced Contact Information */}
           <div className={styles.contactInfo}>
             <h2>Get in Touch</h2>
             
-            {/* Office Selector */}
             <div className={styles.officeSelector}>
               <h3>Select Office Location</h3>
               <select 
@@ -133,22 +127,19 @@ const ContactPage = () => {
               <div className={styles.infoCard}>
                 <FaMapMarkerAlt className={styles.icon} />
                 <h3>Our Location</h3>
-                <p>123 Refugee Support Street</p>
-                <p>New York, NY 10001</p>
+                <p>{offices[selectedOffice]?.address}</p>
               </div>
 
               <div className={styles.infoCard}>
                 <FaPhone className={styles.icon} />
                 <h3>Phone Numbers</h3>
-                <p>Main: +1 (555) 123-4567</p>
-                <p>Support: +1 (555) 987-6543</p>
+                <p>{offices[selectedOffice]?.phone}</p>
               </div>
 
               <div className={styles.infoCard}>
                 <FaEnvelope className={styles.icon} />
                 <h3>Email Us</h3>
-                <p>contact@refugeebrotherhood.org</p>
-                <p>support@refugeebrotherhood.org</p>
+                <p>{offices[selectedOffice]?.email}</p>
               </div>
 
               <div className={styles.infoCard}>
@@ -158,7 +149,6 @@ const ContactPage = () => {
                 <p>Weekend: 10:00 AM - 4:00 PM</p>
               </div>
 
-              {/* New Features */}
               <div className={styles.infoCard}>
                 <FaLanguage className={styles.icon} />
                 <h3>Language Support</h3>
@@ -166,7 +156,6 @@ const ContactPage = () => {
               </div>
             </div>
 
-            {/* Emergency Contact with Status Indicator */}
             <div className={styles.emergencyContact}>
               <h3>Emergency Support</h3>
               <p>24/7 Helpline: +1 (555) 911-0000</p>
@@ -177,7 +166,6 @@ const ContactPage = () => {
             </div>
           </div>
 
-          {/* Right Column - Enhanced Contact Form */}
           <div className={styles.formContainer}>
             <form onSubmit={handleSubmit} className={styles.contactForm}>
               <h2>Send Us a Message</h2>
