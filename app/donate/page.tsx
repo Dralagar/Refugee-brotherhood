@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
-import type { Stripe as StripeType, StripeElements, StripeCardElement } from '@stripe/stripe-js';
+import type { StripeElements } from '@stripe/stripe-js';
 import styles from '../styles/Donate.module.css';
 import Image from 'next/image';
 import { FaCreditCard, FaPaypal, FaApplePay, FaGooglePay } from 'react-icons/fa';
@@ -22,7 +22,6 @@ const DonatePage: React.FC = () => {
     email: '',
     message: ''
   });
-  const [cardElement, setCardElement] = useState<StripeCardElement | null>(null);
   const [elements, setElements] = useState<StripeElements | null>(null);
 
   const donationAmounts = [10, 25, 50, 100];
@@ -130,7 +129,6 @@ const DonatePage: React.FC = () => {
     if (elements) {
       const card = elements.create('card');
       card.mount('#card-element');
-      setCardElement(card);
     }
   }, [elements]);
 

@@ -85,7 +85,7 @@ const Home: React.FC = () => {
             <p>Column 1 description text...</p>
           </div>
           <div className={styles.column}>
-            <img src="/images/rb4.jpg" alt="Image 2" />
+            <Image src="/images/rb4.jpg" alt="Image 2" width={500} height={300} />
             <h4>Column 2 Title</h4>
             <p>Column 2 description text...</p>
           </div>
@@ -95,17 +95,17 @@ const Home: React.FC = () => {
         <div className={styles.newsCards}>
           <div className={styles.newsCard}>
             <h2>News Title 1</h2>
-            <img src="/images/rb5.jpg" alt="Image 2" />
+            <Image src="/images/rb5.jpg" alt="Image 2" width={500} height={300} />
             <p>News description 1...</p>
           </div>
           <div className={styles.newsCard}>
             <h2>News Title 2</h2>
-            <img src="/images/rb6.jpg" alt="Image 2" />
+            <Image src="/images/rb6.jpg" alt="Image 2" width={500} height={300} />
             <p>News description 2...</p>
           </div>
           <div className={styles.newsCard}>
             <h2>News Title 3</h2>
-            <img src="/images/rb7.jpg" alt="Image 2" />
+            <Image src="/images/rb7.jpg" alt="Image 2" width={500} height={300} />
             <p>News description 3...</p>
           </div>
         </div>
