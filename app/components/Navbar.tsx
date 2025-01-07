@@ -9,12 +9,14 @@ const NavBar: React.FC = () => {
     <header className={styles.header}>
       <nav className={styles.navbar}>
         <div className={styles.logo}>
-          <Link href="/">
-            <Image src="/images/logo.jpg" alt="Logo" width={100} height={50} />
+          <Link legacyBehavior href="/">
+            <a>
+              <Image src="/images/logo.jpg" alt="Logo" width={100} height={50} />
+            </a>
           </Link>
         </div>
         <ul className={styles.navLinks}>
-          <li><Link href="/about">About</Link></li>
+          <li><Link legacyBehavior href="/about"><a>About</a></Link></li>
           <li><Link href="/programs">Programs</Link></li>
           <li><Link href="/news">News & Stories</Link></li>
           <li><Link href="/donate">Donate</Link></li>
