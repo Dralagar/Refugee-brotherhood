@@ -34,7 +34,7 @@ const ContactPage: React.FC = () => {
   });
 
   const [offices, setOffices] = useState<ContactOffice[]>([]);
-  const [selectedOffice, setSelectedOffice] = useState<number>(0);
+  const [selectedOffice, setSelectedOffice] = useState<number>(1); // Default to first office
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -62,8 +62,9 @@ const ContactPage: React.FC = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
+      // Simulate an API call
       await new Promise(resolve => setTimeout(resolve, 1000));
-      console.log(formData);
+      console.log('Form Data:', formData);
       alert('Message sent successfully!');
       setFormData({
         name: '',
@@ -75,6 +76,7 @@ const ContactPage: React.FC = () => {
         serviceType: ''
       });
     } catch (error) {
+      console.error('Error sending message:', error);
       alert('Failed to send message. Please try again.');
     } finally {
       setIsLoading(false);
@@ -108,7 +110,7 @@ const ContactPage: React.FC = () => {
         <div className={styles.contactGrid}>
           <div className={styles.contactInfo}>
             <h2>Get in Touch</h2>
-            
+
             <div className={styles.officeSelector}>
               <h3>Select Office Location</h3>
               <select 
@@ -123,38 +125,34 @@ const ContactPage: React.FC = () => {
               </select>
             </div>
 
-            <div className={styles.infoGrid}>
-              <div className={styles.infoCard}>
-                <FaMapMarkerAlt className={styles.icon} />
-                <h3>Our Location</h3>
-                <p>{offices[selectedOffice]?.address}</p>
-              </div>
+            {offices[selectedOffice - 1] && (
+              <div className={styles.infoGrid}>
+                <div className={styles.infoCard}>
+                  <FaMapMarkerAlt className={styles.icon} />
+                  <h3>Our Location</h3>
+                  <p>{offices[selectedOffice - 1].address}</p>
+                </div>
 
-              <div className={styles.infoCard}>
-                <FaPhone className={styles.icon} />
-                <h3>Phone Numbers</h3>
-                <p>{offices[selectedOffice]?.phone}</p>
-              </div>
+                <div className={styles.infoCard}>
+                  <FaPhone className={styles.icon} />
+                  <h3>Phone Numbers</h3>
+                  <p>{offices[selectedOffice - 1].phone}</p>
+                </div>
 
-              <div className={styles.infoCard}>
-                <FaEnvelope className={styles.icon} />
-                <h3>Email Us</h3>
-                <p>{offices[selectedOffice]?.email}</p>
-              </div>
+                <div className={styles.infoCard}>
+                  <FaEnvelope className={styles.icon} />
+                  <h3>Email Us</h3>
+                  <p>{offices[selectedOffice - 1].email}</p>
+                </div>
 
-              <div className={styles.infoCard}>
-                <FaClock className={styles.icon} />
-                <h3>Working Hours</h3>
-                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                <p>Weekend: 10:00 AM - 4:00 PM</p>
+                <div className={styles.infoCard}>
+                  <FaClock className={styles.icon} />
+                  <h3>Working Hours</h3>
+                  <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                  <p>Weekend: 10:00 AM - 4:00 PM</p>
+                </div>
               </div>
-
-              <div className={styles.infoCard}>
-                <FaLanguage className={styles.icon} />
-                <h3>Language Support</h3>
-                <p>Available in: English, Spanish, Arabic, French</p>
-              </div>
-            </div>
+            )}
 
             <div className={styles.emergencyContact}>
               <h3>Emergency Support</h3>
@@ -169,7 +167,7 @@ const ContactPage: React.FC = () => {
           <div className={styles.formContainer}>
             <form onSubmit={handleSubmit} className={styles.contactForm}>
               <h2>Send Us a Message</h2>
-              
+
               <div className={styles.formGroup}>
                 <label htmlFor="name">Full Name</label>
                 <input
