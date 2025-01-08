@@ -1,82 +1,56 @@
 /* Navbar.module.css */
+.header {
+  background-color: #fff; /* Example background color */
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .navbar {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column; /* Mobile-first: stack items vertically */
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #343a40;
-  color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  height: 100px;
 }
 
-.logo a {
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
-
-.logo img {
-  height: 80px; /* Adjust the height to fit the navbar */
-  width: auto;
+.logo {
+  margin-bottom: 10px;
 }
 
 .navLinks {
   list-style: none;
-  display: flex;
-  gap: 1.5rem;
-  transition: max-height 0.3s ease;
-  overflow: hidden;
-  margin-right: 100px;
-}
-
-.navLinks.collapsed {
-  max-height: 0;
-}
-
-.navItem {
+  padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column; /* Mobile-first: stack links vertically */
+  align-items: center;
 }
 
-.navLink {
-  color: #ffffff;
+.navLinks li {
+  margin: 5px 0;
+}
+
+.navLinks a {
   text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.3s ease;
+  color: #333; /* Example text color */
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
-.navLink:hover {
-  color: #007bff;
+.navLinks a:hover {
+  color: #0070f3; /* Example hover color */
 }
 
-.breadcrumb {
-  margin-top: 1rem;
-  color: #ffffff;
-  font-size: 0.9rem;
-  display: none; /* Initially hidden */
-}
-
-.breadcrumb.visible {
-  display: block; /* Show when toggled */
-}
-
-@media (max-width: 768px) {
+/* Media query for larger screens */
+@media (min-width: 768px) {
   .navbar {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row; /* Horizontal layout for larger screens */
+    justify-content: space-between;
   }
 
   .navLinks {
-    flex-direction: column;
-    gap: 0.5rem;
-    max-height: 0;
+    flex-direction: row; /* Horizontal links for larger screens */
   }
 
-  .navLinks.expanded {
-    max-height: 500px;
+  .navLinks li {
+    margin: 0 15px;
   }
 }
