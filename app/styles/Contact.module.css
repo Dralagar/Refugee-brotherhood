@@ -222,3 +222,136 @@
 .input.error, .textarea.error {
   border-color: #f44336;
 }
+
+.mainTitle {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #505965;
+  line-height: 1.6;
+}
+
+.servicesGrid {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.serviceCard {
+  flex: 1;
+  text-align: center;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.serviceCard:hover {
+  transform: translateY(-5px);
+}
+
+.contactGrid {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.contactInfo {
+  flex: 1;
+}
+
+.officeSelector {
+  margin-bottom: 1.5rem;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.infoCard {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  font-size: 1.5rem;
+  color: #007bff;
+  margin-bottom: 0.5rem;
+}
+
+.emergencyContact {
+  margin-top: 2rem;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.statusIndicator {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.statusDot {
+  width: 10px;
+  height: 10px;
+  background-color: #4caf50;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.formContainer {
+  flex: 1;
+}
+
+.formGroup {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contactGrid {
+    flex-direction: column;
+  }
+}
+
+.visaInput {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.visaInput:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  outline: none;
+}
+
+.visaInput:hover {
+  border-color: #90caf9;
+}
+
+.visaInput.error {
+  border-color: #f44336;
+}
+
+.visaInput.success {
+  border-color: #4caf50;
+}

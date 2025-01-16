@@ -148,6 +148,36 @@
   border: 2px solid #ddd;
   border-radius: 8px;
   font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.formGroup input:focus, 
+.formGroup textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  outline: none;
+}
+
+.cardInput {
+  width: 60%;
+  padding: 0.9rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.cardInput:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  outline: none;
+}
+
+.cardInput:hover {
+  border-color: #90caf9;
 }
 
 .donationFrequency {
@@ -174,14 +204,15 @@
 
 .submitButton {
   width: 100%;
-  padding: 1.2rem;
-  font-size: 1.2rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
   background: #28a745;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin-top: 1rem;
 }
 
 .submitButton:hover {

@@ -10,28 +10,28 @@ export default function Programs() {
       title: "Education Support",
       description: "Comprehensive educational programs empowering refugees through knowledge and skills development.",
       icon: "🎓",
-      image: "/images/education.jpg",
+      image: "/images/Education.jpg",
       features: ["Language Classes", "School Integration", "Academic Support", "Tutoring", "Digital Literacy"]
     },
     {
       title: "Job Training & Employment",
       description: "Professional development programs to build careers and achieve financial independence.",
       icon: "💼",
-      image: "/images/job-training.jpg",
+      image: "/images/rb2.jpg",
       features: ["Skills Development", "Career Counseling", "Job Placement", "Entrepreneurship", "Professional Networking"]
     },
     {
       title: "Community Integration",
       description: "Building bridges between refugees and local communities through cultural exchange.",
       icon: "🤝",
-      image: "/images/community.jpg",
+      image: "/images/rb3.jpg",
       features: ["Cultural Events", "Social Activities", "Local Partnerships", "Mentorship", "Community Gardens"]
     },
     {
       title: "Mental Health & Wellness",
       description: "Comprehensive mental health support for trauma recovery and emotional wellbeing.",
       icon: "🧠",
-      image: "/images/mental-health.jpg",
+      image: "/images/Mental.jpg",
       features: ["Professional Counseling", "Support Groups", "Art Therapy", "Mindfulness", "Family Support"]
     },
     {
@@ -45,7 +45,7 @@ export default function Programs() {
       title: "Youth Development",
       description: "Empowering young refugees through specialized programs and activities.",
       icon: "🌟",
-      image: "/images/youth.jpg",
+      image: "/images/rb.jpg",
       features: ["Sports Programs", "Leadership Training", "Creative Arts", "Peer Support", "Educational Workshops"]
     }
   ];
@@ -60,6 +60,7 @@ export default function Programs() {
       <motion.h1 
         initial={{ y: -50 }}
         animate={{ y: 0 }}
+        transition={{ type: "spring", stiffness: 120 }}
         className={styles.title}
       >
         Our Programs
@@ -78,8 +79,8 @@ export default function Programs() {
               stiffness: 100 
             }}
             whileHover={{ 
-              scale: 1.02,
-              boxShadow: "0 8px 16px rgba(0,0,0,0.1)"
+              scale: 1.05,
+              boxShadow: "0 12px 24px rgba(0,0,0,0.2)"
             }}
             className={styles.programCard}
           >
@@ -88,8 +89,9 @@ export default function Programs() {
                 <Image
                   src={program.image}
                   alt={program.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  layout="responsive"
+                  width={500}
+                  height={300}
                   className={styles.cardImage}
                   priority={index < 3}
                 />
@@ -115,7 +117,7 @@ export default function Programs() {
                 ))}
               </ul>
               <motion.button
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.1, backgroundColor: "#f0f0f0" }}
                 whileTap={{ scale: 0.95 }}
                 className={styles.learnMoreButton}
               >

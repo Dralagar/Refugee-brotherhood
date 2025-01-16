@@ -13,14 +13,17 @@ const Home: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const teamResponse = await axios.get('/api/team');
-        const partnersResponse = await axios.get('/api/partners');
+        const [teamResponse, partnersResponse] = await Promise.all([
+          axios.get('https://example.com/api/team'),
+          axios.get('https://example.com/api/partners')
+        ]);
         setTeamMembers(teamResponse.data);
         setPartners(partnersResponse.data);
       } catch (error) {
-        console.error("Error fetching data", error);
+        console.error('Error fetching data:', error);
       }
     };
+
     fetchData();
   }, []);
 
@@ -34,6 +37,7 @@ const Home: React.FC = () => {
   return (
     <div className={styles.container}>
       <main className={styles.mainContent}>
+        {/* Hero Section */}
         <section className={styles.hero}>
           <div className={styles.heroBackground}></div>
           <div className={styles.heroContent}>
@@ -48,6 +52,7 @@ const Home: React.FC = () => {
           </div>
         </section>
 
+        {/* Programs Section */}
         <section className={styles.twoColumn}>
           <div className={styles.videoContainer}>
             <video controls>
@@ -61,10 +66,11 @@ const Home: React.FC = () => {
           </div>
         </section>
 
+        {/* Fundraising Section */}
         <div className={styles.fundraisingIcons}>
-          <div className={styles.fundraisingIcon}>$10</div>
-          <div className={styles.fundraisingIcon}>$20</div>
-          <div className={styles.fundraisingIcon}>$50</div>
+          {['$10', '$20', '$50'].map((amount, index) => (
+            <div key={index} className={styles.fundraisingIcon}>{amount}</div>
+          ))}
         </div>
 
         <div className={styles.moreWays}>
@@ -72,43 +78,42 @@ const Home: React.FC = () => {
           <span>→</span>
         </div>
 
+        {/* Achievements Section */}
         <h2>Our Achievements</h2>
         <div className={styles.milestoneIcons}>
-          <div className={styles.milestoneIcon}>Milestone 1</div>
-          <div className={styles.milestoneIcon}>Milestone 2</div>
-          <div className={styles.milestoneIcon}>Milestone 3</div>
+          {['Milestone 1', 'Milestone 2', 'Milestone 3'].map((milestone, index) => (
+            <div key={index} className={styles.milestoneIcon}>{milestone}</div>
+          ))}
         </div>
 
+        {/* Image Section */}
         <section className={styles.twoColumnImage}>
-          <div className={styles.column}>
-            <Image src="/images/rb.jpg" alt="Community Engagement" width={500} height={300} />
-            <h4>Community Engagement</h4>
-            <p>Our initiatives focus on building strong, supportive communities.</p>
-          </div>
-          <div className={styles.column}>
-            <img src="/images/rb4.jpg" alt="Empowerment Programs" />
-            <h4>Empowerment Programs</h4>
-            <p>We provide resources and opportunities for personal and professional growth.</p>
-          </div>
+          {[
+            { src: '/images/rb.jpg', alt: 'Community Engagement', title: 'Community Engagement', description: 'Our initiatives focus on building strong, supportive communities.' },
+            { src: '/images/rb4.jpg', alt: 'Empowerment Programs', title: 'Empowerment Programs', description: 'We provide resources and opportunities for personal and professional growth.' }
+          ].map((item, index) => (
+            <div key={index} className={styles.column}>
+              <Image src={item.src} alt={item.alt} width={500} height={300} />
+              <h4>{item.title}</h4>
+              <p>{item.description}</p>
+            </div>
+          ))}
         </section>
 
+        {/* News Section */}
         <h1 className={styles.newsStories}>Latest News and Stories</h1>
         <div className={styles.newsCards}>
-          <div className={styles.newsCard}>
-            <h2>Impactful Story 1</h2>
-            <img src="/images/rb5.jpg" alt="Impactful Story 1" />
-            <p>Read about our recent successes and ongoing projects.</p>
-          </div>
-          <div className={styles.newsCard}>
-            <h2>Impactful Story 2</h2>
-            <img src="/images/rb6.jpg" alt="Impactful Story 2" />
-            <p>Discover how we are making a difference in the lives of refugees.</p>
-          </div>
-          <div className={styles.newsCard}>
-            <h2>Impactful Story 3</h2>
-            <img src="/images/rb7.jpg" alt="Impactful Story 3" />
-            <p>Learn more about our initiatives and their impact.</p>
-          </div>
+          {[
+            { title: 'Impactful Story 1', src: '/images/rb5.jpg', description: 'Read about our recent successes and ongoing projects.' },
+            { title: 'Impactful Story 2', src: '/images/rb6.jpg', description: 'Discover how we are making a difference in the lives of refugees.' },
+            { title: 'Impactful Story 3', src: '/images/rb7.jpg', description: 'Learn more about our initiatives and their impact.' }
+          ].map((story, index) => (
+            <div key={index} className={styles.newsCard}>
+              <h2>{story.title}</h2>
+              <Image src={story.src} alt={story.title} width={500} height={300} />
+              <p>{story.description}</p>
+            </div>
+          ))}
         </div>
 
         <div className={styles.moreNews}>
@@ -116,6 +121,7 @@ const Home: React.FC = () => {
           <span>→</span>
         </div>
 
+        {/* Team Section */}
         <section className={styles.teamSection}>
           <h2>Meet Our Dedicated Team</h2>
           <div className={styles.teamGrid}>
@@ -141,6 +147,7 @@ const Home: React.FC = () => {
           </div>
         </section>
 
+        {/* Partners Section */}
         <section className={styles.partnersSection}>
           <h2>Our Esteemed Partners</h2>
           <div className={styles.partnersWrapper}>
