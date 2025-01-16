@@ -35,11 +35,11 @@ export default function Programs() {
       features: ["Professional Counseling", "Support Groups", "Art Therapy", "Mindfulness", "Family Support"]
     },
     {
-      title: "Legal Assistance",
+      title: "Garbage Collection, and Waste Management",
       description: "Expert legal guidance for immigration and settlement processes.",
       icon: "⚖️",
-      image: "/images/legal.jpg",
-      features: ["Immigration Support", "Document Assistance", "Legal Rights Education", "Advocacy", "Case Management"]
+      image: "/images/garbage.jpg",
+      features: ["Garbage Collection", "Plastic Recycling", "Waste Management", "Climate Advocacy", "Advocacy", "Sustainable Practices"]
     },
     {
       title: "Youth Development",
