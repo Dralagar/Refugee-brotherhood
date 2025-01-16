@@ -1,6 +1,9 @@
+
 .aboutContainer {
   min-height: 100vh;
-  background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+  background: linear-gradient(to bottom, var(--background-light), #1a1548);
+  padding: 2rem;
+  box-sizing: border-box;
 }
 
 .heroSection {
@@ -9,19 +12,23 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-              url('/images/hero-bg.jpg');
+  text-align: center;   
   background-size: cover;
   background-position: center;
-  color: white;
+  color: var(--text-light);
   position: relative;
+  padding: 2rem;
+  background-color: #7f70d7;
 }
 
 .heroButtons {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 2rem;
+  margin-top: 0rem;
+  background-color: #5b93d6;
+  justify-content: center;
+  border-radius: 10px;
 }
 
 .donateButton, .volunteerButton {
@@ -30,23 +37,24 @@
   border: none;
   font-weight: 600;
   cursor: pointer;
+  background-color: #7f70d7;
   transition: all 0.3s ease;
 }
 
 .donateButton {
-  background: #e74c3c;
-  color: white;
+  background: var(--primary-color);
+  color: var(--text-light);
 }
 
 .volunteerButton {
   background: transparent;
-  border: 2px solid white;
-  color: white;
+  border: 2px solid var(--text-light);
+  color: var(--text-light);
 }
 
 .statsSection {
   padding: 4rem 2rem;
-  background: white;
+  background: var(--background-light);
 }
 
 .statsGrid {
@@ -60,7 +68,7 @@
 .statCard {
   text-align: center;
   padding: 2rem;
-  background: white;
+  background: var(--text-light);
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
@@ -73,27 +81,18 @@
 .statNumber {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #2c3e50;
+  color: var(--secondary-color);
 }
 
-.initiativesSection {
+.sections {
   padding: 4rem 2rem;
-  background: #f8f9fa;
+  background: var(--background-light);
 }
 
-.initiativesGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
+.section {
+  max-width: 800px;
   margin: 0 auto;
-}
-
-.initiativeCard {
-  background: white;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  text-align: center;
 }
 
 .storiesSection {
@@ -111,7 +110,7 @@
 .storyCard {
   position: relative;
   cursor: pointer;
-  background: white;
+  background: var(--text-light);
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -125,10 +124,18 @@
 .ctaSection {
   text-align: center;
   padding: 6rem 2rem;
-  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+  background: linear-gradient(var(--background-dark), var(--background-dark)),
               url('/images/cta-bg.jpg');
   background-size: cover;
-  color: white;
+  color: var(--text-light);
+}
+
+.ctaButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
 .modal {
@@ -145,7 +152,7 @@
 }
 
 .modalContent {
-  background: white;
+  background: var(--text-light);
   padding: 2rem;
   border-radius: 15px;
   max-width: 600px;
