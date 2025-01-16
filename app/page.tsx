@@ -5,17 +5,29 @@ import styles from './styles/Home.module.css';
 import Image from 'next/image';
 import axios from 'axios';
 
+// Define types for team members and partners
+interface TeamMember {
+  image: string;
+  name: string;
+  role: string;
+}
+
+interface Partner {
+  logo: string;
+  name: string;
+}
+
 const Home: React.FC = () => {
   const partnersRef = useRef<HTMLDivElement>(null);
-  const [teamMembers, setTeamMembers] = useState([]);
-  const [partners, setPartners] = useState([]);
+  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
+  const [partners, setPartners] = useState<Partner[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const [teamResponse, partnersResponse] = await Promise.all([
-          axios.get('https://example.com/api/team'),
-          axios.get('https://example.com/api/partners')
+          axios.get<TeamMember[]>('https://example.com/api/team'),
+          axios.get<Partner[]>('https://example.com/api/partners')
         ]);
         setTeamMembers(teamResponse.data);
         setPartners(partnersResponse.data);
@@ -129,15 +141,15 @@ const Home: React.FC = () => {
               <div key={index} className={styles.teamCard}>
                 <div className={styles.teamImageWrapper}>
                   <Image
-                    src={(member as any).image || '/images/default-profile.jpg'}
-                    alt={(member as any).name || 'Team member'} 
+                    src={member.image || '/images/default-profile.jpg'}
+                    alt={member.name || 'Team member'} 
                     width={200}
                     height={200}
                     className={styles.teamImage}
                   />
                 </div>
-                <h3>{(member as any).name}</h3>
-                <p>{(member as any).role}</p>
+                <h3>{member.name}</h3>
+                <p>{member.role}</p>
                 <div className={styles.socialLinks}>
                   <a href="#" aria-label="LinkedIn"><i className="fab fa-linkedin"></i></a>
                   <a href="#" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
@@ -162,13 +174,13 @@ const Home: React.FC = () => {
               {partners.map((partner, index) => (
                 <div key={index} className={styles.partnerCard}>
                   <Image
-                    src={(partner as any).logo || '/images/default-logo.jpg'}
-                    alt={(partner as any).name || 'Partner logo'}
+                    src={partner.logo || '/images/default-logo.jpg'}
+                    alt={partner.name || 'Partner logo'}
                     width={150}
                     height={80}
                     className={styles.partnerLogo}
                   />
-                  <p>{(partner as any).name}</p>
+                  <p>{partner.name}</p>
                 </div>
               ))}
             </div>
