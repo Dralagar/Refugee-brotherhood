@@ -42,22 +42,6 @@ export default function About() {
     // Add more success stories
   ];
 
-  const initiatives = [
-    {
-      title: "Emergency Response",
-      icon: "🚨",
-      description: "24/7 support for refugees in crisis",
-      impact: "Helped 200+ families in emergency situations"
-    },
-    {
-      title: "Education First",
-      icon: "📚",
-      description: "Quality education for all ages",
-      impact: "500+ students enrolled in various programs"
-    },
-    // Add more initiatives
-  ];
-
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -141,7 +125,7 @@ export default function About() {
       <div className={styles.storiesSection}>
         <h2>Success Stories</h2>
         <div className={styles.storiesGrid}>
-          {successStories.map((story, index) => (
+          {successStories.map((story) => (
             <motion.div
               key={story.id}
               className={styles.storyCard}
