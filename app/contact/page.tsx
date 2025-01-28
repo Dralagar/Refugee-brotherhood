@@ -218,18 +218,8 @@ const ContactPage: React.FC = () => {
 
               <div className={styles.formGroup}>
                 <label htmlFor="preferredLanguage">Preferred Language</label>
-                <select
-                  id="preferredLanguage"
-                  value={formData.preferredLanguage}
-                  onChange={(e) => setFormData({...formData, preferredLanguage: e.target.value})}
-                  required
-                >
-                  <option value="">Select Language</option>
-                  <option value="english">English</option>
-                  <option value="spanish">Spanish</option>
-                  <option value="arabic">Arabic</option>
-                  <option value="french">French</option>
-                </select>
+                
+              
               </div>
 
               <div className={styles.formGroup}>
