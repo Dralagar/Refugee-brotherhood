@@ -126,7 +126,7 @@ const Home: React.FC = () => {
           <h2>Meet Our Dedicated Team</h2>
           <div className={styles.teamGrid}>
             {[
-              { name: 'Alice Johnson', role: 'CEO', image: '/images/alice.jpg' },
+              { name: 'Hassan Kazungu', role: 'Founder and Executive Director', image: '/images/alice.jpg' },
               { name: 'Bob Smith', role: 'CTO', image: '/images/bob.jpg' },
               { name: 'Carol White', role: 'CFO', image: '/images/carol.jpg' },
               { name: 'David Brown', role: 'COO', image: '/images/david.jpg' }
