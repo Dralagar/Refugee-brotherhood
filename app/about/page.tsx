@@ -8,7 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useInView } from 'react-intersection-observer';
 import CountUp from 'react-countup';
-import styles from './About.module.css';
+import styles from '../styles/About.module.css';
 
 // Define the type for a success story
 type SuccessStory = {

@@ -45,8 +45,8 @@ const Home: React.FC = () => {
             <p>We are committed to supporting refugees worldwide through comprehensive programs and partnerships.</p>
             <div className={styles.heroButtons}>
               <button className={styles.learnMore}>Learn More</button>
-              <Link href="/contact" className={styles.contactButton}>
-                Contact Us
+              <Link href="/contact" legacyBehavior>
+                <a className={styles.contactButton}>Contact Us</a>
               </Link>
             </div>
           </div>
@@ -125,19 +125,24 @@ const Home: React.FC = () => {
         <section className={styles.teamSection}>
           <h2>Meet Our Dedicated Team</h2>
           <div className={styles.teamGrid}>
-            {teamMembers.map((member, index) => (
+            {[
+              { name: 'Alice Johnson', role: 'CEO', image: '/images/alice.jpg' },
+              { name: 'Bob Smith', role: 'CTO', image: '/images/bob.jpg' },
+              { name: 'Carol White', role: 'CFO', image: '/images/carol.jpg' },
+              { name: 'David Brown', role: 'COO', image: '/images/david.jpg' }
+            ].map((member, index) => (
               <div key={index} className={styles.teamCard}>
                 <div className={styles.teamImageWrapper}>
                   <Image
-                    src={(member as any).image || '/images/default-profile.jpg'}
-                    alt={(member as any).name || 'Team member'} 
+                    src={member.image || '/images/default-profile.jpg'}
+                    alt={member.name || 'Team member'}
                     width={200}
                     height={200}
                     className={styles.teamImage}
                   />
                 </div>
-                <h3>{(member as any).name}</h3>
-                <p>{(member as any).role}</p>
+                <h3>{member.name}</h3>
+                <p>{member.role}</p>
                 <div className={styles.socialLinks}>
                   <a href="#" aria-label="LinkedIn"><i className="fab fa-linkedin"></i></a>
                   <a href="#" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
@@ -159,16 +164,21 @@ const Home: React.FC = () => {
               ←
             </button>
             <div className={styles.partnersTrack} ref={partnersRef}>
-              {partners.map((partner, index) => (
+              {[
+                { name: 'Partner A', logo: '/images/partner-a.jpg' },
+                { name: 'Partner B', logo: '/images/partner-b.jpg' },
+                { name: 'Partner C', logo: '/images/partner-c.jpg' },
+                { name: 'Partner D', logo: '/images/partner-d.jpg' }
+              ].map((partner, index) => (
                 <div key={index} className={styles.partnerCard}>
                   <Image
-                    src={(partner as any).logo || '/images/default-logo.jpg'}
-                    alt={(partner as any).name || 'Partner logo'}
+                    src={partner.logo || '/images/default-logo.jpg'}
+                    alt={partner.name || 'Partner logo'}
                     width={150}
                     height={80}
                     className={styles.partnerLogo}
                   />
-                  <p>{(partner as any).name}</p>
+                  <p>{partner.name}</p>
                 </div>
               ))}
             </div>
