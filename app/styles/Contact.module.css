@@ -355,3 +355,55 @@
 .visaInput.success {
   border-color: #4caf50;
 }
+
+.newsletterSection {
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.newsletterSection h2 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.newsletterForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.newsletterForm .input {
+  max-width: 300px;
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .newsletterForm {
+    flex-direction: column;
+  }
+
+  .newsletterForm .input {
+    max-width: 100%;
+  }
+}
+
+.mapContainer {
+  height: 400px;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.map {
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}

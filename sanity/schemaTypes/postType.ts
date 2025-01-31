@@ -30,11 +30,11 @@ export const postType = defineType({
         hotspot: true,
       },
       fields: [
-        {
+        defineField({
           name: 'alt',
           type: 'string',
           title: 'Alternative text',
-        }
+        })
       ]
     }),
     defineField({
