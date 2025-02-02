@@ -8,18 +8,22 @@
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
+  color: #ffffff;
 }
 
 .container {
   width: min(100%, 1200px);
   margin: 0 auto;
   padding: 0 clamp(1rem, 3vw, 2rem);
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 /* Hero Section */
 .contactHero {
   text-align: center;
-  color: var(--white);
+  color: #ffffff;
   margin-bottom: clamp(2rem, 6vw, 4rem);
   animation: fadeIn 0.8s ease-out;
 }
@@ -58,9 +62,15 @@
 .formColumn {
   padding: clamp(1.5rem, 4vw, 3rem);
   background-color: rgba(255, 255, 255, 0.95);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2vw, 1.5rem);
 }
 
-.formGroup {
+.formGroup {  
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   margin-bottom: clamp(1rem, 3vw, 1.5rem);
 }
 
@@ -89,9 +99,25 @@
 
 .formGroup input:focus,
 .formGroup textarea:focus {
-  border-color: var(--primary-color);
+  border-color: #00b8ca;
   outline: none;
   box-shadow: 0 0 0 3px rgba(0, 184, 202, 0.1);
+}
+
+.themeBtn {
+  padding: clamp(0.8rem, 2vw, 1rem);
+  background-color: #00b8ca;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.themeBtn:hover {
+  background-color: #008b9b;
+  transform: translateY(-2px);
 }
 
 /* Info Column */
@@ -103,7 +129,7 @@
 .infoColumn h2 {
   font-size: clamp(1.5rem, 4vw, 2rem);
   margin-bottom: clamp(1rem, 3vw, 1.5rem);
-  color: var(--text-color);
+  color: #333333;
 }
 
 .contactInfo {
@@ -119,7 +145,7 @@
 
 .icon {
   font-size: clamp(1.2rem, 3vw, 1.5rem);
-  color: var(--primary-color);
+  color: #00b8ca;
   flex-shrink: 0;
 }
 
@@ -173,7 +199,7 @@
 
 .submitButton {
   padding: clamp(0.8rem, 2vw, 1rem);
-  background: var(--primary-color);
+  background: #00b8ca;
   color: white;
   border: none;
   border-radius: 8px;
@@ -182,7 +208,7 @@
 }
 
 .submitButton:hover {
-  background: var(--primary-dark);
+  background: #008b9b;
   transform: translateY(-2px);
 }
 

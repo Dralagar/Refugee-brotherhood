@@ -14,6 +14,7 @@
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
 }
 
 .logo {
@@ -30,6 +31,7 @@
   flex-direction: column;
   cursor: pointer;
   z-index: 1001;
+  padding: 10px;
 }
 
 .bar {
@@ -81,14 +83,23 @@
 .navActive {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 60px;
+  position: fixed; /* Fixed position to cover the entire screen */
+  top: 0;
   left: 0;
-  background-color: #1a1a1a; /* Dark background */
+  right: 0;
+  bottom: 0;
+  background-color: rgba(26, 26, 26, 0.98); /* Semi-transparent dark background */
   width: 100%;
-  box-shadow: 0 2px 10px rgba(0, 255, 255, 0.5); /* Neon glow */
-  transform: translateX(0);
+  height: 100vh; /* Full viewport height */
+  justify-content: center;
+  align-items: center;
   z-index: 1000;
+  transform: translateX(0);
+  box-shadow: 0 2px 10px rgba(0, 255, 255, 0.5); /* Neon glow */
+}
+
+.navActive li {
+  margin: 20px 0; /* Increased spacing for better readability */
 }
 
 @media (max-width: 768px) {
@@ -98,24 +109,9 @@
 
   .navLinks {
     display: none;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    background-color: #1a1a1a; /* Dark background */
-    box-shadow: 0 2px 10px rgba(0, 255, 255, 0.5); /* Neon glow */
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
   }
 
   .navActive {
     display: flex;
-    transform: translateX(0);
-  }
-
-  .navLinks li {
-    margin: 15px 0;
   }
 }

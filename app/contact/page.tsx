@@ -8,6 +8,7 @@ import {
   FaFacebookF, FaTwitter, FaGooglePlusG, FaDribbble, 
   FaPinterestP, FaClock, FaWhatsapp, FaInstagram 
 } from 'react-icons/fa';
+import Image from 'next/image';
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -21,24 +22,13 @@ const ContactPage: React.FC = () => {
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const officeLocations = [
-    {
-      city: 'Nairobi Office',
-      address: '456 Umoja Street, Nairobi, Kenya',
-      phone: '+254 700 123456',
-      email: 'nairobi@refugeebrotherhood.org',
-      hours: 'Mon-Fri: 9:00 AM - 6:00 PM'
-    },
-    {
-      city: 'Mombasa Office',
-      address: '789 Beach Road, Mombasa, Kenya',
-      phone: '+254 700 789012',
-      email: 'mombasa@refugeebrotherhood.org',
-      hours: 'Mon-Fri: 8:30 AM - 5:30 PM'
-    }
-  ];
-
-  const [selectedOffice, setSelectedOffice] = useState(officeLocations[0]);
+  const officeLocation = {
+    city: 'Nairobi Office',
+    address: 'Patanisho Kayole, Nairobi, Kenya',
+    phone: '+254 700 123456',
+    email: 'info@refugeebrotherhood.org',
+    hours: 'Mon-Fri: 9:00 AM - 6:00 PM'
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -77,31 +67,37 @@ const ContactPage: React.FC = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          Get in Touch
+          Connect with the Cosmos
         </motion.h1>
         <motion.p
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          We're here to help and answer any questions you might have
+          Reach out to us from any corner of the universe. We're here to assist you.
         </motion.p>
       </div>
 
       <div className={styles.container}>
-        {/* Office Selector */}
-        <div className={styles.officeSelector}>
-          <h3>Choose an Office</h3>
-          <div className={styles.officeTabs}>
-            {officeLocations.map((office) => (
-              <button
-                key={office.city}
-                className={`${styles.officeTab} ${selectedOffice.city === office.city ? styles.active : ''}`}
-                onClick={() => setSelectedOffice(office)}
-              >
-                {office.city}
-              </button>
-            ))}
+        {/* Office Info */}
+        <div className={styles.infoColumn}>
+          <div className={styles.innerColumn}>
+            <h2>Contact Info</h2>
+            <ul className={styles.listInfo}>
+              <li>
+                <FaMapMarkerAlt />
+                {officeLocation.address}
+              </li>
+              <li>
+                <FaEnvelope />
+                {officeLocation.email}
+              </li>
+              <li>
+                <FaPhone />
+                {officeLocation.phone}
+              </li>
+            </ul>
+            <p>{officeLocation.hours}</p>
           </div>
         </div>
 
@@ -178,34 +174,12 @@ const ContactPage: React.FC = () => {
                 </div>
               </div>
             </div>
-
-            {/* Info Column */}
-            <div className={styles.infoColumn}>
-              <div className={styles.innerColumn}>
-                <h2>Contact Info</h2>
-                <ul className={styles.listInfo}>
-                  <li>
-                    <FaGlobe />
-                    {selectedOffice.address}
-                  </li>
-                  <li>
-                    <FaEnvelope />
-                    {selectedOffice.email}
-                  </li>
-                  <li>
-                    <FaPhone />
-                    {selectedOffice.phone}
-                  </li>
-                </ul>
-                <p>{selectedOffice.hours}</p>
-              </div>
-            </div>
           </div>
         </div>
 
         {/* Emergency Contact */}
         <div className={styles.emergencyContact}>
-          <h3>24/7 Emergency Support</h3>
+          <h3>24/7 Galactic Support</h3>
           <div className={styles.emergencyInfo}>
             <div className={styles.statusIndicator}>
               <span className={styles.statusDot}></span>
@@ -260,7 +234,7 @@ const ContactPage: React.FC = () => {
 
         {/* Newsletter Section */}
         <div className={styles.newsletterSection}>
-          <h2>Subscribe to Our Newsletter</h2>
+          <h2>Subscribe to Our Cosmic Newsletter</h2>
           <form onSubmit={handleNewsletterSubmit} className={styles.newsletterForm}>
             <input
               type="email"

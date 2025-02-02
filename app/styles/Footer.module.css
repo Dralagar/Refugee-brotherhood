@@ -8,16 +8,30 @@
     gap: 2rem;
   }
   
+  .logoContainer {
+    margin-bottom: 1rem;
+  }
+  
   .row {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
     width: 100%;
     max-width: 800px;
+    gap: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .row {
+      flex-direction: row;
+    }
   }
   
   .socials, .newsletter, .links {
     flex: 1;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1rem;
@@ -68,7 +82,7 @@
   }
   
   .column {
-    text-align: left;
+    text-align: center;
   }
   
   .column h4 {
