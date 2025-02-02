@@ -15,16 +15,13 @@ const NavBar: React.FC = () => {
     <header className={styles.header}>
       <nav className={styles.navbar}>
         <div className={styles.logo}>
-          <Link href="/" legacyBehavior>
-            <a>
-              <Image
-                src="/images/logo.jpg"
-                alt="Logo"
-                width={100}
-                height={50}
-                className={styles.logoImage}
-              />
-            </a>
+          <Link href="/" className={styles.logoImage}>
+            <Image
+              src="/images/logo.jpg"
+              alt="Logo"
+              width={100}
+              height={50}
+            />
           </Link>
         </div>
         <div
@@ -41,28 +38,28 @@ const NavBar: React.FC = () => {
           onClick={() => setIsOpen(false)}
         >
           <li>
-            <Link href="/about" legacyBehavior>
-              <a className={styles.navLink}>About</a>
+            <Link href="/about" className={styles.navLink}>
+              About
             </Link>
           </li>
           <li>
-            <Link href="/programs" legacyBehavior>
-              <a className={styles.navLink}>Programs</a>
+            <Link href="/programs" className={styles.navLink}>
+              Programs
             </Link>
           </li>
           <li>
-            <Link href="/news" legacyBehavior>
-              <a className={styles.navLink}>News & Stories</a>
+            <Link href="/news" className={styles.navLink}>
+              News & Stories
             </Link>
           </li>
           <li>
-            <Link href="/donate" legacyBehavior>
-              <a className={styles.navLink}>Donate</a>
+            <Link href="/donate" className={styles.navLink}>
+              Donate
             </Link>
           </li>
           <li>
-            <Link href="/contact" legacyBehavior>
-              <a className={styles.navLink}>Contact</a>
+            <Link href="/contact" className={styles.navLink}>
+              Contact
             </Link>
           </li>
         </ul>

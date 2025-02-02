@@ -1,9 +1,15 @@
 "use client"
 import React from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import styles from '../styles/Footer.module.css';
 import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
+  const pathname = usePathname();
+
+  const isActive = (path: string) => pathname === path;
+
   return (
     <footer className={styles.footer}>
       <div className={styles.row}>
@@ -24,9 +30,22 @@ const Footer: React.FC = () => {
         <div className={styles.column}>
           <h4>About Us</h4>
           <ul>
-            <li>Home</li>
-            <li>Contact</li>
-            <li>Programs</li>
+            <li>
+              <Link href="/about" className={isActive('/about') ? styles.activeLink : styles.navLink}>
+                About
+              </Link>
+            </li>
+
+            <li>
+              <Link href="/contact" className={isActive('/contact') ? styles.activeLink : styles.navLink}>
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link href="/programs" className={isActive('/programs') ? styles.activeLink : styles.navLink}>
+                Programs
+              </Link>
+            </li>
           </ul>
         </div>
         <div className={styles.column}>

@@ -115,3 +115,14 @@
     color: #948979;
     text-align: center;
   }
+  
+  .navLink {
+    color: #000; /* Default link color */
+    text-decoration: none;
+  }
+  
+  .activeLink {
+    font-weight: bold;
+    color: #0070f3; /* Example color for active link */
+    text-decoration: underline;
+  }

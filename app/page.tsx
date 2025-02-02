@@ -46,6 +46,14 @@ const Home: React.FC = () => {
       } catch (error) {
         if (axios.isAxiosError(error)) {
           console.error('Axios error:', error.message);
+          console.error('Error config:', error.config);
+          if (error.response) {
+            console.error('Response data:', error.response.data);
+            console.error('Response status:', error.response.status);
+            console.error('Response headers:', error.response.headers);
+          } else if (error.request) {
+            console.error('Request made but no response received:', error.request);
+          }
         } else {
           console.error('Unexpected error:', error);
         }
@@ -88,6 +96,26 @@ const Home: React.FC = () => {
           <p className={styles.fontResponsiveP}>
             At Refugee Brotherhood, we believe in the power of community and collaboration. Our mission is to empower refugees through various initiatives, partnerships, and skill-building programs to create a sustainable future for all.
           </p>
+        </section>
+
+        {/* Video and Description Section */}
+        <section className={styles.videoDescriptionSection}>
+          <div className={styles.videoContainer}>
+            <video
+              className={styles.video}
+              controls
+              src="/path/to/video.mp4"
+              poster="/path/to/video-placeholder.jpg"
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div className={styles.descriptionContainer}>
+            <h2 className={styles.fontResponsiveH2}>Program Descriptions</h2>
+            <p className={styles.fontResponsiveP}>
+              Our programs are designed to empower and support refugees through education, skills training, healthcare access, and community integration. Each initiative is tailored to meet the unique needs of the communities we serve.
+            </p>
+          </div>
         </section>
 
         {/* Programs Grid Section */}
@@ -196,13 +224,13 @@ const Home: React.FC = () => {
               <div className={styles.teamImageWrapper}>
                 <Image
                   src="/images/profile2.jpeg"
-                  alt="Jane Smith"
+                  alt="Luke"
                   width={200}
                   height={200}
                   className={styles.teamImage}
                 />
               </div>
-              <h3 className={styles.fontResponsiveH3}>Jane Smith</h3>
+              <h3 className={styles.fontResponsiveH3}>Luke</h3>
               <p className={styles.fontResponsiveP}>CTO</p>
             </div>
             <div className={styles.teamCard}>
@@ -222,7 +250,7 @@ const Home: React.FC = () => {
               <div className={styles.teamImageWrapper}>
                 <Image
                   src="/images/profile4.jpeg"
-                  alt="Michael Brown"
+                    alt="Michael Brown"
                   width={200}
                   height={200}
                   className={styles.teamImage}
