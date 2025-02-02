@@ -1,8 +1,6 @@
 'use client';
 
-import React from 'react';
-import { 
-  useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -33,12 +31,12 @@ export default function About() {
     { number: 500, label: 'Volunteers', icon: '❤️' }
   ];
 
-  const successStories: SuccessStory[] = [
+  const successStories = [
     {
       id: 1,
-      name: "Sarah's Journey",
+      name: "Sarah&apos;s Journey",
       image: "/images/stories/sarah.jpg",
-      quote: "Through the Brotherhood's support, I was able to start my own business.",
+      quote: "Through the Brotherhood&apos;s support, I was able to start my own business.",
       story: "After fleeing Syria, Sarah found hope through our entrepreneurship program..."
     },
     // Add more success stories
@@ -231,7 +229,7 @@ export default function About() {
       <div className={styles.storiesSection}>
         <h2>Success Stories</h2>
         <div className={styles.storiesGrid}>
-          {successStories.map((story, index) => (
+          {successStories.map((story) => (
             <motion.div
               key={story.id}
               className={styles.storyCard}

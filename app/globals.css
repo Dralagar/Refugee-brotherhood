@@ -1,9 +1,25 @@
-
 /* Base Styles */
+:root {
+  --font-sans: 'Arial', 'Helvetica', sans-serif;
+  --font-serif: 'Georgia', 'Times New Roman', serif;
+  --primary-bg: #f3f4f6;
+  --neutral-text: #333;
+  --secondary-header: #2b95ce;
+  --accent-highlight: #1c7aa8;
+  --border-radius: 8px;
+  --transition-duration: 0.3s;
+  --button-bg: #2b95ce;
+  --button-text: #fff;
+  --button-hover-bg: #1c7aa8;
+  --button-hover-text: #fff;
+  --button-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --button-hover-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
 body {
   color: var(--neutral-text);
   background: var(--primary-bg);
-  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-family: var(--font-sans);
   line-height: 1.6;
   margin: 0;
   padding: 0;
@@ -24,7 +40,7 @@ body {
 a {
   color: var(--secondary-header);
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color var(--transition-duration);
 }
 
 a:hover {
@@ -33,7 +49,7 @@ a:hover {
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Georgia', 'Times New Roman', serif;
+  font-family: var(--font-serif);
   color: var(--secondary-header);
   margin: 0;
   padding: 0;
@@ -41,17 +57,36 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Buttons */
 button {
-  background-color: var(--secondary-header);
-  color: var(--accent-highlight);
+  background-color: var(--button-bg);
+  color: var(--button-text);
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color var(--transition-duration), box-shadow var(--transition-duration), transform var(--transition-duration);
+  box-shadow: var(--button-shadow);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 button:hover {
-  background-color: var(--neutral-text);
+  background-color: var(--button-hover-bg);
+  color: var(--button-hover-text);
+  box-shadow: var(--button-hover-shadow);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: var(--button-shadow);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(43, 149, 206, 0.5);
 }
 
 /* Layout Components */
@@ -105,7 +140,7 @@ button:hover {
 .newsCard {
   background: var(--accent-highlight);
   padding: 1.5rem;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   box-shadow: 0 4px 6px rgba(21, 52, 72, 0.2);
   border: 2px solid var(--secondary-header);
   display: grid;
@@ -121,6 +156,81 @@ button:hover {
   color: var(--neutral-text);
 }
 
+/* Program Metrics Section */
+.programMetricsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+  overflow: hidden;
+}
+
+.programMetrics {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2rem);
+  padding: clamp(2rem, 4vw, 3rem);
+  flex-wrap: nowrap;
+  max-width: 1200px;
+  width: 100%;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.metric {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  min-width: 150px;
+  background-color: var(--white-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-duration) ease, box-shadow var(--transition-duration) ease, background-color var(--transition-duration) ease;
+  position: relative;
+}
+
+.metric:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #f9fafb;
+}
+
+.metricNumber {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.metricLabel {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.metricIcon {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  opacity: 0.8;
+  transition: opacity var(--transition-duration) ease;
+}
+
+.metric:hover .metricIcon {
+  opacity: 1;
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .content {
@@ -129,5 +239,41 @@ button:hover {
 
   .title {
     font-size: 2rem;
+  }
+
+  .programMetrics {
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  .metric {
+    min-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .metricNumber {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .metric {
+    padding: 1rem;
+  }
+
+  .metricNumber {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+  }
+
+  .metricLabel {
+    font-size: 1rem;
+  }
+}
+
+/* Animation Optimizations */
+@media (prefers-reduced-motion: reduce) {
+  .metric,
+  .metricIcon {
+    transition: none;
   }
 }

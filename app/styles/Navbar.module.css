@@ -1,18 +1,55 @@
 /* Navbar.module.css */
 .header {
-  background-color: #fff; /* Example background color */
-  padding: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #1a1a1a; /* Dark background for extraterrestrial theme */
+  padding: 10px 20px;
+  box-shadow: 0 2px 10px rgba(0, 255, 255, 0.5); /* Neon glow effect */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .navbar {
   display: flex;
-  flex-direction: column; /* Mobile-first: stack items vertically */
   align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .logo {
-  margin-bottom: 10px;
+  margin-right: auto;
+}
+
+.logoImage {
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); /* Neon glow effect */
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #00ffff; /* Neon cyan */
+  margin: 4px 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburgerOpen .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburgerOpen .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburgerOpen .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
 }
 
 .navLinks {
@@ -20,37 +57,65 @@
   padding: 0;
   margin: 0;
   display: flex;
-  flex-direction: column; /* Mobile-first: stack links vertically */
-  align-items: center;
+  flex-direction: row;
+  transition: transform 0.3s ease-in-out;
 }
 
 .navLinks li {
-  margin: 5px 0;
+  margin: 0 15px;
 }
 
-.navLinks a {
+.navLink {
   text-decoration: none;
-  color: #333; /* Example text color */
+  color: #00ffff; /* Neon cyan */
   font-weight: bold;
-  transition: color 0.3s;
+  font-size: 1.1rem;
+  transition: color 0.3s, text-shadow 0.3s;
 }
 
-.navLinks a:hover {
-  color: #0070f3; /* Example hover color */
+.navLink:hover {
+  color: #ff00ff; /* Neon magenta */
+  text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff; /* Glow effect */
 }
 
-/* Media query for larger screens */
-@media (min-width: 768px) {
-  .navbar {
-    flex-direction: row; /* Horizontal layout for larger screens */
-    justify-content: space-between;
+.navActive {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  background-color: #1a1a1a; /* Dark background */
+  width: 100%;
+  box-shadow: 0 2px 10px rgba(0, 255, 255, 0.5); /* Neon glow */
+  transform: translateX(0);
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
   }
 
   .navLinks {
-    flex-direction: row; /* Horizontal links for larger screens */
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #1a1a1a; /* Dark background */
+    box-shadow: 0 2px 10px rgba(0, 255, 255, 0.5); /* Neon glow */
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .navActive {
+    display: flex;
+    transform: translateX(0);
   }
 
   .navLinks li {
-    margin: 0 15px;
+    margin: 15px 0;
   }
 }
