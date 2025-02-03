@@ -53,7 +53,11 @@ const Home: React.FC = () => {
             console.error('Response headers:', error.response.headers);
           } else if (error.request) {
             console.error('Request made but no response received:', error.request);
+          } else {
+            console.error('Error message:', error.message);
           }
+        } else if (error instanceof Error) {
+          console.error('Unexpected error:', error.message);
         } else {
           console.error('Unexpected error:', error);
         }
@@ -88,6 +92,7 @@ const Home: React.FC = () => {
               </Link>
             </div>
           </div>
+          
         </section>
 
         {/* About Section */}
@@ -250,7 +255,7 @@ const Home: React.FC = () => {
               <div className={styles.teamImageWrapper}>
                 <Image
                   src="/images/profile4.jpeg"
-                    alt="Michael Brown"
+                  alt="Michael Brown"
                   width={200}
                   height={200}
                   className={styles.teamImage}
@@ -274,20 +279,15 @@ const Home: React.FC = () => {
               ←
             </button>
             <div className={styles.partnersTrack} ref={partnersRef}>
-              {[
-                { logo: "/images/yvc-logo.png" },
-                { logo: "/images/refugepoint.png" },
-                { logo: "/images/yvc-logo.png" },
-                { logo: "/images/cohere.png" },
-                { logo: "/images/yvc-logo.png" },
-              ].map((partner, index) => (
-                <div key={index} className={styles.partnerCard}>
+              {partners.map((partner) => (
+                <div key={partner.id} className={styles.partnerCard}>
                   <Image
                     src={partner.logo}
-                    alt="Partner logo"
+                    alt={partner.name}
                     width={150}
                     height={150}
                     className={styles.partnerLogo}
+                    priority
                   />
                 </div>
               ))}

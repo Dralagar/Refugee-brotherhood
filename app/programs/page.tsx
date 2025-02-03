@@ -89,10 +89,9 @@ export default function Programs() {
                 <Image
                   src={program.image}
                   alt={program.title}
-                  layout="responsive"
                   width={500}
                   height={300}
-                  className={styles.cardImage}
+                  style={{ objectFit: 'cover' }}
                   priority={index < 3}
                 />
               )}
