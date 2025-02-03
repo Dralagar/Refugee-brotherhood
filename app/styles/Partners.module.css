@@ -1,70 +1,169 @@
+/* General Container */
 .partnersContainer {
-  padding: 4rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  background-color: #f9f9f9;
-  text-align: center;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 1.5rem;
-}
-
-p {
-  font-size: 1.125rem;
-  color: #555;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-}
-
-.partnersList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.partnerCard {
-  flex: 0 1 calc(25% - 2rem);
-  max-width: 200px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.partnerCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.partnerLogo {
-  width: 100%;
-  height: auto;
-  margin-bottom: 1rem;
-}
-
-.partnerName {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #333;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .partnerCard {
-    flex: 0 1 calc(50% - 2rem);
+    padding: 0;
+    background-color: #f9f9f9;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
   }
-}
-
-@media (max-width: 480px) {
-  .partnerCard {
-    flex: 0 1 100%;
+  
+  /* Hero Section */
+  .heroSection {
+    background: linear-gradient(to right, #1a1548, #7f70d7);
+    color: #fff;
+    padding: 6rem 2rem;
+    text-align: center;
   }
-}
+  
+  .heroTitle {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  
+  .heroSubtitle {
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  /* Partners Grid */
+  .partnersGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 4rem 2rem;
+  }
+  
+  .partnerCard {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .partnerCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .partnerLogoContainer {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .partnerLogo {
+    width: 80%;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .partnerName {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .partnerDescription {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.4;
+  }
+  
+  /* Call to Action Section */
+  .ctaSection {
+    background: linear-gradient(to right, #1a1548, #7f70d7);
+    color: #fff;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  
+  .ctaTitle {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  
+  .ctaText {
+    font-size: 1.125rem;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+  }
+  
+  .ctaButton {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1548;
+    background-color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .ctaButton:hover {
+    background-color: #f0f0f0;
+    color: #1a1548;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .heroTitle {
+      font-size: 2.5rem;
+    }
+  
+    .heroSubtitle {
+      font-size: 1rem;
+    }
+  
+    .partnersGrid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      padding: 2rem 1rem;
+    }
+  
+    .ctaTitle {
+      font-size: 1.75rem;
+    }
+  
+    .ctaText {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .heroTitle {
+      font-size: 2rem;
+    }
+  
+    .heroSubtitle {
+      font-size: 0.9rem;
+    }
+  
+    .partnersGrid {
+      grid-template-columns: 1fr;
+    }
+  
+    .ctaTitle {
+      font-size: 1.5rem;
+    }
+  
+    .ctaText {
+      font-size: 0.9rem;
+    }
+  }

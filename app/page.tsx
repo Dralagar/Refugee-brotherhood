@@ -24,47 +24,51 @@ const Home: React.FC = () => {
   const [partners, setPartners] = useState<Partner[]>([]);
 
   useEffect(() => {
+    // Mock data for development
+    const mockTeamMembers: TeamMember[] = [
+      { id: "1", name: "Hassan Kazungu", role: "CEO", image: "/images/profile.jpeg" },
+      { id: "2", name: "Luke", role: "CTO", image: "/images/profile2.jpeg" },
+      { id: "3", name: "Emily Johnson", role: "Lead Developer", image: "/images/profile3.jpeg" },
+      { id: "4", name: "Michael Brown", role: "Community Manager", image: "/images/profile4.jpeg" },
+    ];
+
+    const mockPartners: Partner[] = [
+      { id: "1", name: "Partner A", logo: "/images/partner1.png" },
+      { id: "2", name: "Partner B", logo: "/images/partner2.png" },
+      { id: "3", name: "Partner C", logo: "/images/partner3.png" },
+      { id: "4", name: "Partner D", logo: "/images/partner4.png" },
+    ];
+
+    setTeamMembers(mockTeamMembers);
+    setPartners(mockPartners);
+
+    // Uncomment this if you have valid API endpoints
+    /*
     const fetchData = async () => {
       try {
         const [teamResponse, partnersResponse] = await Promise.all([
-          axios.get(
-            process.env.NEXT_PUBLIC_TEAM_API_URL ||
-              "https://example.com/api/team"
-          ),
-          axios.get(
-            process.env.NEXT_PUBLIC_PARTNERS_API_URL ||
-              "https://example.com/api/partners"
-          ),
+          axios.get(process.env.NEXT_PUBLIC_TEAM_API_URL || "https://example.com/api/team"),
+          axios.get(process.env.NEXT_PUBLIC_PARTNERS_API_URL || "https://example.com/api/partners"),
         ]);
-
-        // Process the responses
-        console.log('Team Data:', teamResponse.data);
-        console.log('Partners Data:', partnersResponse.data);
-
         setTeamMembers(teamResponse.data);
         setPartners(partnersResponse.data);
       } catch (error) {
         if (axios.isAxiosError(error)) {
-          console.error('Axios error:', error.message);
-          console.error('Error config:', error.config);
+          console.error("Axios error:", error.message);
           if (error.response) {
-            console.error('Response data:', error.response.data);
-            console.error('Response status:', error.response.status);
-            console.error('Response headers:', error.response.headers);
+            console.error("Response data:", error.response.data);
           } else if (error.request) {
-            console.error('Request made but no response received:', error.request);
+            console.error("Request made but no response received:", error.request);
           } else {
-            console.error('Error message:', error.message);
+            console.error("Error message:", error.message);
           }
-        } else if (error instanceof Error) {
-          console.error('Unexpected error:', error.message);
         } else {
-          console.error('Unexpected error:', error);
+          console.error("Unexpected error:", error);
         }
       }
     };
-
     fetchData();
+    */
   }, []);
 
   const scrollPartners = (direction: "left" | "right") => {
@@ -318,3 +322,4 @@ const Home: React.FC = () => {
 };
 
 export default Home;
+
