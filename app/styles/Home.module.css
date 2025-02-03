@@ -4,6 +4,8 @@
   margin: 0 auto;
   padding: 0 1rem;
   box-sizing: border-box;
+  opacity: 0;
+  animation: fadeIn 0.3s ease-in forwards;
 }
 
 .mainContent {
@@ -602,5 +604,133 @@
   .contactButton {
     width: 100%;
     max-width: 280px;
+  }
+}
+
+/* Program Metrics */
+.programMetrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 2rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.metricIcon {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 1.25rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+.metricNumber {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 700;
+  background: linear-gradient(120deg, #FFFFFF 0%, #F0F0F0 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  min-height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.metricLabel {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.12);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  .programMetrics {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+}
+
+@media (max-480px) {
+  .programMetrics {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+  
+  .metric {
+    padding: 1.25rem;
+  }
+}
+
+/* Animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.metric {
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+.metric:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.metric:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Add these imports to your global CSS */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

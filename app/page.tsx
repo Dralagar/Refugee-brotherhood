@@ -1,9 +1,14 @@
 "use client";
 import React, { useRef, useEffect, useState } from "react";
+import dynamic from 'next/dynamic';
 import Link from "next/link";
 import styles from "./styles/Home.module.css";
 import Image from "next/image";
 import axios from "axios";
+import { useInView } from 'react-intersection-observer';
+
+// Dynamically import CountUp with no SSR
+const CountUp = dynamic(() => import('react-countup'), { ssr: false });
 
 interface TeamMember {
   id: string;
@@ -19,11 +24,38 @@ interface Partner {
 }
 
 const Home: React.FC = () => {
+  const [isClient, setIsClient] = useState(false);
   const partnersRef = useRef<HTMLDivElement>(null);
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
   const [partners, setPartners] = useState<Partner[]>([]);
 
+  const { ref: metricsRef, inView: metricsInView } = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+
+  const metrics = [
+    {
+      number: 2000,
+      label: 'Lives Impacted',
+      icon: '/icons/lives.svg',
+      suffix: '+'
+    },
+    {
+      number: 4,
+      label: 'Core Programs',
+      icon: '/icons/programs.svg'
+    },
+    {
+      number: 12,
+      label: 'Partner Organizations',
+      icon: '/icons/partners.svg'
+    }
+  ];
+
   useEffect(() => {
+    setIsClient(true);
+
     // Mock data for development
     const mockTeamMembers: TeamMember[] = [
       { id: "1", name: "Hassan Kazungu", role: "CEO", image: "/images/profile.jpeg" },
@@ -192,22 +224,28 @@ const Home: React.FC = () => {
               </div>
             </div>
 
-            <div className={styles.programMetrics}>
-              <div className={styles.metric}>
-                <div className={styles.metricIcon} style={{ backgroundImage: 'url(/path/to/icon1.png)' }}></div>
-                <span className={styles.metricNumber}>2000+</span>
-                <span className={styles.metricLabel}>Lives Impacted</span>
-              </div>
-              <div className={styles.metric}>
-                <div className={styles.metricIcon} style={{ backgroundImage: 'url(/path/to/icon2.png)' }}></div>
-                <span className={styles.metricNumber}>4</span>
-                <span className={styles.metricLabel}>Core Programs</span>
-              </div>
-              <div className={styles.metric}>
-                <div className={styles.metricIcon} style={{ backgroundImage: 'url(/path/to/icon3.png)' }}></div>
-                <span className={styles.metricNumber}>12</span>
-                <span className={styles.metricLabel}>Partner Organizations</span>
-              </div>
+            <div className={styles.programMetrics} ref={metricsRef}>
+              {metrics.map((metric, index) => (
+                <div key={index} className={styles.metric}>
+                  {metric.icon && (
+                    <div 
+                      className={styles.metricIcon} 
+                      style={{ backgroundImage: `url(${metric.icon})` }}
+                    />
+                  )}
+                  <span className={styles.metricNumber}>
+                    {isClient && (
+                      <CountUp
+                        end={metric.number}
+                        duration={2.5}
+                        separator=","
+                        suffix={metric.suffix}
+                      />
+                    )}
+                  </span>
+                  <span className={styles.metricLabel}>{metric.label}</span>
+                </div>
+              ))}
             </div>
           </div>
         </section>
