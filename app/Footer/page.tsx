@@ -6,7 +6,7 @@ import styles from '../styles/Footer.module.css';
 import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
-  const pathname = usePathname();
+  const pathname = usePathname(); 
 
   const isActive = (path: string) => pathname === path;
 
@@ -35,7 +35,6 @@ const Footer: React.FC = () => {
                 About
               </Link>
             </li>
-
             <li>
               <Link href="/contact" className={isActive('/contact') ? styles.activeLink : styles.navLink}>
                 Contact
@@ -51,8 +50,16 @@ const Footer: React.FC = () => {
         <div className={styles.column}>
           <h4>Get Involved</h4>
           <ul>
-            <li>Alumni</li>
-            <li>Partners</li>
+            <li>
+              <Link href="/alumni" className={isActive('/alumni') ? styles.activeLink : styles.navLink}>
+                Alumni
+              </Link>
+            </li>
+            <li>
+              <Link href="/partners" className={isActive('/partners') ? styles.activeLink : styles.navLink}>
+                Partners
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

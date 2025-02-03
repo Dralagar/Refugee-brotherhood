@@ -34,12 +34,12 @@ export default function About() {
   const successStories = [
     {
       id: 1,
-      name: "Sarah&apos;s Journey",
+      name: "Sarah's Journey",
       image: "/images/stories/sarah.jpg",
-      quote: "Through the Brotherhood&apos;s support, I was able to start my own business.",
+      quote: "Through the Brotherhood's support, I was able to start my own business.",
       story: "After fleeing Syria, Sarah found hope through our entrepreneurship program..."
     },
-    // Add more success stories
+    // Add more success stories as needed
   ];
 
   const initiatives = [
@@ -55,7 +55,7 @@ export default function About() {
       description: "Quality education for all ages",
       impact: "500+ students enrolled in various programs"
     },
-    // Add more initiatives
+    // Add more initiatives as needed
   ];
 
   // Sample team data
@@ -66,12 +66,13 @@ export default function About() {
     { name: 'Bob Brown', position: 'COO', image: '/images/team4.jpg' }
   ];
 
-  // Sample partner data
+  // Sample partner data with at least five partners
   const partners = [
-    { name: 'Partner 1', logo: '/images/partner1.png' },
-    { name: 'Partner 2', logo: '/images/partner2.png' },
-    { name: 'Partner 3', logo: '/images/partner3.png' },
-    { name: 'Partner 4', logo: '/images/partner4.png' }
+    { name: 'Partner 1', logo: '/images/partners/partner1.png' },
+    { name: 'Partner 2', logo: '/images/partners/partner2.png' },
+    { name: 'Partner 3', logo: '/images/partners/partner3.png' },
+    { name: 'Partner 4', logo: '/images/partners/partner4.png' },
+    { name: 'Partner 5', logo: '/images/partners/partner5.png' }
   ];
 
   return (
@@ -80,7 +81,7 @@ export default function About() {
       animate={{ opacity: 1 }}
       className={styles.aboutContainer}
     >
-      {/* Hero Section with Full-Screen Background Image */}
+      {/* Hero Section */}
       <motion.div 
         style={{
           minHeight: '100vh',
@@ -124,7 +125,7 @@ export default function About() {
         >
           <Link href="/donate">
             <motion.button 
-              className={styles.donateButton}
+              className={`${styles.button} ${styles.donateButton}`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -132,7 +133,7 @@ export default function About() {
             </motion.button>
           </Link>
           <motion.button 
-            className={styles.volunteerButton}
+            className={`${styles.button} ${styles.volunteerButton}`}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -161,14 +162,12 @@ export default function About() {
       <section className={styles.partnersSection}>
         <h2>Our Partners</h2>
         <div className={styles.partnersWrapper}>
-          <div className={styles.partnersTrack}>
-            {partners.map((partner, index) => (
-              <div key={index} className={styles.partnerCard}>
-                <Image src={partner.logo} alt={partner.name} width={100} height={100} />
-                <p>{partner.name}</p>
-              </div>
-            ))}
-          </div>
+          {partners.map((partner, index) => (
+            <div key={index} className={styles.partnerCard}>
+              <Image src={partner.logo} alt={partner.name} width={100} height={100} />
+              <p>{partner.name}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -178,7 +177,7 @@ export default function About() {
         <p>Subscribe to our newsletter for the latest updates and news.</p>
         <form className={styles.newsletterForm}>
           <input type="email" placeholder="Enter your email" className={styles.emailInput} />
-          <button type="submit" className={styles.subscribeButton}>Subscribe</button>
+          <button type="submit" className={`${styles.button} ${styles.subscribeButton}`}>Subscribe</button>
         </form>
       </section>
 
@@ -187,7 +186,9 @@ export default function About() {
         <h2>Contact Us</h2>
         <p>We'd love to hear from you! Reach out to us for any inquiries or support.</p>
         <Link href="/contact">
-          <a className={styles.contactButton}>Get in Touch</a>
+          <motion.button className={`${styles.button} ${styles.contactButton}`}>
+            Get in Touch
+          </motion.button>
         </Link>
       </section>
 
@@ -218,10 +219,10 @@ export default function About() {
         <section className={styles.section}>
           <h2>Our Mission</h2>
           <p>
-              We are dedicated to supporting refugees and displaced individuals by providing
-              resources, education, and community support to help them rebuild their lives
-              and achieve self-sufficiency.
-            </p>
+            We are dedicated to supporting refugees and displaced individuals by providing
+            resources, education, and community support to help them rebuild their lives
+            and achieve self-sufficiency.
+          </p>
         </section>
       </div>
 
@@ -263,7 +264,7 @@ export default function About() {
         <div className={styles.ctaButtons}>
           <Link href="/donate">
             <motion.button
-              className={styles.primaryCta}
+              className={`${styles.button} ${styles.primaryCta}`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -272,7 +273,7 @@ export default function About() {
           </Link>
           <Link href="/contact">
             <motion.button
-              className={styles.secondaryCta}
+              className={`${styles.button} ${styles.secondaryCta}`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

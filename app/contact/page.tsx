@@ -58,6 +58,8 @@ const ContactPage: React.FC = () => {
     setNewsletterEmail('');
   };
 
+  const exampleText = "We&apos;re excited to connect with you.";
+
   return (
     <section className={styles.contactPageSection}>
       {/* Hero Section */}
