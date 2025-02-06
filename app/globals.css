@@ -28,13 +28,13 @@
   --button-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Button shadow */
   --button-hover-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Button hover shadow */
   
-  /* Adding new responsive breakpoints */
+  /* Responsive breakpoints */
   --mobile: 320px;
   --tablet: 768px;
   --laptop: 1024px;
   --desktop: 1440px;
   
-  /* Adding fluid typography */
+  /* Fluid typography */
   --fs-sm: clamp(0.8rem, 0.17vw + 0.76rem, 0.89rem);
   --fs-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
   --fs-md: clamp(1.25rem, 0.61vw + 1.1rem, 1.58rem);
@@ -42,7 +42,7 @@
   --fs-xl: clamp(1.95rem, 1.56vw + 1.56rem, 2.81rem);
   --fs-xxl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
   
-  /* Adding fluid spacing */
+  /* Fluid spacing */
   --space-xs: clamp(0.75rem, 0.69vw + 0.6rem, 1.13rem);
   --space-sm: clamp(1rem, 0.69vw + 0.85rem, 1.38rem);
   --space-md: clamp(1.5rem, 1.38vw + 1.2rem, 2.25rem);
@@ -70,8 +70,8 @@ body {
   line-height: 1.6;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   font-size: var(--fs-base);
   overflow-x: hidden;
@@ -145,6 +145,9 @@ button:focus {
   width: min(100% - 2rem, var(--desktop));
   margin-inline: auto;
   padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .parallaxBackground {
@@ -168,6 +171,9 @@ button:focus {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* News Components */
@@ -190,8 +196,9 @@ button:focus {
   border-radius: var(--border-radius);
   box-shadow: 0 4px 6px rgba(21, 52, 72, 0.2);
   border: 2px solid var(--secondary-header);
-  display: grid;
-  grid-template-rows: auto 1fr;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
 }
 
 .newsCard h2 {
@@ -262,17 +269,13 @@ button:focus {
 }
 
 /* Responsive Adjustments */
-@media (max-width: 64em) { /* 1024px */
-  :root {
-    --space-md: clamp(1.25rem, 1.15vw + 1rem, 1.88rem);
-  }
-  
+@media (max-width: 1024px) {
   .programMetrics {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 48em) { /* 768px */
+@media (max-width: 768px) {
   .programMetrics {
     grid-template-columns: 1fr;
   }
@@ -282,9 +285,35 @@ button:focus {
   }
 }
 
-@media (max-width: 30em) { /* 480px */
+@media (max-width: 480px) {
   :root {
     --space-md: clamp(1rem, 0.92vw + 0.8rem, 1.5rem);
+  }
+  
+  .title {
+    font-size: var(--fs-lg);
+  }
+  
+  .newsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .newsCard {
+    padding: var(--space-sm);
+  }
+  
+  /* Meet the Team Section */
+  .teamGrid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  
+  .teamProfile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 }
 
