@@ -20,7 +20,7 @@
     "autoprefixer": "^10.4.20",
     "axios": "^1.7.9",
     "framer-motion": "^11.18.2",
-    "next": "^15.1.0",
+    "next": "^15.1.6",
     "next-sanity": "^9.8.46",
     "react": "^18.3.1",
     "react-countup": "^6.5.3",

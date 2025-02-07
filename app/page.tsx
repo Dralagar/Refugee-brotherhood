@@ -65,8 +65,8 @@ const Home: React.FC = () => {
     ];
 
     const mockPartners: Partner[] = [
-      { id: "1", name: "Partner A", logo: "/images/partner1.png" },
-      { id: "2", name: "Partner B", logo: "/images/partner2.png" },
+      { id: "1", name: "UNHCR", logo: "/images/unhcr.png" },
+      { id: "2", name: "Youth Voices Community", logo: "/images/Yvc-logo.png" },
       { id: "3", name: "Partner C", logo: "/images/partner3.png" },
       { id: "4", name: "Partner D", logo: "/images/partner4.png" },
     ];
@@ -145,8 +145,8 @@ const Home: React.FC = () => {
             <video
               className={styles.video}
               controls
-              src="/path/to/video.mp4"
-              poster="/path/to/video-placeholder.jpg"
+              src="/videos/video.mp4"
+              poster="/videos/video-placeholder.jpg"
             >
               Your browser does not support the video tag.
             </video>

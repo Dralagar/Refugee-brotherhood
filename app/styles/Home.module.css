@@ -386,17 +386,19 @@
 }
 
 .partnerCard {
-  flex: 0 0 auto;
-  width: 180px;
-  text-align: center;
-  padding: 0.8rem;
-  background: var(--background-color);
-  border-radius: var(--border-radius);
-  transition: transform var(--transition-duration) ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.partnerCard:hover {
-  transform: scale(1.05);
+.partnerLogo {
+  max-width: 100%;
+  height: auto;
 }
 
 .scrollButton {
@@ -429,36 +431,35 @@
 
 /* Contact Section */
 .contactSection {
-  padding: 4rem 1rem;
-  background-color: var(--background-color);
-  color: var(--white-color);
+  background-color: #f0f8ff;
+  padding: var(--space-md);
   text-align: center;
 }
 
 .contactSection h2 {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  margin-bottom: 20px;
+  color: #333333;
+  font-size: var(--fs-lg);
+  margin-bottom: var(--space-sm);
 }
 
 .contactSection p {
-  font-size: clamp(1.2rem, 3vw, 1.5rem);
-  margin-bottom: 20px;
-  line-height: 1.6;
+  color: #333333;
+  font-size: var(--fs-base);
+  margin-bottom: var(--space-md);
 }
 
 .contactButton {
-  padding: 1rem 2rem;
-  background-color: var(--primary-color);
-  color: var(--white-color);
-  border: none;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  padding: var(--space-xs) var(--space-sm);
   border-radius: var(--border-radius);
-  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
   transition: background-color var(--transition-duration);
-  font-size: 1.2rem;
 }
 
 .contactButton:hover {
-  background-color: var(--secondary-color);
+  background-color: var(--button-hover-bg);
 }
 
 /* Responsive Media Queries */
@@ -611,93 +612,86 @@
 }
 
 /* Program Metrics */
-.programMetrics {
+.programMetrics,
+.otherCardSection {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  margin: 2rem 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+  gap: 1rem; /* Space between cards */
+  width: calc(100vw - 1.5rem); /* Adjusted width to slightly reduce left edge gap */
+  margin: 0 auto; /* Center the grid within the viewport */
+  padding: 0 0.1rem; /* Reduced padding on left and right */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  justify-items: stretch; /* Stretch items to fill the grid cell */
 }
 
-.metric {
+.metric,
+.otherCard {
+  background-color: #ffffff; /* White background for cards */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 2rem; /* Increased padding for better content spacing */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  opacity: 1;
-  transition: opacity 0.3s ease;
+  align-items: center; /* Center content horizontally */
+  justify-content: space-between; /* Space out content vertically */
+  text-align: center; /* Center text */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+  height: auto; /* Allow height to adjust based on content */
+  width: 100%; /* Full width of the grid cell */
+  overflow: hidden; /* Hide overflow for a clean look */
 }
 
-.metricIcon {
-  width: 36px;
-  height: 36px;
-  margin-bottom: 1.25rem;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  filter: brightness(0) invert(1);
-  opacity: 0.9;
+.metric:hover,
+.otherCard:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
 }
 
-.metricNumber {
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(2rem, 5vw, 3.25rem);
-  font-weight: 700;
-  background: linear-gradient(120deg, #FFFFFF 0%, #F0F0F0 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  min-height: 3.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.metricNumber,
+.otherCardNumber {
+  font-size: 1.6rem; /* Adjusted font size for numbers */
+  color: #2b95ce; /* Primary color for numbers */
+  font-weight: bold; /* Bold font for emphasis */
+  margin-bottom: 0.5rem; /* Space below the number */
 }
 
-.metricLabel {
-  font-family: 'Poppins', sans-serif;
-  font-size: clamp(0.75rem, 2vw, 0.875rem);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.95);
-  background: rgba(255, 255, 255, 0.12);
-  padding: 0.5rem 1rem;
-  border-radius: 50px;
-  white-space: nowrap;
+.metricLabel,
+.otherCardLabel {
+  font-size: 1rem; /* Adjusted font size for labels */
+  color: #555555; /* Neutral color for labels */
+  margin: 0; /* Remove default margin */
 }
 
-/* Responsive Breakpoints */
-@media (max-width: 768px) {
-  .programMetrics {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 1.5rem;
-    gap: 1rem;
+.learnMore,
+.otherCardLink {
+  font-size: 0.9rem; /* Font size for 'Learn More' links */
+  color: #2b95ce; /* Primary color for links */
+  text-decoration: none; /* Remove underline */
+  margin-top: auto; /* Push to the bottom of the card */
+  transition: color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.learnMore:hover,
+.otherCardLink:hover {
+  color: #1a73e8; /* Change color on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .programMetrics,
+  .otherCardSection {
+    grid-template-columns: repeat(2, 1fr); /* Two columns on medium screens */
   }
 }
 
-@media (max-480px) {
-  .programMetrics {
-    grid-template-columns: 1fr;
-    padding: 1rem;
+@media (max-width: 768px) {
+  .programMetrics,
+  .otherCardSection {
+    grid-template-columns: 1fr; /* Single column on small screens */
   }
   
-  .metric {
-    padding: 1.25rem;
+  .container {
+    padding: var(--space-sm);
   }
 }
 
