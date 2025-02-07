@@ -22,6 +22,7 @@
     padding: 2rem;
     background-color: #7f70d7;
     background-blend-mode: overlay;
+    margin-bottom: 4rem;
   }
 
   .heroButtons {
@@ -65,6 +66,7 @@
   .statsSection {
     padding: 4rem 2rem;
     background: var(--background-light);
+    margin-bottom: 4rem;
   }
 
   .statsGrid {
@@ -102,6 +104,7 @@
   .sections {
     padding: 4rem 2rem;
     background: var(--background-light);
+    margin-bottom: 4rem;
   }
 
   .section {
@@ -112,6 +115,7 @@
 
   .storiesSection {
     padding: 4rem 2rem;
+    margin-bottom: 4rem;
   }
 
   .storiesGrid {
@@ -148,6 +152,7 @@
                 url('/images/cta-bg.jpg');
     background-size: cover;
     color: var(--text-light);
+    margin-bottom: 4rem;
   }
 
   .ctaButtons {
@@ -223,6 +228,7 @@
     padding: 4rem 2rem;
     background-color: #f9f9f9;
     text-align: center;
+    margin-bottom: 4rem;
   }
 
   .teamGrid {
@@ -235,7 +241,7 @@
   }
 
   .teamCard {
-    flex: 0 1 calc(20% - 2rem); /* Adjusts to fit 5 items per row with gap */
+    flex: 0 1 calc(20% - 2rem);
     max-width: 200px;
     text-align: center;
     background-color: #fff;
@@ -281,22 +287,23 @@
     padding: 4rem 2rem;
     background-color: #f9f9f9;
     text-align: center;
+    margin-bottom: 4rem;
   }
 
   .partnersWrapper {
     display: flex;
-    flex-direction: row; /* Ensures items are in a single row */
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    overflow-x: auto; /* Allows horizontal scrolling if needed */
+    overflow-x: auto;
     max-width: 100%;
     margin: 0 auto;
     padding: 1rem 0;
   }
 
   .partnerCard {
-    flex: 0 0 auto; /* Prevents shrinking */
+    flex: 0 0 auto;
     width: 150px;
     text-align: center;
     background-color: #fff;
@@ -327,22 +334,35 @@
 
   /* Responsive Design */
   @media (max-width: 768px) {
+    .heroButtons {
+      flex-direction: column;
+    }
+
+    .statsGrid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .initiativesGrid,
+    .storiesGrid {
+      grid-template-columns: 1fr;
+    }
+
     .teamCard, .partnerCard {
-      flex: 0 1 calc(33.33% - 2rem); /* Adjusts to fit 3 items per row on smaller screens */
+      flex: 0 1 calc(33.33% - 2rem);
     }
 
     .partnersWrapper {
-      flex-wrap: wrap; /* Allows wrapping on smaller screens */
+      flex-wrap: wrap;
     }
 
     .partnerCard {
-      width: 120px; /* Adjusts size for smaller screens */
+      width: 120px;
     }
   }
 
   @media (max-width: 480px) {
     .teamCard, .partnerCard {
-      flex: 0 1 calc(50% - 2rem); /* Adjusts to fit 2 items per row on very small screens */
+      flex: 0 1 calc(50% - 2rem);
     }
   }
 
@@ -360,7 +380,7 @@
 
   /* Newsletter Section */
   .newsletterSection {
-    flex: 0 1 48%; /* Adjusts to take up half the container */
+    flex: 0 1 48%;
     background-color: #fff;
     padding: 2rem;
     border-radius: 10px;
@@ -409,7 +429,7 @@
 
   /* Contact Section */
   .contactSection {
-    flex: 0 1 48%; /* Adjusts to take up half the container */
+    flex: 0 1 48%;
     background-color: #fff;
     padding: 2rem;
     border-radius: 10px;
@@ -448,7 +468,7 @@
     }
 
     .newsletterSection, .contactSection {
-      flex: 0 1 100%; /* Stacks items on smaller screens */
+      flex: 0 1 100%;
     }
 
     .newsletterForm {

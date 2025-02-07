@@ -25,10 +25,9 @@ interface Partner {
 const Home: React.FC = () => {
   const [isClient, setIsClient] = useState(false);
   const partnersRef = useRef<HTMLDivElement>(null);
-  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
   const [partners, setPartners] = useState<Partner[]>([]);
 
-  const { ref: metricsRef, inView: metricsInView } = useInView({
+  const { ref: metricsRef } = useInView({
     threshold: 0.3,
     triggerOnce: true
   });
@@ -56,13 +55,6 @@ const Home: React.FC = () => {
     setIsClient(true);
 
     // Mock data for development
-    const mockTeamMembers: TeamMember[] = [
-      { id: "1", name: "Hassan Kazungu", role: "CEO", image: "/images/profile.jpeg" },
-      { id: "2", name: "Luke", role: "CTO", image: "/images/profile2.jpeg" },
-      { id: "3", name: "Emily Johnson", role: "Lead Developer", image: "/images/profile3.jpeg" },
-      { id: "4", name: "Michael Brown", role: "Community Manager", image: "/images/profile4.jpeg" },
-    ];
-
     const mockPartners: Partner[] = [
       { id: "1", name: "UNHCR", logo: "/images/unhcr.png" },
       { id: "2", name: "Youth Voices Community", logo: "/images/Yvc-logo.png" },
@@ -70,18 +62,13 @@ const Home: React.FC = () => {
       { id: "4", name: "Partner D", logo: "/images/partner4.png" },
     ];
 
-    setTeamMembers(mockTeamMembers);
     setPartners(mockPartners);
 
     // Uncomment this if you have valid API endpoints
     /*
     const fetchData = async () => {
       try {
-        const [teamResponse, partnersResponse] = await Promise.all([
-          axios.get(process.env.NEXT_PUBLIC_TEAM_API_URL || "https://example.com/api/team"),
-          axios.get(process.env.NEXT_PUBLIC_PARTNERS_API_URL || "https://example.com/api/partners"),
-        ]);
-        setTeamMembers(teamResponse.data);
+        const partnersResponse = await axios.get(process.env.NEXT_PUBLIC_PARTNERS_API_URL || "https://example.com/api/partners");
         setPartners(partnersResponse.data);
       } catch (error) {
         if (axios.isAxiosError(error)) {
