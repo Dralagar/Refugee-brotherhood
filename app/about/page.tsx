@@ -34,9 +34,9 @@ export default function About() {
   const successStories = [
     {
       id: 1,
-      name: "Sarah's Journey",
+      name: "Sarah&apos;s Journey",
       image: "/images/stories/sarah.jpg",
-      quote: "Through the Brotherhood's support, I was able to start my own business.",
+      quote: "Through the Brotherhood&apos;s support, I was able to start my own business.",
       story: "After fleeing Syria, Sarah found hope through our entrepreneurship program..."
     },
     // Add more success stories as needed
@@ -184,7 +184,7 @@ export default function About() {
       {/* Contact Section */}
       <section className={styles.contactSection}>
         <h2>Contact Us</h2>
-        <p>We'd love to hear from you! Reach out to us for any inquiries or support.</p>
+        <p>We&apos;d love to hear from you! Reach out to us for any inquiries or support.</p>
         <Link href="/contact">
           <motion.button className={`${styles.button} ${styles.contactButton}`}>
             Get in Touch

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../styles/Alumni.module.css';
+import Image from 'next/image'; // Import next/image for optimization
 
 // Define a type for alumni data
 type Alumni = {
@@ -69,9 +70,11 @@ const Alumni: React.FC = () => {
             className={styles.alumniCard}
           >
             <div className={styles.alumniPhotoContainer}>
-              <img
+              <Image
                 src={alumni.photo}
                 alt={alumni.name}
+                width={150} // Specify width
+                height={150} // Specify height
                 className={styles.alumniPhoto}
               />
             </div>
@@ -95,4 +98,5 @@ const Alumni: React.FC = () => {
     </div>
   );
 };
+
 export default Alumni;

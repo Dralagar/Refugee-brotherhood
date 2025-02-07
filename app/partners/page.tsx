@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../styles/Partners.module.css';
+import Image from 'next/image';
 
 // Define a type for partner data
 type Partner = {
@@ -64,9 +65,11 @@ const Partners: React.FC = () => {
             className={styles.partnerCard}
           >
             <div className={styles.partnerLogoContainer}>
-              <img
+              <Image
                 src={partner.logo}
                 alt={partner.name}
+                width={100}
+                height={100}
                 className={styles.partnerLogo}
               />
             </div>
