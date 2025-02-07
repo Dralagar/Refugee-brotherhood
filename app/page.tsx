@@ -9,13 +9,6 @@ import { useInView } from 'react-intersection-observer';
 // Dynamically import CountUp with no SSR
 const CountUp = dynamic(() => import('react-countup'), { ssr: false });
 
-interface TeamMember {
-  id: string;
-  name: string;
-  role: string;
-  image: string;
-}
-
 interface Partner {
   id: string;
   name: string;
