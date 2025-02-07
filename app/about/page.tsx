@@ -34,28 +34,13 @@ export default function About() {
   const successStories = [
     {
       id: 1,
-      name: "Sarah&apos;s Journey",
-      image: "/images/stories/sarah.jpg",
-      quote: "Through the Brotherhood&apos;s support, I was able to start my own business.",
+      name: "Sarah's Journey",
+      image: "/images/rb10.jpg",
+      quote: "Through the Brotherhood's support, I was able to start my own business.",
       story: "After fleeing Syria, Sarah found hope through our entrepreneurship program..."
+
     },
     // Add more success stories as needed
-  ];
-
-  const initiatives = [
-    {
-      title: "Emergency Response",
-      icon: "🚨",
-      description: "24/7 support for refugees in crisis",
-      impact: "Helped 200+ families in emergency situations"
-    },
-    {
-      title: "Education First",
-      icon: "📚",
-      description: "Quality education for all ages",
-      impact: "500+ students enrolled in various programs"
-    },
-    // Add more initiatives as needed
   ];
 
   // Sample team data
@@ -184,7 +169,7 @@ export default function About() {
       {/* Contact Section */}
       <section className={styles.contactSection}>
         <h2>Contact Us</h2>
-        <p>We&apos;d love to hear from you! Reach out to us for any inquiries or support.</p>
+        <p>We'd love to hear from you! Reach out to us for any inquiries or support.</p>
         <Link href="/contact">
           <motion.button className={`${styles.button} ${styles.contactButton}`}>
             Get in Touch

@@ -4,7 +4,6 @@ import dynamic from 'next/dynamic';
 import Link from "next/link";
 import styles from "./styles/Home.module.css";
 import Image from "next/image";
-import axios from "axios";
 import { useInView } from 'react-intersection-observer';
 
 // Dynamically import CountUp with no SSR

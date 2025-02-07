@@ -4,11 +4,9 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import styles from '../styles/Contact.module.css';
 import { 
-  FaMapMarkerAlt, FaPhone, FaEnvelope, FaGlobe, 
-  FaFacebookF, FaTwitter, FaGooglePlusG, FaDribbble, 
-  FaPinterestP, FaClock, FaWhatsapp, FaInstagram 
+  FaMapMarkerAlt, FaPhone, FaEnvelope, 
+  FaFacebookF, FaTwitter, FaWhatsapp, FaInstagram 
 } from 'react-icons/fa';
-import Image from 'next/image';
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -58,8 +56,6 @@ const ContactPage: React.FC = () => {
     setNewsletterEmail('');
   };
 
-  const exampleText = "We&apos;re excited to connect with you.";
-
   return (
     <section className={styles.contactPageSection}>
       {/* Hero Section */}
@@ -76,7 +72,7 @@ const ContactPage: React.FC = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Reach out to us from any corner of the universe. We're here to assist you.
+          Reach out to us from any corner of the universe. We&apos;re here to assist you.
         </motion.p>
       </div>
 
@@ -205,7 +201,7 @@ const ContactPage: React.FC = () => {
           <div className={styles.faqGrid}>
             <div className={styles.faqItem}>
               <h3>How can I volunteer?</h3>
-              <p>Fill out our volunteer application form and we'll get back to you within 48 hours.</p>
+              <p>Fill out our volunteer application form and we&apos;ll get back to you within 48 hours.</p>
             </div>
             <div className={styles.faqItem}>
               <h3>What services do you offer?</h3>
