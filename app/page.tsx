@@ -17,7 +17,6 @@ interface Partner {
 
 const Home: React.FC = () => {
   const [isClient, setIsClient] = useState(false);
-  const partnersRef = useRef<HTMLDivElement>(null);
   const [partners, setPartners] = useState<Partner[]>([]);
 
   const { ref: metricsRef } = useInView({

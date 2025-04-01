@@ -182,6 +182,16 @@ const ContactPage = () => {
                 >
                   {isLoading ? 'Sending...' : 'Send Message'}
                 </button>
+                {submitStatus === 'success' && (
+                  <div className={styles.successMessage}>
+                    Message sent successfully!
+                  </div>
+                )}
+                {submitStatus === 'error' && (
+                  <div className={styles.errorMessage}>
+                    Failed to send message. Please try again.
+                  </div>
+                )}
               </form>
             </div>
 
