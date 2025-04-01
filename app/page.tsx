@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import dynamic from 'next/dynamic';
 import Link from "next/link";
 import styles from "./styles/Home.module.css";
