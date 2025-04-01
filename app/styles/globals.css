@@ -1,0 +1,4 @@
+/* Ensure the body does not overflow */
+body {
+  overflow-x: hidden;
+}

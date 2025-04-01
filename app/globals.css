@@ -285,7 +285,7 @@ button:focus {
     padding: var(--space-sm);
   }
 }
-
+  
 @media (max-width: 480px) {
   :root {
     --space-md: clamp(1rem, 0.92vw + 0.8rem, 1.5rem);
@@ -331,4 +331,9 @@ button:focus {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Ensure the body does not overflow */
+body {
+  overflow-x: hidden;
 }

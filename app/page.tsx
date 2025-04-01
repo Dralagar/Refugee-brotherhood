@@ -47,12 +47,14 @@ const Home: React.FC = () => {
   useEffect(() => {
     setIsClient(true);
 
-    // Mock data for development
+    // Updated mock data for development
     const mockPartners: Partner[] = [
-      { id: "1", name: "UNHCR", logo: "/images/unhcr.png" },
-      { id: "2", name: "Youth Voices Community", logo: "/images/Yvc-logo.png" },
-      { id: "3", name: "Partner C", logo: "/images/partner3.png" },
-      { id: "4", name: "Partner D", logo: "/images/partner4.png" },
+      { id: "1", name: "Refugepoint", logo: "/images/refugepoint.png" },
+      { id: "2", name: "Mr. Green Africa", logo: "/images/" },
+      { id: "3", name: "Nairobi Industrial Institute", logo: "/images/NairobiIndustrial.jpg" },
+      { id: "4", name: "Embakasi Sub-County Peace Committee", logo: "/images/EmbakasiPeace.jpg" },
+      { id: "5", name: "Kenya Association of Waste Recyclers", logo: "/images/KAWR.jpg" },
+      { id: "6", name: "Namati", logo: "/images/Positivewomen.jpg" },
     ];
 
     setPartners(mockPartners);
@@ -292,34 +294,20 @@ const Home: React.FC = () => {
         <section className={styles.partnersSection}>
           <h2 className={styles.fontResponsiveH2}>Our Trusted Partners</h2>
           <div className={styles.partnersWrapper}>
-            <button
-              className={`${styles.scrollButton} ${styles.scrollLeft}`}
-              onClick={() => scrollPartners("left")}
-              aria-label="Scroll left"
-            >
-              ←
-            </button>
-            <div className={styles.partnersTrack} ref={partnersRef}>
+            <div className={styles.partnersTrack}>
               {partners.map((partner) => (
                 <div key={partner.id} className={styles.partnerCard}>
                   <Image
                     src={partner.logo}
                     alt={partner.name}
                     width={150}
-                    height={150}
+                    height={100}
                     className={styles.partnerLogo}
                     priority
                   />
                 </div>
               ))}
             </div>
-            <button
-              className={`${styles.scrollButton} ${styles.scrollRight}`}
-              onClick={() => scrollPartners("right")}
-              aria-label="Scroll right"
-            >
-              →
-            </button>
           </div>
         </section>
 
