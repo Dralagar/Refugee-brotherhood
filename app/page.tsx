@@ -84,13 +84,6 @@ const Home: React.FC = () => {
     */
   }, []);
 
-  const scrollPartners = (direction: "left" | "right") => {
-    if (partnersRef.current) {
-      const scrollAmount = 300;
-      partnersRef.current.scrollLeft += direction === "left" ? -scrollAmount : scrollAmount;
-    }
-  };
-
   return (
     <div className={styles.container}>
       <main className={styles.mainContent}>

@@ -110,7 +110,7 @@ const ContactPage = () => {
     <section className={styles.contactPageSection}>
       <div className={styles.contactHero}>
         <h1>Contact Us</h1>
-        <p>We're here to help and answer any questions you might have</p>
+        <p>We&apos;re here to help and answer any questions you might have</p>
       </div>
 
       <div className={styles.container}>
