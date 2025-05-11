@@ -26,7 +26,7 @@ const Home: React.FC = () => {
 
   const metrics = [
     {
-      number: 2000,
+      number: 5000,
       label: 'Lives Impacted',
       icon: '/icons/lives.svg',
       suffix: '+'
@@ -37,7 +37,7 @@ const Home: React.FC = () => {
       icon: '/icons/programs.svg'
     },
     {
-      number: 12,
+      number: 10,
       label: 'Partner Organizations',
       icon: '/icons/partners.svg'
     }
@@ -53,7 +53,12 @@ const Home: React.FC = () => {
       { id: "3", name: "Nairobi Industrial Institute", logo: "/images/NairobiIndustrial.jpg" },
       { id: "4", name: "Embakasi Sub-County Peace Committee", logo: "/images/EmbakasiPeace.jpg" },
       { id: "5", name: "Kenya Association of Waste Recyclers", logo: "/images/KAWR.jpg" },
-      { id: "6", name: "Namati", logo: "/images/Positivewomen.jpg" },
+      { id: "6", name: "Positve Young Women Voices", logo: "/images/Positivewomen.jpg" },
+      { id: "7", name: "Youth Voices Community ", logo: "/images/Namati.jpg" },
+      { id: "8", name: "Pamoja Trust", logo: "/images/NCC.jpg" },
+      { id: "9", name: "Umoja Refugees", logo: "/images/Umoja.jpg" },
+      { id: "10", name: "Danish Refugee Council", logo: "/images/Namati.jpg" },
+      { id: "11", name: "Family Bridges of Hope", logo: "/images/Namati.jpg" },
     ];
 
     setPartners(mockPartners);
@@ -90,7 +95,7 @@ const Home: React.FC = () => {
         <section className={styles.hero}>
           <div className={styles.heroBackground}></div>
           <div className={styles.heroContent}>
-            <h1 className={styles.fontResponsiveH1}>Empowering Refugees, Building Futures</h1>
+            <h1 className={styles.fontResponsiveH1}>Your self Reliance is our concern</h1>
             <p className={styles.fontResponsiveP}>
               Join us in our mission to transform lives through innovative programs and strategic partnerships.
             </p>
@@ -127,8 +132,7 @@ const Home: React.FC = () => {
           <div className={styles.descriptionContainer}>
             <h2 className={styles.fontResponsiveH2}>Program Descriptions</h2>
             <p className={styles.fontResponsiveP}>
-              Our programs are designed to empower and support refugees through education, skills training, healthcare access, and community integration. Each initiative is tailored to meet the unique needs of the communities we serve.
-            </p>
+              Our programs are designed to empower and support refugees through livelihhood, pschosocial support program, peace building and advcacy.           </p>
           </div>
         </section>
 
@@ -138,15 +142,15 @@ const Home: React.FC = () => {
           <div className={styles.programsGrid}>
             <div className={`${styles.programCard} ${styles.featured}`}>
               <div className={styles.programContent}>
-                <h3 className={styles.fontResponsiveH3}>Education Support</h3>
-                <p className={styles.fontResponsiveP}>Providing access to quality education and learning resources for refugee children.</p>
+                <h3 className={styles.fontResponsiveH3}>Livelihood </h3>
+                <p className={styles.fontResponsiveP}>we operate mains projets like USLA- Unran saving and loan assocication, which we operate in three brubch,main branch, Umoja Branch, Rongai  and single mothers branch, we also have singles or better tommorrow as project where we expand exsiting business o reugee businsss with 70 reugee and 30 % host communnuty or Kenyan, and we send beneficaries or short coarse to Nairobi Industrial Institute where they leanskill in plumbing, Nail Techology, braiding and weaving. Under livelihhood we also have house to house plastic waste collection and trading project. Refugee brother is an  aggregator under waste management in collaboration with Mr Green Africa. We are piloting our stop centre , where we put together all the activites we have in one place or easy access to the community.   waste recycling, and waste management. Providing access to quality education and learning resources for refugee children.</p>
                 <ul className={styles.programStats}>
                   <li>
-                    <span className={styles.statNumber}>500+</span>
-                    <span className={styles.statLabel}>Students Supported</span>
+                    <span className={styles.statNumber}>300+</span>
+                    <span className={styles.statLabel}>Beneficiaries</span>
                   </li>
                   <li>
-                    <span className={styles.statNumber}>15</span>
+                    <span className={styles.statNumber}>1</span>
                     <span className={styles.statLabel}>Partner Schools</span>
                   </li>
                 </ul>
@@ -169,8 +173,8 @@ const Home: React.FC = () => {
 
             <div className={styles.programCard}>
               <div className={styles.programContent}>
-                <h3 className={styles.fontResponsiveH3}>Skills Training</h3>
-                <p className={styles.fontResponsiveP}>Vocational training and skill development programs for sustainable employment.</p>
+                <h3 className={styles.fontResponsiveH3}>Psycho Social Support</h3>
+                <p className={styles.fontResponsiveP}>Refugee brotherhood has a emmbed psycho social support program as complementing the other programs, where our main is self reliance , and we beleive for a person to be self reliance their mental being has to be clear from their experience and refugee and vulnerable host community any form of abuse, where we  run six sessions on mental well being in a year, one session in every two months. Here we provide a safe space for the community to express their feelings and emotions, and experience. After the indentication of those with dire problem beyond refugee brotherhood capacity, refferal to NGos within our network for further intervention.</p>
                 <Link href="/programs/skills" className={styles.programLink}>
                   Learn More →
                 </Link>
@@ -179,9 +183,9 @@ const Home: React.FC = () => {
 
             <div className={styles.programCard}>
               <div className={styles.programContent}>
-                <h3 className={styles.fontResponsiveH3}>Healthcare Access</h3>
-                <p className={styles.fontResponsiveP}>Ensuring access to essential healthcare services and medical support.</p>
-                <Link href="/programs/healthcare" className={styles.programLink}>
+                <h3 className={styles.fontResponsiveH3}>Peace Building</h3>
+                <p className={styles.fontResponsiveP}>We create awareness on peace building, we have peace clubs in our project areas, and we run peace walks in the community to create awareness on peace building through sports - Soccer, where we have a tournament: Community Social Cohesion and Peace Cup- Starts from 6th April- International Day of Sport for Development and Peace, where we do qourters and 20th June, World Reuge day, we play the semi finals nad subsequently on 21 st Septmeber we conclude with the finals op the community social cohesion an peace cup </p>
+                <Link href="/programs/healthcare" className={styles.programLink}> 
                   Learn More →
                 </Link>
               </div>
@@ -189,8 +193,8 @@ const Home: React.FC = () => {
 
             <div className={styles.programCard}>
               <div className={styles.programContent}>
-                <h3 className={styles.fontResponsiveH3}>Community Integration</h3>
-                <p className={styles.fontResponsiveP}>Programs to facilitate smooth integration into local communities.</p>
+                <h3 className={styles.fontResponsiveH3}>Advocacy</h3>
+                <p className={styles.fontResponsiveP}>We advoacy for policy, laws and prorgams and systems that affects. Our advocacy effort is to advance the self reliance of refugees and vulnerable host community by recommending polices on existing rameworks like Shirika Plan, 2021 Refugee Act and Global Agenda, through running a ten weeks advocacy campaign throough compleing stories, blogs voices of community, and collorating with other other refugee Led Organisation, and  other local host community organisation. We have united a united under one consortium of six refugee led organisation for collective action on Beyond my status , a project we do during the world refugee week. We have been actively enagaged in the drating of Nairobi City County Sport policy where are proud and grateful to be part of the process.  </p>
                 <Link href="/programs/community" className={styles.programLink}>
                   Learn More →
                 </Link>
@@ -237,8 +241,8 @@ const Home: React.FC = () => {
                   className={styles.teamImage}
                 />
               </div>
-              <p className={styles.fontResponsiveP}>CEO</p>
               <h3 className={styles.fontResponsiveH3}>Hassan Kazungu</h3>
+              <p className={styles.fontResponsiveP}>CEO</p>
             </div>
             <div className={styles.teamCard}>
               <div className={styles.teamImageWrapper}>
@@ -250,7 +254,7 @@ const Home: React.FC = () => {
                   className={styles.teamImage}
                 />
               </div>
-              <h3 className={styles.fontResponsiveH3}>Luke</h3>
+              <h3 className={styles.fontResponsiveH3}>Luke Karema</h3>
               <p className={styles.fontResponsiveP}>CTO</p>
             </div>
             <div className={styles.teamCard}>
@@ -263,7 +267,7 @@ const Home: React.FC = () => {
                   className={styles.teamImage}
                 />
               </div>
-              <h3 className={styles.fontResponsiveH3}>Emily Johnson</h3>
+              <h3 className={styles.fontResponsiveH3}>Linda Kaunda</h3>
               <p className={styles.fontResponsiveP}>Lead Developer</p>
             </div>
             <div className={styles.teamCard}>
@@ -276,7 +280,7 @@ const Home: React.FC = () => {
                   className={styles.teamImage}
                 />
               </div>
-              <h3 className={styles.fontResponsiveH3}>Michael Brown</h3>
+              <h3 className={styles.fontResponsiveH3}>Asnath Kabatesi</h3>
               <p className={styles.fontResponsiveP}>Community Manager</p>
             </div>
           </div>

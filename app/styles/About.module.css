@@ -1,28 +1,37 @@
   /* General Styles */
   .aboutContainer {
-    min-height: 100vh;
-    background: linear-gradient(to bottom, var(--background-light), #1a1548);
-    padding: 2rem;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-    color: var(--text-light);
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
   }
 
   .heroSection {
-    height: 80vh;
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/rb6.jpg');
     background-size: cover;
     background-position: center;
-    color: var(--text-light);
-    position: relative;
-    padding: 2rem;
-    background-color: #7f70d7;
-    background-blend-mode: overlay;
+    color: white;
+    padding: 4rem 2rem;
     margin-bottom: 4rem;
+    border-radius: 20px;
+  }
+
+  .heroSection h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .heroSection p {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
   }
 
   .heroButtons {
@@ -147,33 +156,59 @@
 
   .ctaSection {
     text-align: center;
-    padding: 6rem 2rem;
-    background: linear-gradient(var(--background-dark), var(--background-dark)),
-                url('/images/cta-bg.jpg');
-    background-size: cover;
-    color: var(--text-light);
-    margin-bottom: 4rem;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    color: white;
+    border-radius: 20px;
+    margin: 4rem 0;
+  }
+
+  .ctaSection h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .ctaSection p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .ctaButtons {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.5rem;
     justify-content: center;
-    margin-top: 2rem;
+    flex-wrap: wrap;
   }
 
-  .ctaButtons button {
+  .primaryButton,
+  .secondaryButton {
     padding: 1rem 2rem;
-    border-radius: 30px;
-    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
   }
 
-  .ctaButtons button:hover {
-    transform: scale(1.05);
+  .primaryButton {
+    background: white;
+    color: #3498db;
+    border: none;
+  }
+
+  .secondaryButton {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+
+  .primaryButton:hover,
+  .secondaryButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   }
 
   .modal {
@@ -209,6 +244,15 @@
   }
 
   @media (max-width: 768px) {
+    .aboutContainer {
+      padding: 0 1rem;
+    }
+
+    .heroSection {
+      min-height: 50vh;
+      padding: 3rem 1rem;
+    }
+
     .heroButtons {
       flex-direction: column;
     }
@@ -220,258 +264,185 @@
     .initiativesGrid,
     .storiesGrid {
       grid-template-columns: 1fr;
+    }
+
+    .ctaButtons {
+      flex-direction: column;
+    }
+
+    .primaryButton,
+    .secondaryButton {
+      width: 100%;
     }
   }
 
   /* Team Section */
   .teamSection {
-    padding: 4rem 2rem;
-    background-color: #f9f9f9;
+    padding: 4rem 0;
+    background: #f8f9fa;
+    border-radius: 20px;
+    margin: 4rem 0;
+  }
+
+  .teamSection h2 {
     text-align: center;
-    margin-bottom: 4rem;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 3rem;
+    color: #2c3e50;
   }
 
   .teamGrid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 0 2rem;
   }
 
   .teamCard {
-    flex: 0 1 calc(20% - 2rem);
-    max-width: 200px;
-    text-align: center;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: white;
+    border-radius: 15px;
     overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
   }
 
   .teamCard:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
   }
 
   .teamImageWrapper {
     position: relative;
+    height: 300px;
     width: 100%;
-    height: 150px;
-    overflow: hidden;
   }
 
   .teamImage {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
   }
 
-  .teamName {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #333;
-    margin: 1rem 0 0.5rem;
+  .teamCard h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin: 1.5rem 1.5rem 0.5rem;
   }
 
-  .teamPosition {
-    font-size: 0.9rem;
-    color: #777;
+  .position {
+    color: #3498db;
+    font-weight: 600;
+    margin: 0 1.5rem 1rem;
+  }
+
+  .bio {
+    color: #666;
+    margin: 0 1.5rem 1.5rem;
+    line-height: 1.6;
+  }
+
+  /* Impact Section */
+  .impactSection {
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .impactSection h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 3rem;
+    color: #2c3e50;
+  }
+
+  .statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .statCard {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .statIcon {
+    font-size: 2.5rem;
     margin-bottom: 1rem;
+    display: block;
+  }
+
+  .statNumber {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #3498db;
+    margin-bottom: 0.5rem;
+  }
+
+  .statLabel {
+    color: #666;
+    font-size: 1.1rem;
   }
 
   /* Partners Section */
   .partnersSection {
-    padding: 4rem 2rem;
-    background-color: #f9f9f9;
-    text-align: center;
-    margin-bottom: 4rem;
+    padding: 4rem 0;
+    background: #f8f9fa;
+    border-radius: 20px;
+    margin: 4rem 0;
   }
 
-  .partnersWrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  .partnersSection h2 {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 3rem;
+    color: #2c3e50;
+  }
+
+  .partnersGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
-    overflow-x: auto;
-    max-width: 100%;
+    padding: 0 2rem;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 1rem 0;
   }
 
   .partnerCard {
-    flex: 0 0 auto;
-    width: 150px;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     text-align: center;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden;
+    transition: transform 0.3s ease;
   }
 
   .partnerCard:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
   }
 
   .partnerLogo {
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-    margin-top: 1rem;
+    object-fit: contain;
+    margin-bottom: 1rem;
   }
 
-  .partnerName {
-    font-size: 1rem;
+  .partnerCard p {
+    color: #2c3e50;
     font-weight: 600;
-    color: #333;
-    margin: 1rem 0;
   }
 
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .heroButtons {
-      flex-direction: column;
+  /* Animation Classes */
+  .fadeIn {
+    animation: fadeIn 0.5s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
     }
-
-    .statsGrid {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .initiativesGrid,
-    .storiesGrid {
-      grid-template-columns: 1fr;
-    }
-
-    .teamCard, .partnerCard {
-      flex: 0 1 calc(33.33% - 2rem);
-    }
-
-    .partnersWrapper {
-      flex-wrap: wrap;
-    }
-
-    .partnerCard {
-      width: 120px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .teamCard, .partnerCard {
-      flex: 0 1 calc(50% - 2rem);
-    }
-  }
-
-  /* Container for Newsletter and Contact Sections */
-  .newsletterContactContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 4rem 2rem;
-    background-color: #f9f9f9;
-  }
-
-  /* Newsletter Section */
-  .newsletterSection {
-    flex: 0 1 48%;
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-
-  .newsletterContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .newsletterForm {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-
-  .emailInput {
-    padding: 0.75rem 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    width: 100%;
-    max-width: 300px;
-  }
-
-  .subscribeButton {
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #2b95ce;
-    color: #fff;
-    transition: background-color 0.3s ease;
-  }
-
-  .subscribeButton:hover {
-    background-color: #1c7aa8;
-  }
-
-  /* Contact Section */
-  .contactSection {
-    flex: 0 1 48%;
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-
-  .contactContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .contactButton {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #2b95ce;
-    color: #fff;
-    transition: background-color 0.3s ease;
-  }
-
-  .contactButton:hover {
-    background-color: #1c7aa8;
-  }
-
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .newsletterContactContainer {
-      flex-direction: column;
-    }
-
-    .newsletterSection, .contactSection {
-      flex: 0 1 100%;
-    }
-
-    .newsletterForm {
-      flex-direction: column;
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }

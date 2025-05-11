@@ -10,6 +10,8 @@ const Footer: React.FC = () => {
 
   const isActive = (path: string) => pathname === path;
 
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className={styles.footer}>
       <div className={styles.row}>
@@ -64,7 +66,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
       <div className={styles.copyright}>
-        <p>Refugee Brotherhood, All rights reserved 2024</p>
+        <p>Refugee Brotherhood, All rights reserved {currentYear}</p>
         <p>Built by Dralagar George /ReactNowDev</p>
       </div>
     </footer>

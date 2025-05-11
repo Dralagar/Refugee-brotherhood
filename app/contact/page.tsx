@@ -29,8 +29,8 @@ const ContactPage = () => {
   const contactInfo = {
     address: 'Patanisho Kayole, Nairobi, Kenya',
     email: 'info@refugeebrotherhood.org',
-    phone: '+254 700 123456',
-    whatsapp: '+254 700 123456',
+    phone: '+254 794 693898',
+    whatsapp: '+254 111449564',
     hours: {
       weekdays: '9:00 AM - 6:00 PM',
       weekends: '10:00 AM - 2:00 PM'
