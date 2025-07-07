@@ -1,21 +1,21 @@
 import React from 'react';
-import styles from '../styles/Programs.module.css';
-import { baseMetadata } from './metadata';
+import type { Metadata } from 'next';
+import { programMetadata } from './metadata';
 
-export const metadata = baseMetadata;
+export const metadata: Metadata = {
+  ...programMetadata.advocacy,
+  openGraph: {
+    title: programMetadata.advocacy.title,
+    description: programMetadata.advocacy.description,
+    url: 'https://www.refugeebrotherhood.org/programs/advocacy',
+    type: 'website',
+  },
+};
 
-export default function ProgramsLayout({
+export default function AdvocacyLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <div className={styles.programsLayout}>
-      <div className={styles.programsContent}>
-        <div className={styles.programsWrapper}>
-          {children}
-        </div>
-      </div>
-    </div>
-  );
+  return <>{children}</>;
 } 

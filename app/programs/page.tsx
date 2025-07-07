@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import styles from '../styles/Programs.module.css';
+import { useRouter } from 'next/navigation';
+import dynamic from 'next/dynamic';
 
 const programData = {
   livelihood: {

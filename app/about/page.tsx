@@ -6,7 +6,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useInView } from 'react-intersection-observer';
 import CountUp from 'react-countup';
-import styles from '../styles/About.module.css';
+import styles from '../styles/About.module.css'; // Adjust the path as needed
+import dynamic from 'next/dynamic';
 
 // Define the type for a success story
 type SuccessStory = {
@@ -81,13 +82,20 @@ export default function About() {
       position: 'Lead Advocacy', 
       image: '/images/team4.jpg',
       bio: 'Developing strategic partnerships for sustainable impact.'
+    },
+    { 
+      name: 'Christel Bakayomo', 
+      position: 'Communcation Lead', 
+      image: '/images/team5.jpg',
+      bio: 'Managing our communication and media strategies.'
     }
+
   ];
 
   // Sample partner data with at least five partners
   const partners = [
     { name: 'Refugepoint', logo: '/images/refugepoint.png' },
-    { name: 'Mr. Green Africa', logo: '/images/mrgreen.png' },
+    { name: 'Mr. Green Africa', logo: '/images/GreenAfrica.png' },
     { name: 'Nairobi Industrial Institute', logo: '/images/NairobiIndustrial.jpg' },
     { name: 'Embakasi Sub-County Peace Committee', logo: '/images/EmbakasiPeace.jpg' },
     { name: 'Kenya Association of Waste Recyclers', logo: '/images/KAWR.jpg' }
@@ -111,7 +119,7 @@ export default function About() {
       </motion.div>
 
       {/* Mission Section */}
-      <section id="mission" className={styles.missionSection}>
+      <section className={styles.missionSection}>
         <h2>Our Mission</h2>
         <div className={styles.missionContent}>
           <p>

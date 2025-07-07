@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import styles from '../../styles/Programs.module.css';
+import styles from '../../styles/Advocacy.module.css';
 
 export default function Advocacy() {
   return (

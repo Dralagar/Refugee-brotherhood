@@ -169,40 +169,36 @@ const NavBar: React.FC = () => {
             {programsDropdownOpen && (
               <ul className={styles.dropdownMenu}>
                 <li>
-                  <Link
-                    href="/programs/livelihood"
+                  <button
                     className={styles.dropdownLink}
-                    onClick={closeAll}
+                    onClick={() => { closeAll(); router.push('/programs/livelihood'); }}
                   >
                     Livelihood
-                  </Link>
+                  </button>
                 </li>
                 <li>
-                  <Link
-                    href="/programs/psychosocial"
+                  <button
                     className={styles.dropdownLink}
-                    onClick={closeAll}
+                    onClick={() => { closeAll(); router.push('/programs/psychosocial'); }}
                   >
                     Psychosocial
-                  </Link>
+                  </button>
                 </li>
                 <li>
-                  <Link
-                    href="/programs/peace"
+                  <button
                     className={styles.dropdownLink}
-                    onClick={closeAll}
+                    onClick={() => { closeAll(); router.push('/programs/peace'); }}
                   >
                     Peace Building
-                  </Link>
+                  </button>
                 </li>
                 <li>
-                  <Link
-                    href="/programs/advocacy"
+                  <button
                     className={styles.dropdownLink}
-                    onClick={closeAll}
+                    onClick={() => { closeAll(); router.push('/programs/advocacy'); }}
                   >
                     Advocacy
-                  </Link>
+                  </button>
                 </li>
               </ul>
             )}

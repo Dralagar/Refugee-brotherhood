@@ -29,7 +29,7 @@ const Home: React.FC = () => {
       number: 5000,
       label: 'Lives Impacted',
       icon: '/icons/lives.svg',
-      suffix: '+'
+       suffix: '+'
     },
     {
       number: 4,
@@ -48,12 +48,12 @@ const Home: React.FC = () => {
 
     const mockPartners: Partner[] = [
       { id: "1", name: "Refugepoint", logo: "/images/refugepoint.png" },
-      { id: "2", name: "Mr. Green Africa", logo: "/images/" },
+      { id: "2", name: "Mr. Green Africa", logo: "/images/greenAfrica.png" },
       { id: "3", name: "Nairobi Industrial Institute", logo: "/images/NairobiIndustrial.jpg" },
       { id: "4", name: "Embakasi Sub-County Peace Committee", logo: "/images/EmbakasiPeace.jpg" },
       { id: "5", name: "Kenya Association of Waste Recyclers", logo: "/images/KAWR.jpg" },
-      { id: "6", name: "Positve Young Women Voices", logo: "/images/Positivewomen.jpg" },
-      { id: "7", name: "Youth Voices Community ", logo: "/images/Namati.jpg" },
+      { id: "6", name: "Positive Young Women Voices", logo: "/images/Positivewomen.jpg" },
+      { id: "7", name: "Youth Voices Community", logo: "/images/Namati.jpg" },
       { id: "8", name: "Pamoja Trust", logo: "/images/NCC.jpg" },
       { id: "9", name: "Umoja Refugees", logo: "/images/Umoja.jpg" },
       { id: "10", name: "Danish Refugee Council", logo: "/images/Namati.jpg" },
@@ -276,7 +276,7 @@ const Home: React.FC = () => {
                     alt={partner.name}
                     width={150}
                     height={100}
-                    className={styles.partnerLogo}
+                    className="partnerLogo"
                     priority
                   />
                 </div>
