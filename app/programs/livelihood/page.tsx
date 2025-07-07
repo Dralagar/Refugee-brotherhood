@@ -219,35 +219,4 @@ export default function ProgramPage() {
       </motion.div>
     </>
   );
-}
-
-export const generateMetadata = ({ params }: { params: { id: string } }) => {
-  const program = programData[params.id as keyof typeof programData];
-  
-  if (!program) {
-    return {
-      title: 'Program Not Found | Refugee Brotherhood',
-      description: 'The requested program page could not be found.',
-    };
-  }
-
-  return {
-    title: `${program.title} | Refugee Brotherhood - Refugee-Led Organization in Kenya`,
-    description: `${program.description} Leading refugee-led initiatives in Kenya and East Africa for sustainable self-reliance and community development.`,
-    keywords: `${program.title.toLowerCase()}, refugee programs, ${program.features.join(', ')}, refugee led organization, Kenya, East Africa, sustainable development, self reliance`,
-    openGraph: {
-      title: `${program.title} | Refugee Brotherhood - Refugee-Led Organization in Kenya`,
-      description: `${program.description} Leading refugee-led initiatives in Kenya and East Africa for sustainable self-reliance and community development.`,
-      url: `https://www.refugeebrotherhood.org/programs/${params.id}`,
-      type: 'article',
-      images: [
-        {
-          url: program.image,
-          width: 1200,
-          height: 630,
-          alt: program.title,
-        },
-      ],
-    },
-  };
-}; 
+} 
