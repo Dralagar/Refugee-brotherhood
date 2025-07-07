@@ -3,7 +3,6 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import Navbar from '../../components/Navbar';
 import styles from '../../styles/PsychoSocialSupport.module.css';
 // Removed broken Navbar import
@@ -34,7 +33,7 @@ export default function PsychoSocialSupport() {
               transition={{ delay: 0.3 }}
               className={styles.subtitle}
             >
-              Refugee Brotherhood's embedded psychosocial support complements our other
+              Refugee Brotherhood&apos;s embedded psychosocial support complements our other
               programs, recognizing that true self-reliance begins with mental well-being.
             </motion.p>
           </div>

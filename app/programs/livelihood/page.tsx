@@ -97,7 +97,7 @@ export default function ProgramPage() {
     return (
       <div className={styles.notFound}>
         <h1>Program Not Found</h1>
-        <p>The program you're looking for doesn't exist.</p>
+        <p>The program you&apos;re looking for doesn&apos;t exist.</p>
         <Link href="/programs" className={styles.backLink}>
           Back to Programs
         </Link>
