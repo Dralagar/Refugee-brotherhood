@@ -46,7 +46,6 @@ const Home: React.FC = () => {
   useEffect(() => {
     setIsClient(true);
 
-    // Updated mock data for development
     const mockPartners: Partner[] = [
       { id: "1", name: "Refugepoint", logo: "/images/refugepoint.png" },
       { id: "2", name: "Mr. Green Africa", logo: "/images/" },
@@ -62,30 +61,6 @@ const Home: React.FC = () => {
     ];
 
     setPartners(mockPartners);
-
-    // Uncomment this if you have valid API endpoints
-    /*
-    const fetchData = async () => {
-      try {
-        const partnersResponse = await axios.get(process.env.NEXT_PUBLIC_PARTNERS_API_URL || "https://example.com/api/partners");
-        setPartners(partnersResponse.data);
-      } catch (error) {
-        if (axios.isAxiosError(error)) {
-          console.error("Axios error:", error.message);
-          if (error.response) {
-            console.error("Response data:", error.response.data);
-          } else if (error.request) {
-            console.error("Request made but no response received:", error.request);
-          } else {
-            console.error("Error message:", error.message);
-          }
-        } else {
-          console.error("Unexpected error:", error);
-        }
-      }
-    };
-    fetchData();
-    */
   }, []);
 
   return (
@@ -100,13 +75,15 @@ const Home: React.FC = () => {
               Join us in our mission to transform lives through innovative programs and strategic partnerships.
             </p>
             <div className={styles.heroButtons}>
-              <button className={styles.learnMore}>Discover More</button>
-              <Link href="/contact" className={styles.contactButton}>
-                Get in Touch
+              
+              <Link href="/programs" passHref>
+                <button className={styles.learnMore}>Discover More</button>
+              </Link>
+              <Link href="/contact" passHref>
+                <button className={styles.contactButton}>Get in Touch</button>
               </Link>
             </div>
           </div>
-          
         </section>
 
         {/* About Section */}
@@ -132,7 +109,8 @@ const Home: React.FC = () => {
           <div className={styles.descriptionContainer}>
             <h2 className={styles.fontResponsiveH2}>Program Descriptions</h2>
             <p className={styles.fontResponsiveP}>
-              Our programs are designed to empower and support refugees through livelihhood, pschosocial support program, peace building and advcacy.           </p>
+              Our programs are designed to empower and support refugees through livelihhood, pschosocial support program, peace building and advcacy.
+            </p>
           </div>
         </section>
 
@@ -142,8 +120,8 @@ const Home: React.FC = () => {
           <div className={styles.programsGrid}>
             <div className={`${styles.programCard} ${styles.featured}`}>
               <div className={styles.programContent}>
-                <h3 className={styles.fontResponsiveH3}>Livelihood </h3>
-                <p className={styles.fontResponsiveP}>we operate mains projets like USLA- Unran saving and loan assocication, which we operate in three brubch,main branch, Umoja Branch, Rongai  and single mothers branch, we also have singles or better tommorrow as project where we expand exsiting business o reugee businsss with 70 reugee and 30 % host communnuty or Kenyan, and we send beneficaries or short coarse to Nairobi Industrial Institute where they leanskill in plumbing, Nail Techology, braiding and weaving. Under livelihhood we also have house to house plastic waste collection and trading project. Refugee brother is an  aggregator under waste management in collaboration with Mr Green Africa. We are piloting our stop centre , where we put together all the activites we have in one place or easy access to the community.   waste recycling, and waste management. Providing access to quality education and learning resources for refugee children.</p>
+                <h3 className={styles.fontResponsiveH3}>Livelihood</h3>
+                <p className={styles.fontResponsiveP}>We operate main projects like USLA- Urban saving and loan association, which we operate in three branches: main branch, Umoja Branch, Rongai and single mothers branch. We also have "Singles for a Better Tomorrow" project where we expand existing refugee businesses with 70% refugees and 30% host community or Kenyans, and we send beneficiaries for short courses to Nairobi Industrial Institute where they learn skills in plumbing, Nail Technology, braiding and weaving. Under livelihood we also have house to house plastic waste collection and trading project. Refugee Brotherhood is an aggregator under waste management in collaboration with Mr Green Africa. We are piloting our stop centre, where we put together all the activities we have in one place for easy access to the community - waste recycling, and waste management. Providing access to quality education and learning resources for refugee children.</p>
                 <ul className={styles.programStats}>
                   <li>
                     <span className={styles.statNumber}>300+</span>
@@ -174,7 +152,7 @@ const Home: React.FC = () => {
             <div className={styles.programCard}>
               <div className={styles.programContent}>
                 <h3 className={styles.fontResponsiveH3}>Psycho Social Support</h3>
-                <p className={styles.fontResponsiveP}>Refugee brotherhood has a emmbed psycho social support program as complementing the other programs, where our main is self reliance , and we beleive for a person to be self reliance their mental being has to be clear from their experience and refugee and vulnerable host community any form of abuse, where we  run six sessions on mental well being in a year, one session in every two months. Here we provide a safe space for the community to express their feelings and emotions, and experience. After the indentication of those with dire problem beyond refugee brotherhood capacity, refferal to NGos within our network for further intervention.</p>
+                <p className={styles.fontResponsiveP}>Refugee Brotherhood has an embedded psycho social support program complementing the other programs, where our main goal is self reliance. We believe for a person to be self-reliant their mental being has to be clear from their experience as refugees and vulnerable host community facing any form of abuse. We run six sessions on mental well being in a year, one session every two months. Here we provide a safe space for the community to express their feelings and emotions, and experiences. After the identification of those with dire problems beyond Refugee Brotherhood's capacity, we refer them to NGOs within our network for further intervention.</p>
                 <Link href="/programs/skills" className={styles.programLink}>
                   Learn More →
                 </Link>
@@ -184,7 +162,7 @@ const Home: React.FC = () => {
             <div className={styles.programCard}>
               <div className={styles.programContent}>
                 <h3 className={styles.fontResponsiveH3}>Peace Building</h3>
-                <p className={styles.fontResponsiveP}>We create awareness on peace building, we have peace clubs in our project areas, and we run peace walks in the community to create awareness on peace building through sports - Soccer, where we have a tournament: Community Social Cohesion and Peace Cup- Starts from 6th April- International Day of Sport for Development and Peace, where we do qourters and 20th June, World Reuge day, we play the semi finals nad subsequently on 21 st Septmeber we conclude with the finals op the community social cohesion an peace cup </p>
+                <p className={styles.fontResponsiveP}>We create awareness on peace building, we have peace clubs in our project areas, and we run peace walks in the community to create awareness on peace building through sports - Soccer, where we have a tournament: Community Social Cohesion and Peace Cup- Starts from 6th April- International Day of Sport for Development and Peace, where we do quarters and 20th June, World Refugee Day, we play the semi finals and subsequently on 21st September we conclude with the finals of the community social cohesion and peace cup.</p>
                 <Link href="/programs/healthcare" className={styles.programLink}> 
                   Learn More →
                 </Link>
@@ -194,7 +172,7 @@ const Home: React.FC = () => {
             <div className={styles.programCard}>
               <div className={styles.programContent}>
                 <h3 className={styles.fontResponsiveH3}>Advocacy</h3>
-                <p className={styles.fontResponsiveP}>We advoacy for policy, laws and prorgams and systems that affects. Our advocacy effort is to advance the self reliance of refugees and vulnerable host community by recommending polices on existing rameworks like Shirika Plan, 2021 Refugee Act and Global Agenda, through running a ten weeks advocacy campaign throough compleing stories, blogs voices of community, and collorating with other other refugee Led Organisation, and  other local host community organisation. We have united a united under one consortium of six refugee led organisation for collective action on Beyond my status , a project we do during the world refugee week. We have been actively enagaged in the drating of Nairobi City County Sport policy where are proud and grateful to be part of the process.  </p>
+                <p className={styles.fontResponsiveP}>We advocate for policy, laws, programs and systems that affect refugees. Our advocacy effort is to advance the self reliance of refugees and vulnerable host community by recommending policies on existing frameworks like Shirika Plan, 2021 Refugee Act and Global Agenda, through running a ten weeks advocacy campaign through compiling stories, blogs, voices of community, and collaborating with other refugee Led Organizations and other local host community organizations. We have united under one consortium of six refugee led organizations for collective action on "Beyond my status", a project we do during the world refugee week. We have been actively engaged in the drafting of Nairobi City County Sport policy where we are proud and grateful to be part of the process.</p>
                 <Link href="/programs/community" className={styles.programLink}>
                   Learn More →
                 </Link>
@@ -323,4 +301,3 @@ const Home: React.FC = () => {
 };
 
 export default Home;
-

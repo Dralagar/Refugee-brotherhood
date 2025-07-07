@@ -2,153 +2,147 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import styles from "../styles/Navbar.module.css";
 import Image from "next/image";
+import styles from "../styles/Navbar.module.css";
 
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const [programsDropdownOpen, setProgramsDropdownOpen] = useState(false);
+
   const pathname = usePathname();
   const router = useRouter();
   const dropdownRef = useRef<HTMLLIElement>(null);
 
-  // Close dropdowns when clicking outside
+  // Close dropdowns on outside click
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setAboutDropdownOpen(false);
         setProgramsDropdownOpen(false);
       }
     };
-
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
-  // Close mobile menu when route changes
+  // Reset on route change
   useEffect(() => {
     setIsOpen(false);
     setAboutDropdownOpen(false);
     setProgramsDropdownOpen(false);
   }, [pathname]);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleMenu = () => setIsOpen(!isOpen);
 
-  const toggleAboutDropdown = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setAboutDropdownOpen(!aboutDropdownOpen);
+  const toggleAboutDropdown = () => {
+    setAboutDropdownOpen((prev) => !prev);
     setProgramsDropdownOpen(false);
   };
 
-  const toggleProgramsDropdown = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setProgramsDropdownOpen(!programsDropdownOpen);
+  const toggleProgramsDropdown = () => {
+    setProgramsDropdownOpen((prev) => !prev);
     setAboutDropdownOpen(false);
   };
 
-  const closeAllDropdowns = () => {
+  const closeAll = () => {
     setAboutDropdownOpen(false);
     setProgramsDropdownOpen(false);
     setIsOpen(false);
   };
 
-  const handleAboutLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, section: string) => {
+  const navigateToSection = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    section: string
+  ) => {
     e.preventDefault();
-    closeAllDropdowns();
-    
-    if (!pathname.startsWith('/about')) {
+    closeAll();
+    if (!pathname.startsWith("/about")) {
       router.push(`/about#${section}`);
     } else {
-      const element = document.getElementById(section);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      const el = document.getElementById(section);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
     }
-  };
-
-  const handleProgramLinkClick = (e: React.MouseEvent, path: string) => {
-    e.preventDefault();
-    closeAllDropdowns();
-    router.push(path);
   };
 
   return (
     <header className={styles.header}>
       <nav className={styles.navbar}>
-        <div className={styles.logo}>
-          <Link href="/" className={styles.logoImage}>
-            <Image
-              src="/images/logo.jpg"
-              alt="Logo"
-              width={100}
-              height={50}
-              priority
-            />
-          </Link>
-        </div>
-        <div
+        <Link href="/" className={styles.logoImage}>
+          <Image
+            src="/images/logo.jpg"
+            alt="Logo"
+            width={100}
+            height={50}
+            priority
+          />
+        </Link>
+
+        <button
           className={`${styles.hamburger} ${isOpen ? styles.hamburgerOpen : ""}`}
           onClick={toggleMenu}
-          aria-label="Toggle menu"
+          aria-label="Toggle navigation menu"
         >
-          <div className={styles.bar}></div>
-          <div className={styles.bar}></div>
-          <div className={styles.bar}></div>
-        </div>
-        <ul
-          className={`${styles.navLinks} ${isOpen ? styles.navActive : ""}`}
-        >
+          <span className={styles.bar}></span>
+          <span className={styles.bar}></span>
+          <span className={styles.bar}></span>
+        </button>
+
+        <ul className={`${styles.navLinks} ${isOpen ? styles.navActive : ""}`}>
           <li className={styles.dropdown} ref={dropdownRef}>
-            <div 
-              className={`${styles.navLink} ${aboutDropdownOpen ? styles.active : ''}`}
+            <button
+              className={styles.navLink}
               onClick={toggleAboutDropdown}
+              aria-expanded={aboutDropdownOpen}
             >
               About
-              <span className={`${styles.dropdownIcon} ${aboutDropdownOpen ? styles.open : ''}`}>
+              <span
+                className={`${styles.dropdownIcon} ${
+                  aboutDropdownOpen ? styles.open : ""
+                }`}
+              >
                 ▼
               </span>
-            </div>
+            </button>
             {aboutDropdownOpen && (
               <ul className={styles.dropdownMenu}>
                 <li>
-                  <a 
-                    href="#mission" 
+                  <a
+                    href="#mission"
                     className={styles.dropdownLink}
-                    onClick={(e) => handleAboutLinkClick(e, 'mission')}
+                    onClick={(e) => navigateToSection(e, "mission")}
                   >
                     Our Mission
                   </a>
                 </li>
                 <li>
-                  <a 
-                    href="#team" 
+                  <a
+                    href="#team"
                     className={styles.dropdownLink}
-                    onClick={(e) => handleAboutLinkClick(e, 'team')}
+                    onClick={(e) => navigateToSection(e, "team")}
                   >
                     Our Team
                   </a>
                 </li>
                 <li>
-                  <a 
-                    href="#impact" 
+                  <a
+                    href="#impact"
                     className={styles.dropdownLink}
-                    onClick={(e) => handleAboutLinkClick(e, 'impact')}
+                    onClick={(e) => navigateToSection(e, "impact")}
                   >
                     Our Impact
                   </a>
                 </li>
                 <li>
-                  <a 
-                    href="#partners" 
+                  <a
+                    href="#partners"
                     className={styles.dropdownLink}
-                    onClick={(e) => handleAboutLinkClick(e, 'partners')}
+                    onClick={(e) => navigateToSection(e, "partners")}
                   >
                     Partners
                   </a>
@@ -158,49 +152,54 @@ const NavBar: React.FC = () => {
           </li>
 
           <li className={styles.dropdown}>
-            <div 
-              className={`${styles.navLink} ${programsDropdownOpen ? styles.active : ''}`}
+            <button
+              className={styles.navLink}
               onClick={toggleProgramsDropdown}
+              aria-expanded={programsDropdownOpen}
             >
               Programs
-              <span className={`${styles.dropdownIcon} ${programsDropdownOpen ? styles.open : ''}`}>
+              <span
+                className={`${styles.dropdownIcon} ${
+                  programsDropdownOpen ? styles.open : ""
+                }`}
+              >
                 ▼
               </span>
-            </div>
+            </button>
             {programsDropdownOpen && (
               <ul className={styles.dropdownMenu}>
                 <li>
-                  <Link 
-                    href="/programs/livelihood" 
+                  <Link
+                    href="/programs/livelihood"
                     className={styles.dropdownLink}
-                    onClick={(e) => handleProgramLinkClick(e, '/programs/livelihood')}
+                    onClick={closeAll}
                   >
-                    Livelihood Program
+                    Livelihood
                   </Link>
                 </li>
                 <li>
-                  <Link 
-                    href="/programs/psychosocial" 
+                  <Link
+                    href="/programs/psychosocial"
                     className={styles.dropdownLink}
-                    onClick={(e) => handleProgramLinkClick(e, '/programs/psychosocial')}
+                    onClick={closeAll}
                   >
-                    Psychosocial Support
+                    Psychosocial
                   </Link>
                 </li>
                 <li>
-                  <Link 
-                    href="/programs/peace" 
+                  <Link
+                    href="/programs/peace"
                     className={styles.dropdownLink}
-                    onClick={(e) => handleProgramLinkClick(e, '/programs/peace')}
+                    onClick={closeAll}
                   >
                     Peace Building
                   </Link>
                 </li>
                 <li>
-                  <Link 
-                    href="/programs/advocacy" 
+                  <Link
+                    href="/programs/advocacy"
                     className={styles.dropdownLink}
-                    onClick={(e) => handleProgramLinkClick(e, '/programs/advocacy')}
+                    onClick={closeAll}
                   >
                     Advocacy
                   </Link>
@@ -210,17 +209,17 @@ const NavBar: React.FC = () => {
           </li>
 
           <li>
-            <Link href="/news" className={styles.navLink}>
+            <Link href="/news" className={styles.navLink} onClick={closeAll}>
               News & Stories
             </Link>
           </li>
           <li>
-            <Link href="/donate" className={styles.navLink}>
+            <Link href="/donate" className={styles.navLink} onClick={closeAll}>
               Donate
             </Link>
           </li>
           <li>
-            <Link href="/contact" className={styles.navLink}>
+            <Link href="/contact" className={styles.navLink} onClick={closeAll}>
               Contact
             </Link>
           </li>
