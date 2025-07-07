@@ -16,6 +16,11 @@ export const programMetadata = {
     title: 'Livelihood Program | Refugee Brotherhood RLO Kenya',
     description: 'Empowering refugees through vocational training, micro-enterprise development, and sustainable income generation. Join our mission to create lasting economic opportunities.',
     keywords: 'refugee livelihood, vocational training, micro-enterprise, income generation, refugee economic empowerment, refugee skills development, refugee business training',
+    openGraph: {
+      type: 'website',
+      siteName: 'Refugee Brotherhood',
+      locale: 'en_US',
+    },
   },
   psychosocial: {
     title: 'Psychosocial Support | Refugee Brotherhood RLO Kenya',
