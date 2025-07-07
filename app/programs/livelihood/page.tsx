@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import styles from '../../styles/Programs.module.css';
-import Navbar from '../../../../app/components/Navbar';
+import Navbar from '../../components/Navbar';
 
 const programData = {
   livelihood: {
@@ -107,7 +107,6 @@ export default function ProgramPage() {
 
   return (
     <>
-      {/* @ts-expect-error Navbar type issue */}
       <Navbar />
       <motion.div
         initial={{ opacity: 0 }}
