@@ -107,6 +107,12 @@
   color: #2c5282;
 }
 
+.dropdownLink.active {
+  background-color: #e0f7fa;
+  color: #007bff;
+  font-weight: bold;
+}
+
 /* Mobile */
 @media (max-width: 768px) {
   .hamburger {

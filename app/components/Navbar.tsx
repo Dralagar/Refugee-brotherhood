@@ -169,36 +169,56 @@ const NavBar: React.FC = () => {
             {programsDropdownOpen && (
               <ul className={styles.dropdownMenu}>
                 <li>
-                  <button
-                    className={styles.dropdownLink}
-                    onClick={() => { closeAll(); router.push('/programs/livelihood'); }}
+                  <Link
+                    href="/programs/livelihood"
+                    className={
+                      pathname.startsWith('/programs/livelihood')
+                        ? `${styles.dropdownLink} ${styles.active}`
+                        : styles.dropdownLink
+                    }
+                    onClick={closeAll}
                   >
                     Livelihood
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button
-                    className={styles.dropdownLink}
-                    onClick={() => { closeAll(); router.push('/programs/psychosocial'); }}
+                  <Link
+                    href="/programs/psychosocial"
+                    className={
+                      pathname.startsWith('/programs/psychosocial')
+                        ? `${styles.dropdownLink} ${styles.active}`
+                        : styles.dropdownLink
+                    }
+                    onClick={closeAll}
                   >
                     Psychosocial
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button
-                    className={styles.dropdownLink}
-                    onClick={() => { closeAll(); router.push('/programs/peace'); }}
+                  <Link
+                    href="/programs/peace"
+                    className={
+                      pathname.startsWith('/programs/peace')
+                        ? `${styles.dropdownLink} ${styles.active}`
+                        : styles.dropdownLink
+                    }
+                    onClick={closeAll}
                   >
                     Peace Building
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button
-                    className={styles.dropdownLink}
-                    onClick={() => { closeAll(); router.push('/programs/advocacy'); }}
+                  <Link
+                    href="/programs/advocacy"
+                    className={
+                      pathname.startsWith('/programs/advocacy')
+                        ? `${styles.dropdownLink} ${styles.active}`
+                        : styles.dropdownLink
+                    }
+                    onClick={closeAll}
                   >
                     Advocacy
-                  </button>
+                  </Link>
                 </li>
               </ul>
             )}
