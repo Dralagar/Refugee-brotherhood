@@ -134,3 +134,43 @@ export default function ProgramsOverviewPage() {
     </motion.main>
   );
 }
+
+export const generateMetadata = () => ({
+  title: "Refugee Brotherhood | Refugee Led Organisation in Nairobi, Embakasi, Patanisho, Kayole",
+  description: "Refugee Brotherhood is a refugee-led organisation empowering communities in Nairobi, Embakasi, Patanisho, and Kayole through livelihood, psychosocial support, peace building, and advocacy programs.",
+  keywords: [
+    "refugee led organisation",
+    "Nairobi",
+    "Embakasi",
+    "Patanisho",
+    "Kayole",
+    "refugee programs",
+    "livelihood",
+    "psychosocial support",
+    "peace building",
+    "advocacy",
+    "Refugee Brotherhood"
+  ].join(", "),
+  openGraph: {
+    title: "Refugee Brotherhood | Refugee Led Organisation in Nairobi, Embakasi, Patanisho, Kayole",
+    description: "Empowering refugees in Nairobi, Embakasi, Patanisho, and Kayole through sustainable programs.",
+    url: "https://www.refugeebrotherhood.org/programs",
+    siteName: "Refugee Brotherhood",
+    images: [
+      {
+        url: "https://www.refugeebrotherhood.org/images/logo.jpg",
+        width: 800,
+        height: 600,
+        alt: "Refugee Brotherhood Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Refugee Brotherhood | Refugee Led Organisation in Nairobi, Embakasi, Patanisho, Kayole",
+    description: "Empowering refugees in Nairobi, Embakasi, Patanisho, and Kayole through sustainable programs.",
+    images: ["https://www.refugeebrotherhood.org/images/logo.jpg"],
+  },
+});
