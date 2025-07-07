@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import CountUp from 'react-countup';
-import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/About.module.css';
 
@@ -267,11 +266,9 @@ export default function About() {
               onClick={() => setActiveStory(story)}
             >
               <div className={styles.storyImage}>
-                <Image
+                <img
                   src={story.image}
                   alt={story.name}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 300px"
                   className={styles.storyImg}
                 />
               </div>
