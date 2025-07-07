@@ -1,4 +1,9 @@
 import type { Metadata } from 'next';
+import React from 'react';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import styles from '../styles/Programs.module.css';
 
 export const baseMetadata: Metadata = {
   title: 'Refugee Programs & Initiatives | Refugee Brotherhood RLO Kenya',

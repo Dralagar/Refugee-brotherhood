@@ -161,12 +161,11 @@ export default function About() {
               transition={{ delay: index * 0.1 }}
             >
               <div className={styles.teamImageWrapper}>
-                <Image
+                <img
                   src={member.image}
                   alt={member.name}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 300px"
                   className={styles.teamImage}
+                  style={{ objectFit: 'cover', width: '100%', height: '100%' }}
                 />
               </div>
               <h3>{member.name}</h3>
@@ -213,7 +212,7 @@ export default function About() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: index * 0.1 }}
             >
-              <Image
+              <img
                 src={partner.logo}
                 alt={partner.name}
                 width={150}
@@ -235,23 +234,23 @@ export default function About() {
         <h2>Join Our Mission</h2>
         <p>Together, we can make a difference in the lives of refugees</p>
         <div className={styles.ctaButtons}>
-          <Link href="/donate">
-            <motion.button
+          <Link href="/donate" passHref legacyBehavior>
+            <motion.a
               className={styles.primaryButton}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               Make a Donation
-            </motion.button>
+            </motion.a>
           </Link>
-          <Link href="/contact">
-            <motion.button
+          <Link href="/contact" passHref legacyBehavior>
+            <motion.a
               className={styles.secondaryButton}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               Contact Us
-            </motion.button>
+            </motion.a>
           </Link>
         </div>
       </motion.div>
