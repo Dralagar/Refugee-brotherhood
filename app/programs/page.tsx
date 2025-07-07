@@ -5,8 +5,6 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import styles from '../styles/Programs.module.css';
-import { useRouter } from 'next/navigation';
-import dynamic from 'next/dynamic';
 
 const programData = {
   livelihood: {
@@ -127,7 +125,7 @@ export default function ProgramsOverviewPage() {
               <h2 className={styles.programCardTitle}>{program.title}</h2>
               <p className={styles.programCardDesc}>{program.description}</p>
               <Link href={`/programs/${program.id}`} className={styles.programCardLink}>
-                Learn More →
+                Learn More
               </Link>
             </div>
           </motion.div>

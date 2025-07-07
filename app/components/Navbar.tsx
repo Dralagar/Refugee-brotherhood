@@ -176,7 +176,7 @@ const NavBar: React.FC = () => {
                         ? `${styles.dropdownLink} ${styles.active}`
                         : styles.dropdownLink
                     }
-                    onClick={closeAll}
+                    onClick={() => setProgramsDropdownOpen(false)}
                   >
                     Livelihood
                   </Link>
@@ -189,7 +189,7 @@ const NavBar: React.FC = () => {
                         ? `${styles.dropdownLink} ${styles.active}`
                         : styles.dropdownLink
                     }
-                    onClick={closeAll}
+                    onClick={() => setProgramsDropdownOpen(false)}
                   >
                     Psychosocial
                   </Link>
@@ -202,7 +202,7 @@ const NavBar: React.FC = () => {
                         ? `${styles.dropdownLink} ${styles.active}`
                         : styles.dropdownLink
                     }
-                    onClick={closeAll}
+                    onClick={() => setProgramsDropdownOpen(false)}
                   >
                     Peace Building
                   </Link>
@@ -215,7 +215,7 @@ const NavBar: React.FC = () => {
                         ? `${styles.dropdownLink} ${styles.active}`
                         : styles.dropdownLink
                     }
-                    onClick={closeAll}
+                    onClick={() => setProgramsDropdownOpen(false)}
                   >
                     Advocacy
                   </Link>

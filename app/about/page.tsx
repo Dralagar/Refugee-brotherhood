@@ -7,7 +7,6 @@ import Link from 'next/link';
 import { useInView } from 'react-intersection-observer';
 import CountUp from 'react-countup';
 import styles from '../styles/About.module.css'; // Adjust the path as needed
-import dynamic from 'next/dynamic';
 
 // Define the type for a success story
 type SuccessStory = {
