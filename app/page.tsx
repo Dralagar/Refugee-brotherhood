@@ -54,9 +54,9 @@ const Home: React.FC = () => {
       { id: "5", name: "Kenya Association of Waste Recyclers", logo: "/images/KAWR.jpg" },
       { id: "6", name: "Positive Young Women Voices", logo: "/images/Positivewomen.jpg" },
       { id: "7", name: "Youth Voices Community", logo: "/images/YVC.png" },
-      { id: "8", name: "Pamoja Trust", logo: "/images/Pamojatrust.ipg" },
+      { id: "8", name: "Pamoja Trust", logo: "/images/Pamojatrust.png" },
       { id: "9", name: "Umoja Refugees", logo: "/images/Umoja.png" },
-      { id: "10", name: "Danish Refugee Council", logo: "/images/Namati.jpg" },
+      { id: "10", name: "Danish Refugee Council", logo: "/images/DRC.jpg" },
       { id: "11", name: "Family Bridges of Hope", logo: "/images/Namati.jpg" },
     ];
 
@@ -72,7 +72,7 @@ const Home: React.FC = () => {
             <div className={styles.heroBackground}></div>
             <div className={styles.heroContent}>
               <h1 className={styles.fontResponsiveH1}>Empowering Refugees, Strengthening Communities</h1>
-              <p className={styles.fontResponsiveP}>
+              <p className={styles.heroSubtitle}>
                 Refugee Brotherhood is a community-based, refugee-led organization dedicated to supporting displaced individuals and vulnerable host communities. Through innovative programs and strong partnerships with leading NGOs, we foster resilience, promote self-reliance, and create opportunities for all.
               </p>
               <div className={styles.heroButtons}>
@@ -136,8 +136,8 @@ const Home: React.FC = () => {
                 </div>
                 <div className={styles.programImage}>
                   <Image
-                    src="/images/education.jpg"
-                    alt="Education Program"
+                    src="/images/br13.jpg"
+                    alt="Livelihood Program"
                     width={600}
                     height={400}
                     layout="responsive"
