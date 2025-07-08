@@ -233,23 +233,11 @@ export default function About() {
         <h2>Join Our Mission</h2>
         <p>Together, we can make a difference in the lives of refugees</p>
         <div className={styles.ctaButtons}>
-          <Link href="/donate" passHref legacyBehavior>
-            <motion.a
-              className={styles.primaryButton}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Make a Donation
-            </motion.a>
+          <Link href="/donate" className={styles.primaryButton}>
+            Make a Donation
           </Link>
-          <Link href="/contact" passHref legacyBehavior>
-            <motion.a
-              className={styles.secondaryButton}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Contact Us
-            </motion.a>
+          <Link href="/contact" className={styles.secondaryButton}>
+            Contact Us
           </Link>
         </div>
       </motion.div>

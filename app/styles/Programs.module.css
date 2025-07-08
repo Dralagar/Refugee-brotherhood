@@ -473,3 +473,30 @@
 .programCard:nth-child(2) { animation-delay: 0.2s; }
 .programCard:nth-child(3) { animation-delay: 0.3s; }
 .programCard:nth-child(4) { animation-delay: 0.4s; }
+
+.livelihood {
+  border-top: 4px solid var(--color-main, #3674B5);
+}
+.psychosocial {
+  border-top: 4px solid var(--color-secondary, #578FCA);
+}
+.peace {
+  border-top: 4px solid var(--color-light, #A1E3F9);
+}
+.advocacy {
+  border-top: 4px solid var(--color-footer, #D1F8EF);
+}
+
+/* Optional: Add a subtle background or accent for each */
+.livelihood .programCardContent {
+  background: rgba(54, 116, 181, 0.04);
+}
+.psychosocial .programCardContent {
+  background: rgba(87, 143, 202, 0.04);
+}
+.peace .programCardContent {
+  background: rgba(161, 227, 249, 0.04);
+}
+.advocacy .programCardContent {
+  background: rgba(209, 248, 239, 0.04);
+}

@@ -1,134 +1,75 @@
-'use client';
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import styles from '../../styles/Advocacy.module.css';
 
-export default function Advocacy() {
+export default function AdvocacyProgramPage() {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className={styles.programDetailContainer}
-    >
-      <motion.div 
-        className={styles.heroSection}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
+    <main className={styles.programDetailContainer}>
+      <motion.section className={styles.heroSection} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
         <div className={styles.heroImage}>
           <Image
-            src="/images/advocacy.jpg"
-            alt="Advocacy"
-            fill
-            style={{ objectFit: 'cover' }}
+            src="/images/Advocate.jpg"
+            alt="Advocacy Program"
+            width={800}
+            height={400}
+            style={{ objectFit: 'cover', borderRadius: '12px' }}
             priority
           />
         </div>
-        <div className={styles.heroContent}>
+        <motion.div className={styles.heroContent} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
           <h1>Advocacy</h1>
-          <p>Advancing refugee rights and self-reliance through policy advocacy and community engagement</p>
-        </div>
-      </motion.div>
-
-      <div className={styles.contentWrapper}>
-        <motion.section 
-          className={styles.section}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-        >
-          <h2>Program Overview</h2>
           <p>
-            Our Advocacy program works to advance refugee rights and promote self-reliance through
-            policy advocacy, community engagement, and strategic partnerships. We collaborate with
-            Refugee-Led Organizations (RLOs) and engage with local government to create lasting change.
+            Our Advocacy program advances refugee rights and self-reliance through policy change, community storytelling, and collaboration with other organizations.
+          </p>
+        </motion.div>
+      </motion.section>
+      <div className={styles.contentWrapper}>
+        <motion.section className={styles.section} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+          <h2>Our Advocacy Work</h2>
+          <p>
+            We run campaigns, share community voices, and work with a consortium of refugee-led organizations to influence policy and create lasting change for refugees and host communities.
           </p>
         </motion.section>
-
-        <motion.section 
-          className={styles.section}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-        >
-          <h2>Key Features</h2>
+        <motion.section className={styles.section} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
+          <h2>Program Features</h2>
           <div className={styles.featuresGrid}>
-            <div className={styles.featureCard}>
-              <h3>Policy Advocacy</h3>
-              <p>Campaigns for refugee rights and inclusive policies</p>
-            </div>
-            <div className={styles.featureCard}>
-              <h3>Community Storytelling</h3>
-              <p>Amplifying refugee voices and experiences</p>
-            </div>
-            <div className={styles.featureCard}>
-              <h3>Consortium Leadership</h3>
-              <p>Coordinating with 6 Refugee-Led Organizations</p>
-            </div>
-            <div className={styles.featureCard}>
-              <h3>City Engagement</h3>
-              <p>Working with Nairobi City County on refugee issues</p>
-            </div>
+            <motion.div className={styles.featureCard} whileHover={{ scale: 1.05 }}>
+              <strong>Policy Advocacy</strong>
+              <p>Championing refugee rights at local and international levels.</p>
+            </motion.div>
+            <motion.div className={styles.featureCard} whileHover={{ scale: 1.05 }}>
+              <strong>Rights Awareness</strong>
+              <p>Educating communities about legal rights and resources.</p>
+            </motion.div>
+            <motion.div className={styles.featureCard} whileHover={{ scale: 1.05 }}>
+              <strong>Legal Support</strong>
+              <p>Providing access to legal aid and representation.</p>
+            </motion.div>
+            <motion.div className={styles.featureCard} whileHover={{ scale: 1.05 }}>
+              <strong>Community Mobilization</strong>
+              <p>Empowering refugees to lead and participate in advocacy efforts.</p>
+            </motion.div>
           </div>
         </motion.section>
-
-        <motion.section 
-          className={styles.section}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-        >
-          <h2>Impact Statistics</h2>
+        <motion.section className={styles.section} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.4 }}>
+          <h2>Program Stats</h2>
           <div className={styles.statsGrid}>
             <div className={styles.stat}>
-              <span className={styles.statValue}>10+</span>
-              <span className={styles.statLabel}>Campaign Weeks</span>
+              <span className={styles.statValue}>1000+</span>
+              <span className={styles.statLabel}>Beneficiaries</span>
             </div>
             <div className={styles.stat}>
-              <span className={styles.statValue}>6</span>
-              <span className={styles.statLabel}>RLO Partners</span>
+              <span className={styles.statValue}>75%</span>
+              <span className={styles.statLabel}>Success Rate</span>
             </div>
             <div className={styles.stat}>
-              <span className={styles.statValue}>2+</span>
-              <span className={styles.statLabel}>Policy Changes</span>
+              <span className={styles.statValue}>5+</span>
+              <span className={styles.statLabel}>Partnerships</span>
             </div>
-          </div>
-        </motion.section>
-
-        <motion.section 
-          className={styles.ctaSection}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-        >
-          <h2>Get Involved</h2>
-          <p>Join us in advocating for refugee rights and self-reliance</p>
-          <div className={styles.ctaButtons}>
-            <Link href="/volunteer">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className={styles.primaryButton}
-              >
-                Volunteer
-              </motion.button>
-            </Link>
-            <Link href="/donate">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className={styles.secondaryButton}
-              >
-                Donate
-              </motion.button>
-            </Link>
           </div>
         </motion.section>
       </div>
-    </motion.div>
+    </main>
   );
-}
+} 

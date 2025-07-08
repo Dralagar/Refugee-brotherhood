@@ -1,17 +1,17 @@
 /* General Container */
 .partnersContainer {
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: var(--color-light, #A1E3F9);
     max-width: 1200px;
     margin: 0 auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(54, 116, 181, 0.08);
+    border-radius: 12px;
     overflow: hidden;
   }
   
   /* Hero Section */
   .heroSection {
-    background: linear-gradient(to right, #1a1548, #7f70d7);
+    background: linear-gradient(90deg, var(--color-main, #3674B5) 0%, var(--color-secondary, #578FCA) 100%);
     color: #fff;
     padding: 6rem 2rem;
     text-align: center;
@@ -21,6 +21,7 @@
     font-size: 3rem;
     margin-bottom: 1rem;
     font-weight: 700;
+    color: var(--color-footer, #D1F8EF);
   }
   
   .heroSubtitle {
@@ -28,6 +29,7 @@
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.6;
+    color: #fff;
   }
   
   /* Partners Grid */
@@ -39,19 +41,21 @@
   }
   
   .partnerCard {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: var(--white-color, #fff);
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(54, 116, 181, 0.08);
     padding: 1.5rem;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
-    color: inherit;
+    color: var(--color-main, #3674B5);
+    border: 1px solid var(--color-light, #A1E3F9);
   }
   
   .partnerCard:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 16px var(--color-secondary, #578FCA, 0.15);
+    background: var(--color-footer, #D1F8EF);
   }
   
   .partnerLogoContainer {
@@ -61,7 +65,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f0f0f0;
+    background-color: var(--color-footer, #D1F8EF);
     border-radius: 50%;
     overflow: hidden;
   }
@@ -76,18 +80,18 @@
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: #333;
+    color: var(--color-main, #3674B5);
   }
   
   .partnerDescription {
     font-size: 0.9rem;
-    color: #555;
+    color: var(--color-secondary, #578FCA);
     line-height: 1.4;
   }
   
   /* Call to Action Section */
   .ctaSection {
-    background: linear-gradient(to right, #1a1548, #7f70d7);
+    background: linear-gradient(90deg, var(--color-main, #3674B5) 0%, var(--color-secondary, #578FCA) 100%);
     color: #fff;
     padding: 4rem 2rem;
     text-align: center;
@@ -97,6 +101,7 @@
     font-size: 2rem;
     margin-bottom: 1rem;
     font-weight: 700;
+    color: var(--color-footer, #D1F8EF);
   }
   
   .ctaText {
@@ -104,22 +109,24 @@
     max-width: 800px;
     margin: 0 auto 2rem;
     line-height: 1.6;
+    color: #fff;
   }
   
   .ctaButton {
     padding: 1rem 2rem;
     font-size: 1rem;
     font-weight: 600;
-    color: #1a1548;
-    background-color: #fff;
+    color: var(--color-main, #3674B5);
+    background-color: var(--color-footer, #D1F8EF);
     border-radius: 30px;
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease;
+    border: none;
   }
   
   .ctaButton:hover {
-    background-color: #f0f0f0;
-    color: #1a1548;
+    background-color: var(--color-main, #3674B5);
+    color: #fff;
   }
   
   /* Responsive Design */

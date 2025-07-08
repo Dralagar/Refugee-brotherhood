@@ -3,8 +3,7 @@
   position: relative;
   padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 3vw, 2rem);
   min-height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url('/images/rb12.jpg');
+  background-image: linear-gradient(rgba(54, 116, 181, 0.7), rgba(161, 227, 249, 0.7)), url('/images/rb12.jpg');
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -15,9 +14,9 @@
   width: min(100%, 1200px);
   margin: 0 auto;
   padding: 0 clamp(1rem, 3vw, 2rem);
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(54, 116, 181, 0.10);
 }
 
 /* Hero Section */
@@ -32,7 +31,7 @@
   font-size: clamp(2rem, 6vw, 4rem);
   margin-bottom: clamp(1rem, 3vw, 1.5rem);
   font-weight: 800;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 4px rgba(54, 116, 181, 0.3);
 }
 
 .contactHero p {
@@ -45,9 +44,9 @@
 
 /* Main Contact Form Section */
 .innerContainer {
-  background-color: rgba(255, 255, 255, 0.95);
-  border-radius: clamp(10px, 2vw, 20px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.98);
+  border-radius: clamp(12px, 2vw, 20px);
+  box-shadow: 0 10px 30px rgba(54, 116, 181, 0.10);
   overflow: hidden;
   margin-bottom: clamp(2rem, 4vw, 3rem);
   backdrop-filter: blur(10px);
@@ -61,7 +60,7 @@
 /* Form Column */
 .formColumn {
   padding: clamp(1.5rem, 4vw, 3rem);
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(255, 255, 255, 0.98);
   display: flex;
   flex-direction: column;
   gap: clamp(1rem, 2vw, 1.5rem);
@@ -85,7 +84,7 @@
 .formGroup textarea {
   width: 100%;
   padding: clamp(0.8rem, 2vw, 1rem);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--color-light, #A1E3F9);
   border-radius: 8px;
   font-size: clamp(0.9rem, 2vw, 1rem);
   transition: all 0.3s ease;
@@ -99,37 +98,38 @@
 
 .formGroup input:focus,
 .formGroup textarea:focus {
-  border-color: #00b8ca;
+  border-color: var(--color-main, #3674B5);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 184, 202, 0.1);
+  box-shadow: 0 0 0 3px rgba(54, 116, 181, 0.10);
 }
 
 .themeBtn {
   padding: clamp(0.8rem, 2vw, 1rem);
-  background-color: #00b8ca;
+  background-color: var(--color-main, #3674B5);
   color: #ffffff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
   align-self: flex-start;
+  font-weight: 600;
 }
 
 .themeBtn:hover {
-  background-color: #008b9b;
+  background-color: var(--color-secondary, #578FCA);
   transform: translateY(-2px);
 }
 
 /* Info Column */
 .infoColumn {
   padding: clamp(1.5rem, 4vw, 3rem);
-  background: linear-gradient(135deg, rgba(0, 184, 202, 0.1), rgba(0, 155, 176, 0.1));
+  background: linear-gradient(135deg, var(--color-footer, #D1F8EF) 0%, var(--color-light, #A1E3F9) 100%);
 }
 
 .infoColumn h2 {
   font-size: clamp(1.5rem, 4vw, 2rem);
   margin-bottom: clamp(1rem, 3vw, 1.5rem);
-  color: #333333;
+  color: var(--color-main, #3674B5);
 }
 
 .contactInfo {
@@ -145,7 +145,7 @@
 
 .icon {
   font-size: clamp(1.2rem, 3vw, 1.5rem);
-  color: #00b8ca;
+  color: var(--color-main, #3674B5);
   flex-shrink: 0;
 }
 
@@ -172,20 +172,20 @@
   gap: 0.5rem;
   padding: clamp(0.8rem, 2vw, 1rem);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
+  background: var(--color-main, #3674B5);
+  color: #fff;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .emergencyButton:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: var(--color-secondary, #578FCA);
   transform: translateY(-2px);
 }
 
 /* Newsletter Section */
 .newsletterSection {
-  background: linear-gradient(135deg, rgba(0, 184, 202, 0.1), rgba(0, 155, 176, 0.1));
+  background: linear-gradient(135deg, var(--color-footer, #D1F8EF) 0%, var(--color-light, #A1E3F9) 100%);
   padding: clamp(1.5rem, 4vw, 2rem);
   border-radius: clamp(10px, 2vw, 15px);
 }
@@ -198,18 +198,18 @@
 }
 
 .submitButton {
-  padding: clamp(0.8rem, 2vw, 1rem);
-  background: #00b8ca;
-  color: white;
-  border: none;
+  background-color: var(--color-main, #3674B5);
+  color: #fff;
   border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  border: none;
+  padding: clamp(0.8rem, 2vw, 1rem);
+  font-weight: 600;
+  transition: background 0.3s, color 0.3s;
 }
 
 .submitButton:hover {
-  background: #008b9b;
-  transform: translateY(-2px);
+  background-color: var(--color-secondary, #578FCA);
+  color: #fff;
 }
 
 /* Tablet Breakpoint */

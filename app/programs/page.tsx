@@ -103,7 +103,7 @@ export default function ProgramsOverviewPage() {
         {Object.values(programData).map((program) => (
           <motion.div
             key={program.id}
-            className={styles.programCard}
+            className={`${styles.programCard} ${styles[program.id] || ''}`}
             whileHover={{ scale: 1.03, boxShadow: '0 4px 24px rgba(51,132,208,0.12)' }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

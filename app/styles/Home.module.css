@@ -26,8 +26,8 @@
   justify-content: center;
   text-align: center;
   background: linear-gradient(
-      rgba(74, 141, 218, 0.6),
-      rgba(84, 122, 184, 0.6)
+      rgba(54, 116, 181, 0.6),
+      rgba(161, 227, 249, 0.6)
     ), 
     url('/images/rb12.jpg') center/cover no-repeat;
   background-attachment: fixed;
@@ -42,7 +42,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(54, 116, 181, 0.4);
   z-index: 0;
 }
 
@@ -50,11 +50,14 @@
   position: relative;
   width: min(90%, 800px);
   padding: clamp(2rem, 5vw, 3.5rem);
-  background: rgba(63, 112, 157, 0.25);
+  background: rgba(54, 116, 181, 0.18);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--color-light, #A1E3F9);
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 8px 30px rgba(54, 116, 181, 0.15), 
+              0 4px 12px rgba(54, 116, 181, 0.1);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
   z-index: 1;
   margin: 0 auto;
@@ -68,8 +71,8 @@
   font-size: clamp(2.2rem, 7vw, 4.5rem);
   line-height: 1.15;
   margin-bottom: clamp(1rem, 3vw, 2rem);
-  color: #ffffff;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  color: var(--color-main, #3674B5);
+  text-shadow: 2px 2px 8px var(--color-light, #A1E3F9, 0.5);
   font-weight: 800;
   letter-spacing: 0.5px;
   font-family: 'Montserrat', sans-serif;
@@ -79,8 +82,8 @@
   font-size: clamp(1.1rem, 2.8vw, 1.6rem);
   line-height: 1.7;
   margin: clamp(1rem, 3vw, 1.8rem) 0;
-  color: rgba(255, 255, 255, 0.95);
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  color: var(--color-secondary, #578FCA);
+  text-shadow: 1px 1px 3px var(--color-light, #A1E3F9, 0.3);
   max-width: 90%;
   font-family: 'Poppins', sans-serif;
 }
@@ -111,15 +114,15 @@
 }
 
 .learnMore {
-  background: #ffffff;
-  color: #2b95ce;
-  border: 2px solid #ffffff;
+  background: var(--color-footer, #D1F8EF);
+  color: var(--color-main, #3674B5);
+  border: 2px solid var(--color-footer, #D1F8EF);
 }
 
 .contactButton {
-  background: #2b95ce;
-  color: #ffffff;
-  border: 2px solid #2b95ce;
+  background: var(--color-main, #3674B5);
+  color: #fff;
+  border: 2px solid var(--color-main, #3674B5);
 }
 
 .learnMore:hover,
@@ -134,32 +137,33 @@
 }
 
 .learnMore:hover {
-  background: transparent;
-  color: #ffffff;
+  background: var(--color-main, #3674B5);
+  color: #fff;
+  border-color: var(--color-main, #3674B5);
 }
 
 .contactButton:hover {
-  background: transparent;
-  color: #ffffff;
-  border-color: #ffffff;
+  background: var(--color-footer, #D1F8EF);
+  color: var(--color-main, #3674B5);
+  border-color: var(--color-footer, #D1F8EF);
 }
 
 /* About Section */
 .aboutSection {
   padding: 4rem 1rem;
-  background-color: var(--white-color);
+  background-color: var(--color-footer, #D1F8EF);
   text-align: center;
 }
 
 .aboutSection h2 {
   font-size: clamp(2.5rem, 5vw, 3.5rem);
-  color: var(--primary-color);
+  color: var(--color-main, #3674B5);
   margin-bottom: 20px;
 }
 
 .aboutSection p {
   font-size: clamp(1.2rem, 3vw, 1.5rem);
-  color: var(--text-color);
+  color: var(--color-secondary, #578FCA);
   line-height: 1.6;
   max-width: 800px;
   margin: 0 auto;
@@ -173,8 +177,8 @@
   justify-content: space-between;
   margin: 4rem 0;
   padding: 2rem;
-  background-color: var(--background-color);
-  border-radius: var(--border-radius);
+  background-color: var(--color-light, #A1E3F9);
+  border-radius: var(--border-radius, 12px);
 }
 
 .videoContainer {
@@ -194,14 +198,14 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
-  background-color: var(--white-color);
-  border-radius: var(--border-radius);
+  background-color: var(--color-footer, #D1F8EF);
+  border-radius: var(--border-radius, 12px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .descriptionContainer h2 {
   font-size: clamp(1.8rem, 3vw, 2.5rem);
-  color: var(--primary-color);
+  color: var(--color-main, #3674B5);
   margin-bottom: 1.5rem;
   text-align: center;
 }
@@ -209,7 +213,7 @@
 .descriptionContainer p {
   font-size: clamp(1rem, 2vw, 1.2rem);
   line-height: 1.8;
-  color: var(--text-color);
+  color: var(--color-secondary, #578FCA);
   margin-bottom: 1.5rem;
   text-align: justify;
   padding: 0 1rem;
@@ -218,7 +222,7 @@
 /* Programs Section */
 .programsSection {
   padding: 6rem 2rem;
-  background: linear-gradient(to bottom, var(--background-color), var(--white-color));
+  background: linear-gradient(to bottom, var(--color-light, #A1E3F9), var(--color-footer, #D1F8EF));
   position: relative;
   overflow: hidden;
 }
@@ -230,13 +234,13 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+  background: linear-gradient(90deg, transparent, var(--color-main, #3674B5), transparent);
 }
 
 .sectionTitle {
   text-align: center;
   font-size: clamp(2rem, 5vw, 3rem);
-  color: var(--text-color);
+  color: var(--color-main, #3674B5);
   margin-bottom: 3rem;
   position: relative;
   font-weight: 800;
@@ -250,7 +254,7 @@
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(90deg, var(--color-main, #3674B5), var(--color-secondary, #578FCA));
   border-radius: 2px;
 }
 
@@ -264,7 +268,7 @@
 }
 
 .programCard {
-  background: var(--white-color);
+  background: var(--color-footer, #D1F8EF);
   border-radius: var(--border-radius);
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -272,7 +276,7 @@
   position: relative;
   min-height: 300px;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1.5px solid var(--color-light, #A1E3F9);
   margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
@@ -281,6 +285,8 @@
 .programCard:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  background: var(--color-light, #A1E3F9);
+  border-color: var(--color-main, #3674B5);
 }
 
 .programCard.featured {
@@ -288,6 +294,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   min-height: 300px;
+  background: var(--color-main, #3674B5);
+  color: #fff;
 }
 
 .programContent {
@@ -302,7 +310,7 @@
 
 .fontResponsiveH3 {
   font-size: clamp(1.4rem, 3vw, 2rem);
-  color: var(--text-color);
+  color: var(--color-main, #3674B5);
   margin-bottom: 1rem;
   font-weight: 700;
   position: relative;
@@ -316,12 +324,12 @@
   left: 0;
   width: 40px;
   height: 3px;
-  background: var(--primary-color);
+  background: var(--color-main, #3674B5);
   border-radius: 2px;
 }
 
 .programCard p {
-  color: var(--text-light);
+  color: var(--color-secondary, #578FCA);
   line-height: 1.6;
   margin-bottom: 2rem;
   font-size: clamp(1rem, 1.5vw, 1.1rem);
@@ -339,21 +347,21 @@
   display: block;
   font-size: clamp(1.6rem, 4vw, 2.5rem);
   font-weight: 800;
-  color: var(--primary-color);
+  color: var(--color-secondary, #578FCA);
   line-height: 1.2;
   margin-bottom: 0.5rem;
 }
 
 .statLabel {
   font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-  color: var(--text-light);
+  color: var(--color-secondary, #578FCA);
   font-weight: 500;
 }
 
 .programLink {
   display: inline-flex;
   align-items: center;
-  color: var(--primary-color);
+  color: var(--color-main, #3674B5);
   text-decoration: none;
   font-weight: 600;
   padding: 0.75rem 0;
@@ -366,7 +374,7 @@
 
 .programLink:hover {
   transform: translateX(10px);
-  color: var(--secondary-color);
+  color: var(--color-secondary, #578FCA);
 }
 
 .programImage {
@@ -392,7 +400,7 @@
 /* Team Section */
 .teamSection {
   padding: 4rem 2rem;
-  background: var(--background-color);
+  background: var(--color-light, #A1E3F9);
 }
 
 .teamGrid {
@@ -405,16 +413,19 @@
 
 .teamCard {
   text-align: center;
-  background: var(--white-color);
+  background: var(--color-footer, #D1F8EF);
   padding: 1.5rem;
   border-radius: var(--border-radius);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform var(--transition-duration) ease;
   min-height: 300px;
+  border: 1.5px solid var(--color-light, #A1E3F9);
 }
 
 .teamCard:hover {
   transform: translateY(-5px);
+  background: var(--color-main, #3674B5);
+  color: #fff;
 }
 
 .teamImageWrapper {
@@ -439,83 +450,87 @@
 /* Partners Section */
 .partnersSection {
   padding: 4rem 2rem;
-  background: var(--white-color);
+  background: var(--color-footer, #D1F8EF);
 }
 
 .partnersWrapper {
-  position: relative;
   max-width: 100%;
   margin: 0 auto;
   padding: 0 1rem;
 }
 
 .partnersTrack {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  scroll-behavior: smooth;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 2rem;
+  justify-items: center;
+  align-items: center;
   padding: 1rem 0;
 }
 
 .partnerCard {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin: 0.5rem;
-  padding: 1rem;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem 1rem;
+  background-color: var(--color-light, #A1E3F9);
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(54, 116, 181, 0.08);
+  border: 1.5px solid var(--color-main, #3674B5);
+  min-width: 120px;
+  min-height: 100px;
+  max-width: 180px;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+
+.partnerCard:hover {
+  background: var(--color-main, #3674B5);
+  color: #fff;
+  box-shadow: 0 4px 16px var(--color-secondary, #578FCA, 0.15);
 }
 
 .partnerLogo {
-  max-width: 100%;
+  max-width: 100px;
   height: auto;
+  margin-bottom: 0.5rem;
 }
 
-.scrollButton {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--white-color);
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  z-index: 1;
-  transition: background-color var(--transition-duration);
+@media (max-width: 1024px) {
+  .partnersTrack {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-.scrollButton:hover {
-  background-color: var(--primary-color);
-  color: var(--white-color);
+@media (max-width: 700px) {
+  .partnersTrack {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.scrollLeft {
-  left: 0;
-}
-
-.scrollRight {
-  right: 0;
+@media (max-width: 480px) {
+  .partnersTrack {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Contact Section */
 .contactSection {
-  background-color: #f0f8ff;
+  background-color: var(--color-light, #A1E3F9);
   padding: var(--space-md);
   text-align: center;
 }
 
 .contactSection h2 {
-  color: #333333;
+  color: var(--color-main, #3674B5);
   font-size: var(--fs-lg);
   margin-bottom: var(--space-sm);
 }
 
 .contactSection p {
-  color: #333333;
+  color: var(--color-secondary, #578FCA);
   font-size: var(--fs-base);
   margin-bottom: var(--space-md);
 }
@@ -746,7 +761,7 @@
 .metricNumber,
 .otherCardNumber {
   font-size: 1.6rem;
-  color: #2b95ce;
+  color: var(--color-secondary, #578FCA);
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
@@ -754,14 +769,14 @@
 .metricLabel,
 .otherCardLabel {
   font-size: 1rem;
-  color: #555555;
+  color: var(--color-secondary, #578FCA);
   margin: 0;
 }
 
 .learnMore,
 .otherCardLink {
   font-size: 0.9rem;
-  color: #2b95ce;
+  color: var(--color-main, #3674B5);
   text-decoration: none;
   margin-top: auto;
   transition: color 0.3s ease;
@@ -769,7 +784,7 @@
 
 .learnMore:hover,
 .otherCardLink:hover {
-  color: #1a73e8;
+  color: var(--color-secondary, #578FCA);
 }
 
 /* Responsive Adjustments */

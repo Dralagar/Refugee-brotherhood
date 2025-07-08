@@ -66,21 +66,21 @@ const Partners: React.FC = () => {
     {
       id: 8,
       name: "Pamoja Trust",
-      logo: "/images/NCC.jpg",
+      logo: "/images/Pamojatrust.png",
       description: "Community development and advocacy.",
-      website: "#",
+      website: "https://pamojatrust.org",
     },
     {
       id: 9,
       name: "Umoja Refugees",
-      logo: "/images/Umoja.jpg",
+      logo: "/images/Umoja.png",
       description: "Supporting refugee integration and empowerment.",
-      website: "#",
+      website: "https://www.umojarefugeecreatives.org",
     },
     {
       id: 10,
       name: "Danish Refugee Council",
-      logo: "/images/Namati.jpg",
+      logo: "/images/DRC.jpg",
       description: "Humanitarian support for refugees.",
       website: "https://drc.ngo",
     },
@@ -90,6 +90,13 @@ const Partners: React.FC = () => {
       logo: "/images/Namati.jpg",
       description: "Building hope for vulnerable families.",
       website: "#",
+    },
+    {
+      id: 12,
+      name: "Youth Voices Community",
+      logo: "/images/YVC.png",
+      description: "Humaniterian development , refugee led organisation advacing social economic inclusion and self reliance of refugees througg advocacy, education and empowerment.",
+      website: "https://youthvoicescommunity.org",
     },
   ];
 

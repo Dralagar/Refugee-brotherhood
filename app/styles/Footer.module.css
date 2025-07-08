@@ -1,6 +1,6 @@
 .footer {
-    background-color: #153448;
-    color: #DFD0B8;
+    background-color: #D1F8EF;
+    color: #3674B5;
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -46,9 +46,9 @@
     display: inline-block;
     width: 2.5rem;
     height: 2.5rem;
-    border: 2px solid #DFD0B8;
+    border: 2px solid #3674B5;
     border-radius: 50%;
-    color: #DFD0B8;
+    color: #3674B5;
     text-align: center;
     line-height: 2.5rem;
     font-size: 1.2rem;
@@ -56,21 +56,21 @@
   }
   
   .icon:hover {
-    background-color: #DFD0B8;
-    color: #153448;
+    background-color: #3674B5;
+    color: #D1F8EF;
   }
   
   .emailInput {
     padding: 0.5rem;
-    border: 1px solid #DFD0B8;
+    border: 1px solid #3674B5;
     border-radius: 5px 0 0 5px;
     max-width: 200px;
   }
   
   .subscribeButton {
     padding: 0.5rem 1rem;
-    background-color: #DFD0B8;
-    color: #153448;
+    background-color: #3674B5;
+    color: #D1F8EF;
     border: none;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
@@ -78,7 +78,8 @@
   }
   
   .subscribeButton:hover {
-    background-color: #948979;
+    background-color: #578FCA;
+    color: #fff;
   }
   
   .column {
@@ -101,13 +102,13 @@
   }
   
   .column li a {
-    color: #DFD0B8;
+    color: #3674B5;
     text-decoration: none;
     transition: color 0.3s;
   }
   
   .column li a:hover {
-    color: #948979;
+    color: #578FCA;
   }
   
   .copyright {
@@ -125,4 +126,48 @@
     font-weight: bold;
     color: #0070f3; /* Example color for active link */
     text-decoration: underline;
+  }
+  
+  .contactDetails {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .contactItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: var(--color-main, #3674B5);
+  }
+  
+  .contactLink {
+    color: var(--color-main, #3674B5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  
+  .contactLink:hover {
+    color: var(--color-secondary, #578FCA);
+    text-decoration: underline;
+  }
+  
+  .newsletterBox {
+    margin-top: 2rem;
+    background: var(--color-footer, #D1F8EF);
+    padding: 1.25rem 1rem 1rem 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(54, 116, 181, 0.06);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .privacyNote {
+    font-size: 0.85rem;
+    color: var(--color-secondary, #578FCA);
+    margin-top: 0.5rem;
   }
