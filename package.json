@@ -28,11 +28,8 @@
     "react-email": "^3.0.4",
     "react-icons": "^5.5.0",
     "react-intersection-observer": "^9.16.0",
-    "react-is": "^19.0.0",
     "react-router-dom": "^7.0.2",
-    "react-spring": "^9.7.5",
     "react-toastify": "^10.0.6",
-    "sanity": "^3.72.1",
     "stripe": "^17.4.0",
     "styled-components": "^6.1.14"
   },
