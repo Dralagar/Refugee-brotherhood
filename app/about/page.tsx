@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import CountUp from 'react-countup';
 import Link from 'next/link';
@@ -100,24 +99,15 @@ export default function About() {
   ];
 
   return (
-    <motion.div 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className={styles.aboutContainer}
-    >
+    <div className={styles.aboutContainer + ' fadeIn'}>
       {/* Hero Section */}
-      <motion.div 
-        className={styles.heroSection}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
+      <div className={styles.heroSection + ' fadeInUp'}>
         <h1>Creating Lasting Change</h1>
         <p>Empowering refugees through sustainable solutions and community support</p>
-      </motion.div>
+      </div>
 
       {/* Mission Section */}
-      <section className={styles.missionSection}>
+      <section id="mission" className={styles.missionSection}>
         <h2>Our Mission</h2>
         <div className={styles.missionContent}>
           <p>
@@ -152,12 +142,10 @@ export default function About() {
         <h2>Our Team</h2>
         <div className={styles.teamGrid}>
           {teamMembers.map((member, index) => (
-            <motion.div
+            <div
               key={index}
-              className={styles.teamCard}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              className={styles.teamCard + ' fadeInUp'}
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className={styles.teamImageWrapper}>
                 <img
@@ -170,7 +158,7 @@ export default function About() {
               <h3>{member.name}</h3>
               <p className={styles.position}>{member.position}</p>
               <p className={styles.bio}>{member.bio}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
@@ -180,12 +168,10 @@ export default function About() {
         <h2>Our Impact</h2>
         <div className={styles.statsGrid} ref={statsRef}>
           {impactStats.map((stat, index) => (
-            <motion.div
+            <div
               key={index}
-              className={styles.statCard}
-              initial={{ opacity: 0, y: 20 }}
-              animate={statsInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: index * 0.1 }}
+              className={styles.statCard + ' fadeInUp'}
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <span className={styles.statIcon}>{stat.icon}</span>
               <div className={styles.statNumber}>
@@ -194,7 +180,7 @@ export default function About() {
                 )}
               </div>
               <div className={styles.statLabel}>{stat.label}</div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
@@ -204,12 +190,9 @@ export default function About() {
         <h2>Our Partners</h2>
         <div className={styles.partnersGrid}>
           {partners.map((partner, index) => (
-            <motion.div
+            <div
               key={index}
               className={styles.partnerCard}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.1 }}
             >
               <img
                 src={partner.logo}
@@ -219,17 +202,13 @@ export default function About() {
                 className={styles.partnerLogo}
               />
               <p>{partner.name}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
 
       {/* CTA Section */}
-      <motion.div 
-        className={styles.ctaSection}
-        whileInView={{ opacity: [0, 1], y: [50, 0] }}
-        transition={{ duration: 0.8 }}
-      >
+      <div className={styles.ctaSection + ' fadeInUp'}>
         <h2>Join Our Mission</h2>
         <p>Together, we can make a difference in the lives of refugees</p>
         <div className={styles.ctaButtons}>
@@ -240,18 +219,16 @@ export default function About() {
             Contact Us
           </Link>
         </div>
-      </motion.div>
+      </div>
 
       {/* Success Stories Carousel */}
       <div className={styles.storiesSection}>
         <h2>Success Stories</h2>
         <div className={styles.storiesGrid}>
           {successStories.map((story) => (
-            <motion.div
+            <div
               key={story.id}
               className={styles.storyCard}
-              whileHover={{ scale: 1.02 }}
-              onClick={() => setActiveStory(story)}
             >
               <div className={styles.storyImage}>
                 <img
@@ -262,40 +239,26 @@ export default function About() {
               </div>
               <h3>{story.name}</h3>
               <p>{story.quote}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
 
       {/* Story Modal */}
-      <AnimatePresence>
-        {activeStory && (
-          <motion.div
-            className={styles.modal}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setActiveStory(null)}
-          >
-            <motion.div
-              className={styles.modalContent}
-              initial={{ y: 100 }}
-              animate={{ y: 0 }}
-              exit={{ y: 100 }}
-              onClick={e => e.stopPropagation()}
+      {activeStory && (
+        <div className={styles.modal}>
+          <div className={styles.modalContent}>
+            <button 
+              className={styles.closeButton}
+              onClick={() => setActiveStory(null)}
             >
-              <button 
-                className={styles.closeButton}
-                onClick={() => setActiveStory(null)}
-              >
-                ×
-              </button>
-              <h3>{activeStory.name}</h3>
-              <p>{activeStory.story}</p>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+              ×
+            </button>
+            <h3>{activeStory.name}</h3>
+            <p>{activeStory.story}</p>
+          </div>
+        </div>
+      )}
+    </div>
   );
 }

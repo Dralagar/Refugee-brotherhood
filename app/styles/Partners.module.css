@@ -5,172 +5,201 @@
     max-width: 1200px;
     margin: 0 auto;
     box-shadow: 0 4px 8px rgba(54, 116, 181, 0.08);
-    border-radius: 12px;
+    border-radius: 16px;
     overflow: hidden;
   }
   
   /* Hero Section */
   .heroSection {
-    background: linear-gradient(90deg, var(--color-main, #3674B5) 0%, var(--color-secondary, #578FCA) 100%);
+    background: linear-gradient(90deg, #3674B5 0%, #578FCA 100%);
     color: #fff;
-    padding: 6rem 2rem;
+    padding: 5rem 2rem 3rem 2rem;
     text-align: center;
+    border-radius: 16px 16px 0 0;
   }
   
   .heroTitle {
-    font-size: 3rem;
+    font-size: 2.7rem;
     margin-bottom: 1rem;
-    font-weight: 700;
-    color: var(--color-footer, #D1F8EF);
+    font-weight: 800;
+    color: #D1F8EF;
+    letter-spacing: 0.5px;
   }
   
   .heroSubtitle {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.6;
     color: #fff;
+    font-weight: 500;
   }
   
   /* Partners Grid */
   .partnersGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 2rem;
-    padding: 4rem 2rem;
+    padding: 3rem 2rem 2rem 2rem;
+    background: #f8fafc;
   }
   
   .partnerCard {
-    background-color: var(--white-color, #fff);
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(54, 116, 181, 0.08);
-    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(54, 116, 181, 0.08);
+    padding: 2rem 1.2rem 1.5rem 1.2rem;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
     text-decoration: none;
-    color: var(--color-main, #3674B5);
-    border: 1px solid var(--color-light, #A1E3F9);
+    color: #3674B5;
+    border: 1.5px solid #A1E3F9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 320px;
+    outline: none;
   }
   
+  .partnerCard:focus,
   .partnerCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 16px var(--color-secondary, #578FCA, 0.15);
-    background: var(--color-footer, #D1F8EF);
+    transform: translateY(-7px) scale(1.03);
+    box-shadow: 0 8px 32px #A1E3F9;
+    background: #D1F8EF;
+    color: #3674B5;
+    border-color: #3674B5;
   }
   
   .partnerLogoContainer {
     width: 100px;
     height: 100px;
-    margin: 0 auto 1rem;
+    margin: 0 auto 1.2rem auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--color-footer, #D1F8EF);
+    background-color: #D1F8EF;
     border-radius: 50%;
     overflow: hidden;
+    border: 2px solid #A1E3F9;
   }
   
   .partnerLogo {
     width: 80%;
     height: auto;
     object-fit: contain;
+    filter: drop-shadow(0 2px 6px rgba(54, 116, 181, 0.08));
   }
   
   .partnerName {
     font-size: 1.25rem;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 0.5rem;
-    color: var(--color-main, #3674B5);
+    color: #3674B5;
+    letter-spacing: 0.2px;
   }
   
   .partnerDescription {
-    font-size: 0.9rem;
-    color: var(--color-secondary, #578FCA);
-    line-height: 1.4;
+    font-size: 1rem;
+    color: #578FCA;
+    line-height: 1.5;
+    margin-bottom: 0;
   }
   
   /* Call to Action Section */
   .ctaSection {
-    background: linear-gradient(90deg, var(--color-main, #3674B5) 0%, var(--color-secondary, #578FCA) 100%);
+    background: linear-gradient(90deg, #3674B5 0%, #578FCA 100%);
     color: #fff;
-    padding: 4rem 2rem;
+    padding: 3rem 2rem 4rem 2rem;
     text-align: center;
+    border-radius: 0 0 16px 16px;
   }
   
   .ctaTitle {
     font-size: 2rem;
     margin-bottom: 1rem;
-    font-weight: 700;
-    color: var(--color-footer, #D1F8EF);
+    font-weight: 800;
+    color: #D1F8EF;
+    letter-spacing: 0.2px;
   }
   
   .ctaText {
-    font-size: 1.125rem;
-    max-width: 800px;
-    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
     line-height: 1.6;
     color: #fff;
+    font-weight: 500;
   }
   
   .ctaButton {
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--color-main, #3674B5);
-    background-color: var(--color-footer, #D1F8EF);
+    padding: 1rem 2.2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #3674B5;
+    background-color: #D1F8EF;
     border-radius: 30px;
     text-decoration: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.2s, color 0.2s;
     border: none;
+    box-shadow: 0 2px 8px rgba(54, 116, 181, 0.08);
+    letter-spacing: 0.2px;
   }
   
-  .ctaButton:hover {
-    background-color: var(--color-main, #3674B5);
+  .ctaButton:hover,
+  .ctaButton:focus {
+    background-color: #3674B5;
     color: #fff;
+    outline: none;
   }
   
   /* Responsive Design */
+  @media (max-width: 1024px) {
+    .partnersGrid {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      padding: 2rem 1rem 1.5rem 1rem;
+    }
+    .partnerCard {
+      min-height: 260px;
+      padding: 1.5rem 0.7rem 1rem 0.7rem;
+    }
+  }
+  
   @media (max-width: 768px) {
     .heroTitle {
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
-  
     .heroSubtitle {
       font-size: 1rem;
     }
-  
     .partnersGrid {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      padding: 2rem 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.2rem;
+      padding: 1.5rem 0.5rem 1rem 0.5rem;
     }
-  
     .ctaTitle {
-      font-size: 1.75rem;
+      font-size: 1.3rem;
     }
-  
     .ctaText {
-      font-size: 1rem;
+      font-size: 0.95rem;
     }
   }
   
   @media (max-width: 480px) {
     .heroTitle {
-      font-size: 2rem;
+      font-size: 1.3rem;
     }
-  
     .heroSubtitle {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
-  
     .partnersGrid {
       grid-template-columns: 1fr;
+      gap: 0.7rem;
+      padding: 1rem 0.2rem 0.5rem 0.2rem;
     }
-  
     .ctaTitle {
-      font-size: 1.5rem;
+      font-size: 1.1rem;
     }
-  
     .ctaText {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
   }

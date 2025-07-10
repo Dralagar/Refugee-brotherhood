@@ -32,10 +32,26 @@ const TopContactBar: React.FC = () => (
   </div>
 );
 
+const aboutSections = [
+  { id: 'mission', label: 'Our Mission' },
+  { id: 'team', label: 'Our Team' },
+  { id: 'impact', label: 'Our Impact' },
+  { id: 'partners', label: 'Partners' },
+];
+
+const programsList = [
+  { id: 'livelihood', label: 'Livelihood' },
+  { id: 'psychosocial', label: 'Psychosocial' },
+  { id: 'peace', label: 'Peace Building' },
+  { id: 'advocacy', label: 'Advocacy' },
+];
+
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const [programsDropdownOpen, setProgramsDropdownOpen] = useState(false);
+  const [activeAboutSection, setActiveAboutSection] = useState('');
+  const [activeProgramSection, setActiveProgramSection] = useState('');
 
   const pathname = usePathname();
   const router = useRouter();
@@ -64,6 +80,50 @@ const NavBar: React.FC = () => {
     setAboutDropdownOpen(false);
     setProgramsDropdownOpen(false);
   }, [pathname]);
+
+  // Scrollspy for About
+  useEffect(() => {
+    if (!window.location.pathname.startsWith('/about')) return;
+    const handler = () => {
+      let found = '';
+      for (const section of aboutSections) {
+        const el = document.getElementById(section.id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 120 && rect.bottom > 120) {
+            found = section.id;
+            break;
+          }
+        }
+      }
+      setActiveAboutSection(found);
+    };
+    window.addEventListener('scroll', handler, { passive: true });
+    handler();
+    return () => window.removeEventListener('scroll', handler);
+  }, [typeof window !== 'undefined' && window.location.pathname]);
+
+  // Scrollspy for Programs
+  useEffect(() => {
+    if (!window.location.pathname.startsWith('/programs')) return;
+    const handler = () => {
+      let found = '';
+      for (const section of programsList) {
+        const el = document.getElementById(section.id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 120 && rect.bottom > 120) {
+            found = section.id;
+            break;
+          }
+        }
+      }
+      setActiveProgramSection(found);
+    };
+    window.addEventListener('scroll', handler, { passive: true });
+    handler();
+    return () => window.removeEventListener('scroll', handler);
+  }, [typeof window !== 'undefined' && window.location.pathname]);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -96,6 +156,9 @@ const NavBar: React.FC = () => {
       if (el) el.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const isAboutActive = aboutDropdownOpen || (pathname.startsWith('/about') && activeAboutSection);
+  const isProgramsActive = programsDropdownOpen || (pathname.startsWith('/programs') && activeProgramSection);
 
   return (
     <>
@@ -131,7 +194,7 @@ const NavBar: React.FC = () => {
           >
             <li className={styles.dropdown} ref={dropdownRef}>
               <button
-                className={styles.navLink}
+                className={styles.navLink + (isAboutActive ? ' ' + styles.active : '')}
                 onClick={toggleAboutDropdown}
                 aria-expanded={aboutDropdownOpen}
                 aria-haspopup="true"
@@ -147,53 +210,33 @@ const NavBar: React.FC = () => {
               </button>
               {aboutDropdownOpen && (
                 <ul className={styles.dropdownMenu} id="about-dropdown-menu" role="menu">
-                  <li>
-                    <a
-                      href="#mission"
-                      className={styles.dropdownLink}
-                      onClick={(e) => navigateToSection(e, "mission")}
-                      role="menuitem"
-                    >
-                      Our Mission
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#team"
-                      className={styles.dropdownLink}
-                      onClick={(e) => navigateToSection(e, "team")}
-                      role="menuitem"
-                    >
-                      Our Team
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#impact"
-                      className={styles.dropdownLink}
-                      onClick={(e) => navigateToSection(e, "impact")}
-                      role="menuitem"
-                    >
-                      Our Impact
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#partners"
-                      className={styles.dropdownLink}
-                      onClick={(e) => navigateToSection(e, "partners")}
-                      role="menuitem"
-                    >
-                      Partners
-                    </a>
-                  </li>
+                  {aboutSections.map((section) => (
+                    <li key={section.id}>
+                      <a
+                        href={`#${section.id}`}
+                        className={styles.dropdownLink + (activeAboutSection === section.id ? ' ' + styles.active : '')}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setAboutDropdownOpen(false);
+                          setTimeout(() => {
+                            const el = document.getElementById(section.id);
+                            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                          }, 10);
+                          window.history.replaceState(null, '', `/about#${section.id}`);
+                        }}
+                        role="menuitem"
+                      >
+                        {section.label}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               )}
             </li>
 
-            <li className={styles.dropdown}>
+            <li className={styles.dropdown} ref={dropdownRef}>
               <button
-                className={styles.navLink}
+                className={styles.navLink + (isProgramsActive ? ' ' + styles.active : '')}
                 onClick={toggleProgramsDropdown}
                 aria-expanded={programsDropdownOpen}
                 aria-haspopup="true"
@@ -208,47 +251,45 @@ const NavBar: React.FC = () => {
                 </span>
               </button>
               {programsDropdownOpen && (
-                <ul className={styles.dropdownMenu} id="programs-dropdown-menu" role="menu">
-                  <li>
-                    <Link
-                      href="/programs"
-                      className={styles.dropdownLink}
-                      onClick={() => setProgramsDropdownOpen(false)}
-                      role="menuitem"
-                    >
-                      Livelihood
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/programs"
-                      className={styles.dropdownLink}
-                      onClick={() => setProgramsDropdownOpen(false)}
-                      role="menuitem"
-                    >
-                      Psychosocial
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/programs"
-                      className={styles.dropdownLink}
-                      onClick={() => setProgramsDropdownOpen(false)}
-                      role="menuitem"
-                    >
-                      Peace Building
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/programs"
-                      className={styles.dropdownLink}
-                      onClick={() => setProgramsDropdownOpen(false)}
-                      role="menuitem"
-                    >
-                      Advocacy
-                    </Link>
-                  </li>
+                <ul
+                  className={styles.dropdownMenu + ' ' + styles.programsDropdownGrid}
+                  id="programs-dropdown-menu"
+                  role="menu"
+                >
+                  {programsList.map((program) => {
+                    let iconSrc = '';
+                    let iconAlt = '';
+                    if (program.id === 'peace') { iconSrc = '/globe.svg'; iconAlt = 'Peace Icon'; }
+                    if (program.id === 'advocacy') { iconSrc = '/window.svg'; iconAlt = 'Advocacy Icon'; }
+                    if (program.id === 'livelihood') { iconSrc = '/file.svg'; iconAlt = 'Livelihood Icon'; }
+                    if (program.id === 'psychosocial') { iconSrc = '/next.svg'; iconAlt = 'Psychosocial Icon'; }
+                    return (
+                      <li key={program.id} className={styles.programsDropdownItem}>
+                        <Link
+                          href={`#${program.id}`}
+                          className={styles.dropdownLink + ' ' + styles.programsDropdownCard + (activeProgramSection === program.id ? ' ' + styles.active : '')}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setProgramsDropdownOpen(false);
+                            setTimeout(() => {
+                              const el = document.getElementById(program.id);
+                              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }, 10);
+                            window.history.replaceState(null, '', `/programs#${program.id}`);
+                          }}
+                          role="menuitem"
+                          scroll={false}
+                        >
+                          {iconSrc && (
+                            <span className={styles.programsDropdownIcon}>
+                              <Image src={iconSrc} width={24} height={24} alt={iconAlt} />
+                            </span>
+                          )}
+                          <span className={styles.programsDropdownLabel}>{program.label}</span>
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               )}
             </li>

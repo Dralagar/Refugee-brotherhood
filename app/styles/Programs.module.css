@@ -61,10 +61,12 @@
 .programsContainer {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 3rem 2rem;
+  padding: 2rem 1rem 2rem 1rem;
   display: grid;
   grid-template-columns: minmax(1rem, 1fr) minmax(0, 1200px) minmax(1rem, 1fr);
-  gap: 3rem;
+  gap: 2rem;
+  min-height: calc(100vh - 120px); /* Prevent footer overlap */
+  box-sizing: border-box;
 }
 
 /* Header Section */
@@ -74,169 +76,244 @@
   margin-bottom: 5rem;
   position: relative;
   padding: 3rem;
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  background: linear-gradient(135deg, #A1E3F9 0%, #3674B5 100%);
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(54, 116, 181, 0.10);
+  color: #fff;
+  overflow: hidden;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255,255,255,0.12) 0%, rgba(54,116,181,0.08) 100%);
+  z-index: 0;
 }
 
 .title {
   font-size: clamp(2.5rem, 4vw, 3.5rem);
-  color: #2c3e50;
-  margin-bottom: 2rem;
-  font-weight: 800;
-  background: linear-gradient(45deg, #2c3e50, #3498db);
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  background: linear-gradient(45deg, #2c3e50, #A1E3F9 60%, #3674B5 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
-}
-
-.title::after {
-  content: '';
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 4px;
-  background: linear-gradient(90deg, #3498db, #2c3e50);
-  border-radius: 2px;
+  z-index: 1;
 }
 
 .subtitle {
   font-size: clamp(1.1rem, 1.5vw, 1.3rem);
-  color: #666;
+  color: #e6f7fa;
   max-width: 800px;
   margin: 2rem auto 0;
   line-height: 1.8;
+  font-weight: 500;
+  z-index: 1;
+  position: relative;
 }
 
-/* Programs Grid */
+/* Flex-based Programs Grid for future-proof layout */
+.programsFlexGrid {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.2rem 2.2rem;
+  margin-bottom: 2rem;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+.programsFlexGrid > .programCard {
+  flex: 1 1 320px;
+  max-width: 400px;
+  min-width: 240px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 420px;
+  max-height: 520px;
+  height: auto;
+}
+
+/* Fallback for mobile: use grid for stacking */
+@media (max-width: 900px) {
+  .programsFlexGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem 0;
+    justify-items: stretch;
+  }
+  .programsFlexGrid > .programCard {
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    min-height: 340px;
+    max-height: none;
+  }
+}
+
+/* Update .programsGrid to use flex on large screens, grid on mobile for backward compatibility */
 .programsGrid {
   grid-column: 2;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.7rem 2.2rem;
   margin-bottom: 5rem;
-  perspective: 1000px;
+  align-items: stretch;
+  justify-content: flex-start;
 }
-
-.programCard {
-  background: white;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-style: preserve-3d;
-  position: relative;
+.programsGrid > .programCard {
+  flex: 1 1 340px;
+  max-width: 480px;
+  min-width: 320px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   height: 100%;
 }
+@media (max-width: 900px) {
+  .programsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.7rem 0;
+    justify-items: stretch;
+  }
+  .programsGrid > .programCard {
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+  }
+}
+
+.programCard {
+  background: rgba(255,255,255,0.88);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(54, 116, 181, 0.10);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 380px;
+  max-height: 520px;
+  padding: 1.3rem 1.1rem 1.1rem 1.1rem;
+  gap: 0.7rem;
+}
 
 .programCard:hover {
-  transform: translateY(-10px) rotateX(5deg);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-10px) scale(1.03) rotateX(3deg);
+  box-shadow: 0 20px 40px #A1E3F9;
+  background: rgba(209, 248, 239, 0.85);
 }
 
 /* Program Image */
 .imageContainer {
   position: relative;
-  height: 300px;
   width: 100%;
+  aspect-ratio: 16/9;
+  min-height: 160px;
+  max-height: 220px;
   overflow: hidden;
+  background: linear-gradient(90deg, #A1E3F9 0%, #3674B5 100%);
+  border-radius: 14px 14px 0 0;
+  box-shadow: 0 2px 10px rgba(54,116,181,0.10);
+  border-bottom: 2px solid #A1E3F9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cardImage {
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 14px 14px 0 0;
+  box-shadow: 0 1px 6px rgba(54,116,181,0.08);
+  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
 }
 
 .programCard:hover .cardImage {
-  transform: scale(1.1);
+  transform: scale(1.04);
 }
 
 /* Icon Overlay */
 .iconOverlay {
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  background: rgba(255, 255, 255, 0.95);
+  top: 1.2rem;
+  right: 1.2rem;
+  background: rgba(255, 255, 255, 0.92);
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  width: 54px;
+  height: 54px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  transition: transform 0.3s ease;
+  box-shadow: 0 4px 15px rgba(54, 116, 181, 0.10);
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s;
+  z-index: 2;
 }
 
 .programCard:hover .iconOverlay {
-  transform: scale(1.1) rotate(10deg);
+  transform: scale(1.12) rotate(8deg);
+  background: #A1E3F9;
 }
 
 /* Card Content */
 .cardContent {
-  padding: 2.5rem;
+  padding: 0.2rem 0 0 0;
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 0.7rem;
+  z-index: 1;
+  justify-content: flex-start;
 }
 
 .cardContent h2 {
-  font-size: clamp(1.5rem, 2vw, 2rem);
-  color: #2c3e50;
-  margin-bottom: 1rem;
-  font-weight: 700;
+  font-size: 1.6rem;
+  color: #3674B5;
+  margin-bottom: 0.7rem;
+  font-weight: 800;
   line-height: 1.3;
 }
 
 .cardContent p {
-  color: #666;
-  line-height: 1.8;
+  color: #2c3e50;
+  line-height: 1.7;
   margin-bottom: 1rem;
   flex: 1;
-  font-size: 1.1rem;
+  font-size: 1.08rem;
+  font-weight: 500;
 }
 
 /* Features List */
 .featuresList {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 1.2rem 0 1.2rem 0;
   display: grid;
-  gap: 1rem;
+  gap: 0.7rem;
 }
 
 .featuresList li {
-  padding: 1rem 1.2rem;
-  color: #666;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background: #f8f9fa;
+  background: #eaf3fa;
+  color: #3674B5;
   border-radius: 10px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  padding: 0.7rem 1.1rem;
+  font-weight: 600;
   font-size: 1rem;
-}
-
-.featuresList li:hover {
-  transform: translateX(5px);
-  background: #eef2f7;
+  box-shadow: 0 1px 4px rgba(54,116,181,0.07);
+  transition: background 0.2s, color 0.2s;
 }
 
 .featuresList li::before {
-  content: "→";
-  color: #3498db;
-  font-weight: bold;
-  transition: transform 0.3s ease;
-}
-
-.featuresList li:hover::before {
-  transform: translateX(3px);
+  content: '•';
+  color: #3674B5;
+  margin-right: 0.7em;
+  font-size: 1.2em;
 }
 
 /* Stats Section */
@@ -270,41 +347,29 @@
 /* Learn More Button */
 .learnMore {
   width: 100%;
-  padding: 1.2rem;
-  background: linear-gradient(45deg, #3498db, #2980b9);
-  color: white;
+  padding: 1.1rem;
+  background: linear-gradient(90deg, #3674B5 0%, #A1E3F9 100%);
+  color: #fff;
   border: none;
-  border-radius: 12px;
-  font-weight: 600;
+  border-radius: 16px;
+  font-weight: 700;
   font-size: 1.1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s;
   position: relative;
   overflow: hidden;
   margin-top: auto;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  box-shadow: 0 2px 8px #A1E3F9;
 }
 
-.learnMore::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: 0.5s;
-}
-
-.learnMore:hover::before {
-  left: 100%;
-}
-
-.learnMore:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+.learnMore:hover, .learnMore:focus {
+  background: linear-gradient(90deg, #A1E3F9 0%, #3674B5 100%);
+  color: #3674B5;
+  outline: none;
+  box-shadow: 0 6px 18px #A1E3F9;
 }
 
 /* CTA Section */
@@ -377,60 +442,33 @@
   .programsContainer {
     padding: 2rem 1.5rem;
   }
-  
   .programsGrid {
-    gap: 2rem;
+    gap: 1.5rem;
   }
-  
   .cardContent {
-    padding: 2rem;
+    padding: 1.5rem 1rem 1.2rem 1rem;
   }
 }
 
-@media (max-width: 1024px) {
-  .programsContainer {
-    grid-template-columns: 1fr;
-    padding: 1.5rem;
-  }
-
-  .header,
-  .programsGrid,
-  .cta {
-    grid-column: 1;
-  }
-  
-  .programsGrid {
-    grid-template-columns: 1fr;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .header {
-    padding: 2rem 1.5rem;
-    margin-bottom: 3rem;
+    padding: 1.2rem 0.5rem;
+    margin-bottom: 2rem;
+    border-radius: 14px;
   }
-  
-  .stats {
-    grid-template-columns: repeat(2, 1fr);
+  .programsContainer {
+    padding: 0.5rem 0.1rem 1rem 0.1rem;
+    min-height: calc(100vh - 90px);
   }
-  
-  .ctaButtons {
-    flex-direction: column;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-    gap: 1rem;
+  .programsGrid {
+    padding: 1rem 0.2rem;
+    gap: 1.2rem 0;
   }
-  
-  .ctaButton {
-    width: 100%;
-  }
-  
-  .cta {
-    padding: 3rem 1.5rem;
+  .programCard {
+    padding: 0.7rem 0.3rem 0.5rem 0.3rem;
+    gap: 0.4rem;
+    min-height: 220px;
+    max-height: none;
   }
 }
 
@@ -453,15 +491,19 @@
 }
 
 /* Animation Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fadeIn {
+  animation: fadeIn 0.7s cubic-bezier(0.4,0,0.2,1) both;
+}
+.fadeInUp {
+  animation: fadeInUp 0.7s cubic-bezier(0.4,0,0.2,1) both;
 }
 
 .programCard {
@@ -499,4 +541,86 @@
 }
 .advocacy .programCardContent {
   background: rgba(209, 248, 239, 0.04);
+}
+
+.statsRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 0.7rem;
+  margin: 0.7rem 0 0.3rem 0;
+  background: rgba(161,227,249,0.10);
+  border-radius: 10px;
+  padding: 0.5rem 0.3rem;
+  box-shadow: 0 1px 4px rgba(54,116,181,0.05);
+}
+.statBlock {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.statValue {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #3674B5;
+  margin-bottom: 0.2rem;
+}
+.statLabel {
+  color: #2c3e50;
+  font-size: 0.98rem;
+  font-weight: 500;
+}
+
+.programCardActive {
+  outline: 3px solid #A1E3F9 !important;
+  box-shadow: 0 0 0 6px #D1F8EF !important;
+  z-index: 10;
+  position: relative;
+  transition: outline 0.3s, box-shadow 0.3s;
+}
+
+.programCardWrapper {
+  position: relative;
+  margin: 0 0 2rem 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Dropdown card styles for Navbar */
+.programsDropdownCard {
+  background: #f8fafc;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(54,116,181,0.08);
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.7rem 1rem;
+  margin-bottom: 0.2rem;
+  transition: background 0.18s, box-shadow 0.18s;
+  border: 1.5px solid #A1E3F9;
+}
+.programsDropdownCard:hover, .programsDropdownCard:focus {
+  background: #A1E3F9;
+  box-shadow: 0 4px 16px #A1E3F9;
+}
+.programsDropdownIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(54,116,181,0.08);
+  margin-right: 0.5rem;
+}
+.programsDropdownLabel {
+  font-weight: 600;
+  color: #3674B5;
+  font-size: 1.08rem;
 }

@@ -1,6 +1,6 @@
-import React from 'react';
+'use client';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import styles from '../styles/Programs.module.css';
 
@@ -80,95 +80,96 @@ const programData = {
 };
 
 export default function ProgramsOverviewPage() {
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  // Scroll to and highlight the card when hash changes
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash.replace('#', '');
+      if (hash) {
+        const el = document.getElementById(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          el.classList.add('programCardActive');
+          setTimeout(() => el.classList.remove('programCardActive'), 2000);
+        }
+      }
+    }
+  }, [typeof window !== 'undefined' && window.location.hash]);
+
   return (
-    <motion.main
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className={styles.programsContainer}
-    >
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-        className={styles.header}
-      >
+    <main className={styles.programsContainer}>
+      <section className={styles.header + ' fadeIn'}>
         <h1 className={styles.title}>Our Programs</h1>
         <p className={styles.subtitle}>
-          Explore our core programs designed to empower refugees and foster community well-being.
+          Explore our core programs designed to empower refugees and foster community well-being. Click a program in the menu to jump to its details below.
         </p>
-      </motion.section>
+      </section>
 
-      <div className={styles.programsGrid}>
-        {Object.values(programData).map((program) => (
-          <motion.div
-            key={program.id}
-            className={`${styles.programCard} ${styles[program.id] || ''}`}
-            whileHover={{ scale: 1.03, boxShadow: '0 4px 24px rgba(51,132,208,0.12)' }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <div className={styles.programImageWrapper}>
-              <Image
-                src={program.image}
-                alt={program.title}
-                width={400}
-                height={250}
-                className={styles.programImage}
-                style={{ objectFit: 'cover', borderRadius: '12px 12px 0 0' }}
-              />
+      <div ref={gridRef} className={styles.programsFlexGrid} style={{ scrollBehavior: 'smooth' }}>
+        {Object.values(programData).map((program, idx) => {
+          let iconSrc = '';
+          let iconAlt = '';
+          if (program.id === 'peace') { iconSrc = '/globe.svg'; iconAlt = 'Peace Icon'; }
+          if (program.id === 'advocacy') { iconSrc = '/window.svg'; iconAlt = 'Advocacy Icon'; }
+          if (program.id === 'livelihood') { iconSrc = '/file.svg'; iconAlt = 'Livelihood Icon'; }
+          if (program.id === 'psychosocial') { iconSrc = '/next.svg'; iconAlt = 'Psychosocial Icon'; }
+          return (
+            <div key={program.id} className={styles.programCardWrapper}>
+              <a id={program.id} style={{ position: 'absolute', top: '-110px', display: 'block', height: 0, scrollMarginTop: '120px' }} aria-hidden="true"></a>
+              <div
+                id={program.id + '-card'}
+                className={
+                  styles.programCard +
+                  ' fadeInUp' +
+                  (styles[program.id] ? ' ' + styles[program.id] : '')
+                }
+                style={{ animationDelay: `${0.1 + idx * 0.1}s` }}
+              >
+                <div className={styles.imageContainer}>
+                  <Image
+                    src={program.image}
+                    alt={program.title}
+                    fill
+                    className={styles.cardImage}
+                  />
+                  {iconSrc && (
+                    <span className={styles.iconOverlay} aria-hidden="true">
+                      <Image src={iconSrc} width={36} height={36} alt={iconAlt} />
+                    </span>
+                  )}
+                </div>
+                <div className={styles.cardContent}>
+                  <h2>{program.title}</h2>
+                  <p>{program.description}</p>
+                  <ul className={styles.featuresList}>
+                    {program.features.map((feature, i) => (
+                      <li key={i}>{feature}</li>
+                    ))}
+                  </ul>
+                  <div className={styles.statsRow}>
+                    <div className={styles.statBlock}>
+                      <span className={styles.statValue}>{program.stats.beneficiaries}</span>
+                      <span className={styles.statLabel}>Beneficiaries</span>
+                    </div>
+                    <div className={styles.statBlock}>
+                      <span className={styles.statValue}>{program.stats.successRate}</span>
+                      <span className={styles.statLabel}>Success Rate</span>
+                    </div>
+                    <div className={styles.statBlock}>
+                      <span className={styles.statValue}>{program.stats.partnerships}</span>
+                      <span className={styles.statLabel}>Partnerships</span>
+                    </div>
+                  </div>
+                  <Link href={`/programs/${program.id}`} className={styles.learnMore}>
+                    Learn More
+                  </Link>
+                </div>
+              </div>
             </div>
-            <div className={styles.programCardContent}>
-              <h2 className={styles.programCardTitle}>{program.title}</h2>
-              <p className={styles.programCardDesc}>{program.description}</p>
-              <Link href={`/programs/${program.id}`} className={styles.programCardLink}>
-                Learn More
-              </Link>
-            </div>
-          </motion.div>
-        ))}
+          );
+        })}
       </div>
-    </motion.main>
+    </main>
   );
 }
-
-export const generateMetadata = () => ({
-  title: "Refugee Brotherhood | Refugee Led Organisation in Nairobi, Embakasi, Patanisho, Kayole",
-  description: "Refugee Brotherhood is a refugee-led organisation empowering communities in Nairobi, Embakasi, Patanisho, and Kayole through livelihood, psychosocial support, peace building, and advocacy programs.",
-  keywords: [
-    "refugee led organisation",
-    "Nairobi",
-    "Embakasi",
-    "Patanisho",
-    "Kayole",
-    "refugee programs",
-    "livelihood",
-    "psychosocial support",
-    "peace building",
-    "advocacy",
-    "Refugee Brotherhood"
-  ].join(", "),
-  openGraph: {
-    title: "Refugee Brotherhood | Refugee Led Organisation in Nairobi, Embakasi, Patanisho, Kayole",
-    description: "Empowering refugees in Nairobi, Embakasi, Patanisho, and Kayole through sustainable programs.",
-    url: "https://www.refugeebrotherhood.org/programs",
-    siteName: "Refugee Brotherhood",
-    images: [
-      {
-        url: "https://www.refugeebrotherhood.org/images/logo.jpg",
-        width: 800,
-        height: 600,
-        alt: "Refugee Brotherhood Logo",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Refugee Brotherhood | Refugee Led Organisation in Nairobi, Embakasi, Patanisho, Kayole",
-    description: "Empowering refugees in Nairobi, Embakasi, Patanisho, and Kayole through sustainable programs.",
-    images: ["https://www.refugeebrotherhood.org/images/logo.jpg"],
-  },
-});
