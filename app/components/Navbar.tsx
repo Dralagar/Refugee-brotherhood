@@ -51,20 +51,25 @@ const NavBar: React.FC = () => {
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const [programsDropdownOpen, setProgramsDropdownOpen] = useState(false);
   const [activeAboutSection, setActiveAboutSection] = useState('');
-  const [activeProgramSection, setActiveProgramSection] = useState('');
 
   const pathname = usePathname();
   const router = useRouter();
-  const dropdownRef = useRef<HTMLLIElement>(null);
+  const aboutDropdownRef = useRef<HTMLLIElement>(null);
+  const programsDropdownRef = useRef<HTMLLIElement>(null);
 
-  // Close dropdowns on outside click
+  // Close only the correct dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
+        aboutDropdownRef.current &&
+        !aboutDropdownRef.current.contains(event.target as Node)
       ) {
         setAboutDropdownOpen(false);
+      }
+      if (
+        programsDropdownRef.current &&
+        !programsDropdownRef.current.contains(event.target as Node)
+      ) {
         setProgramsDropdownOpen(false);
       }
     };
@@ -73,13 +78,6 @@ const NavBar: React.FC = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-
-  // Reset on route change
-  useEffect(() => {
-    setIsOpen(false);
-    setAboutDropdownOpen(false);
-    setProgramsDropdownOpen(false);
-  }, [pathname]);
 
   // Scrollspy for About
   useEffect(() => {
@@ -97,28 +95,6 @@ const NavBar: React.FC = () => {
         }
       }
       setActiveAboutSection(found);
-    };
-    window.addEventListener('scroll', handler, { passive: true });
-    handler();
-    return () => window.removeEventListener('scroll', handler);
-  }, [typeof window !== 'undefined' && window.location.pathname]);
-
-  // Scrollspy for Programs
-  useEffect(() => {
-    if (!window.location.pathname.startsWith('/programs')) return;
-    const handler = () => {
-      let found = '';
-      for (const section of programsList) {
-        const el = document.getElementById(section.id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 120 && rect.bottom > 120) {
-            found = section.id;
-            break;
-          }
-        }
-      }
-      setActiveProgramSection(found);
     };
     window.addEventListener('scroll', handler, { passive: true });
     handler();
@@ -143,22 +119,9 @@ const NavBar: React.FC = () => {
     setIsOpen(false);
   };
 
-  const navigateToSection = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    section: string
-  ) => {
-    e.preventDefault();
-    closeAll();
-    if (!pathname.startsWith("/about")) {
-      router.push(`/about#${section}`);
-    } else {
-      const el = document.getElementById(section);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   const isAboutActive = aboutDropdownOpen || (pathname.startsWith('/about') && activeAboutSection);
-  const isProgramsActive = programsDropdownOpen || (pathname.startsWith('/programs') && activeProgramSection);
+  // Programs dropdown is active if open or on a subpage
+  const isProgramsActive = programsDropdownOpen || (pathname.startsWith('/programs') && programsList.some(p => pathname === `/programs/${p.id}`));
 
   return (
     <>
@@ -192,7 +155,7 @@ const NavBar: React.FC = () => {
             id="main-nav-links"
             role="menubar"
           >
-            <li className={styles.dropdown} ref={dropdownRef}>
+            <li className={styles.dropdown} ref={aboutDropdownRef}>
               <button
                 className={styles.navLink + (isAboutActive ? ' ' + styles.active : '')}
                 onClick={toggleAboutDropdown}
@@ -213,16 +176,20 @@ const NavBar: React.FC = () => {
                   {aboutSections.map((section) => (
                     <li key={section.id}>
                       <a
-                        href={`#${section.id}`}
+                        href={`/about#${section.id}`}
                         className={styles.dropdownLink + (activeAboutSection === section.id ? ' ' + styles.active : '')}
                         onClick={(e) => {
                           e.preventDefault();
                           setAboutDropdownOpen(false);
-                          setTimeout(() => {
-                            const el = document.getElementById(section.id);
-                            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                          }, 10);
-                          window.history.replaceState(null, '', `/about#${section.id}`);
+                          if (!pathname.startsWith('/about')) {
+                            router.push(`/about#${section.id}`);
+                          } else {
+                            setTimeout(() => {
+                              const el = document.getElementById(section.id);
+                              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }, 10);
+                            window.history.replaceState(null, '', `/about#${section.id}`);
+                          }
                         }}
                         role="menuitem"
                       >
@@ -234,7 +201,7 @@ const NavBar: React.FC = () => {
               )}
             </li>
 
-            <li className={styles.dropdown} ref={dropdownRef}>
+            <li className={styles.dropdown} ref={programsDropdownRef}>
               <button
                 className={styles.navLink + (isProgramsActive ? ' ' + styles.active : '')}
                 onClick={toggleProgramsDropdown}
@@ -266,19 +233,10 @@ const NavBar: React.FC = () => {
                     return (
                       <li key={program.id} className={styles.programsDropdownItem}>
                         <Link
-                          href={`#${program.id}`}
-                          className={styles.dropdownLink + ' ' + styles.programsDropdownCard + (activeProgramSection === program.id ? ' ' + styles.active : '')}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            setProgramsDropdownOpen(false);
-                            setTimeout(() => {
-                              const el = document.getElementById(program.id);
-                              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                            }, 10);
-                            window.history.replaceState(null, '', `/programs#${program.id}`);
-                          }}
+                          href={`/programs/${program.id}`}
+                          className={styles.dropdownLink + ' ' + styles.programsDropdownCard + (pathname === `/programs/${program.id}` ? ' ' + styles.active : '')}
+                          onClick={() => setProgramsDropdownOpen(false)}
                           role="menuitem"
-                          scroll={false}
                         >
                           {iconSrc && (
                             <span className={styles.programsDropdownIcon}>

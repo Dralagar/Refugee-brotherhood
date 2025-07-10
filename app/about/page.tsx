@@ -103,7 +103,10 @@ export default function About() {
       {/* Hero Section */}
       <div className={styles.heroSection + ' fadeInUp'}>
         <h1>Creating Lasting Change</h1>
-        <p>Empowering refugees through sustainable solutions and community support</p>
+        
+        <p style={{ fontSize: '1.25rem', marginTop: '1.5rem', color: '#fff', fontWeight: 500, textShadow: '0 2px 8px #3674B5' }}>
+          Empowering refugees through sustainable solutions and community support
+        </p>
       </div>
 
       {/* Mission Section */}
