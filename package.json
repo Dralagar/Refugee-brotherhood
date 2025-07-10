@@ -50,7 +50,9 @@
   "optionalDependencies": {
     "@next/swc-win32-x64-msvc": "14.2.3"
   },
-  "plugins": ["@typescript-eslint"],
+  "plugins": [
+    "@typescript-eslint"
+  ],
   "extends": [
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended"
