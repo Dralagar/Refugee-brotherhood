@@ -34,11 +34,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Refugee Brotherhood | Empowering Refugees in Nairobi, Kenya",
     description: "Empowering refugees and host communities in Nairobi through sustainable livelihood, psychosocial support, peace building, and advocacy programs.",
-    url: "https://refugeebrotherhood.org/",
+    url: "https://www.refugeebrotherhood.org/",
     siteName: "Refugee Brotherhood",
     images: [
       {
-        url: "https://refugeebrotherhood.org/images/logo.jpg",
+        url: "https://www.refugeebrotherhood.org/images/logo.jpg",
         width: 1200,
         height: 630,
         alt: "Refugee Brotherhood - Empowering Refugees in Nairobi",
@@ -51,10 +51,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Refugee Brotherhood | Empowering Refugees in Nairobi, Kenya",
     description: "Empowering refugees and host communities in Nairobi through sustainable programs.",
-    images: ["https://refugeebrotherhood.org/images/logo.jpg"],
+    images: ["https://www.refugeebrotherhood.org/images/logo.jpg"],
   },
   alternates: {
-    canonical: "https://refugeebrotherhood.org/",
+    canonical: "https://www.refugeebrotherhood.org/",
   },
   robots: {
     index: true,

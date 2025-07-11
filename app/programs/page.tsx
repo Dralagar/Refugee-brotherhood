@@ -97,11 +97,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Our Programs | Refugee Brotherhood",
     description: "Discover Refugee Brotherhood's four core programs: Livelihood, Psychosocial Support, Peace Building, and Advocacy. Empowering refugees in Nairobi, Kenya.",
-    url: "https://refugeebrotherhood.org/programs",
+    url: "https://www.refugeebrotherhood.org/programs",
     siteName: "Refugee Brotherhood",
     images: [
       {
-        url: "https://refugeebrotherhood.org/images/programs-og.jpg",
+        url: "https://www.refugeebrotherhood.org/images/programs-og.jpg",
         width: 1200,
         height: 630,
         alt: "Refugee Brotherhood Programs - Livelihood, Psychosocial Support, Peace Building, Advocacy",
@@ -114,10 +114,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Our Programs | Refugee Brotherhood",
     description: "Discover Refugee Brotherhood's four core programs empowering refugees in Nairobi, Kenya.",
-    images: ["https://refugeebrotherhood.org/images/programs-og.jpg"],
+    images: ["https://www.refugeebrotherhood.org/images/programs-og.jpg"],
   },
   alternates: {
-    canonical: "https://refugeebrotherhood.org/programs",
+    canonical: "https://www.refugeebrotherhood.org/programs",
   },
   robots: {
     index: true,

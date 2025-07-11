@@ -55,20 +55,20 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://refugeebrotherhood.org"),
+  metadataBase: new URL("https://www.refugeebrotherhood.org"),
   alternates: {
-    canonical: "https://refugeebrotherhood.org",
+    canonical: "https://www.refugeebrotherhood.org",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://refugeebrotherhood.org",
+    url: "https://www.refugeebrotherhood.org",
     title: "Refugee Brotherhood | Refugee Led Organisation in Nairobi, Kenya",
     description: "Empowering refugees in Nairobi, Embakasi, Patanisho, and Kayole through sustainable programs.",
     siteName: "Refugee Brotherhood",
     images: [
       {
-        url: "https://refugeebrotherhood.org/images/logo.jpg",
+        url: "https://www.refugeebrotherhood.org/images/logo.jpg",
         width: 1200,
         height: 630,
         alt: "Refugee Brotherhood - Empowering Refugees in Nairobi, Kenya",
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Refugee Brotherhood | Refugee Led Organisation in Nairobi, Kenya",
     description: "Empowering refugees in Nairobi, Embakasi, Patanisho, and Kayole through sustainable programs.",
-    images: ["https://refugeebrotherhood.org/images/logo.jpg"],
+    images: ["https://www.refugeebrotherhood.org/images/logo.jpg"],
     creator: "@RefugeeBrotherhood",
   },
   robots: {
@@ -117,8 +117,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "NonProfit",
               "name": "Refugee Brotherhood",
-              "url": "https://refugeebrotherhood.org",
-              "logo": "https://refugeebrotherhood.org/images/logo.jpg",
+              "url": "https://www.refugeebrotherhood.org",
+              "logo": "https://www.refugeebrotherhood.org/images/logo.jpg",
               "description": "Refugee Brotherhood is a refugee-led organisation empowering communities in Nairobi, Embakasi, Patanisho, and Kayole through livelihood, psychosocial support, peace building, and advocacy programs.",
               "foundingDate": "2020",
               "address": {
@@ -194,11 +194,11 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "Refugee Brotherhood",
-              "url": "https://refugeebrotherhood.org",
+              "url": "https://www.refugeebrotherhood.org",
               "description": "Refugee Brotherhood is a refugee-led organisation empowering communities in Nairobi through sustainable programs.",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://refugeebrotherhood.org/search?q={search_term_string}",
+                "target": "https://www.refugeebrotherhood.org/search?q={search_term_string}",
                 "query-input": "required name=search_term_string"
               }
             })

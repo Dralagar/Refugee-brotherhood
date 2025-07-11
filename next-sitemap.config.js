@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: 'https://refugeebrotherhood.org',
+  siteUrl: 'https://www.refugeebrotherhood.org',
   generateRobotsTxt: true,
   sitemapSize: 7000,
   changefreq: 'weekly',
@@ -14,7 +14,7 @@ module.exports = {
       },
     ],
     additionalSitemaps: [
-      'https://refugeebrotherhood.org/sitemap.xml',
+      'https://www.refugeebrotherhood.org/sitemap.xml',
     ],
   },
   transform: async (config, path) => {
