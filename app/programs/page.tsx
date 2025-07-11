@@ -1,8 +1,5 @@
-'use client';
-import React, { useEffect, useRef } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import styles from '../styles/Programs.module.css';
+import type { Metadata } from 'next';
+import ProgramsClient from '../components/ProgramsClient';
 
 const programData = {
   livelihood: {
@@ -79,97 +76,62 @@ const programData = {
   },
 };
 
-export default function ProgramsOverviewPage() {
-  const gridRef = useRef<HTMLDivElement>(null);
+export const metadata: Metadata = {
+  title: "Our Programs | Refugee Brotherhood",
+  description: "Discover Refugee Brotherhood's four core programs: Livelihood (USLA, waste management, vocational training), Psychosocial Support, Peace Building, and Advocacy. Empowering refugees in Nairobi, Kenya.",
+  keywords: [
+    "refugee programs",
+    "livelihood program",
+    "USLA",
+    "Urban saving and loan association", 
+    "psychosocial support",
+    "peace building",
+    "refugee advocacy",
+    "waste management",
+    "vocational training",
+    "refugee empowerment",
+    "community development",
+    "Nairobi refugee programs",
+    "Refugee Brotherhood programs"
+  ].join(", "),
+  openGraph: {
+    title: "Our Programs | Refugee Brotherhood",
+    description: "Discover Refugee Brotherhood's four core programs: Livelihood, Psychosocial Support, Peace Building, and Advocacy. Empowering refugees in Nairobi, Kenya.",
+    url: "https://refugeebrotherhood.org/programs",
+    siteName: "Refugee Brotherhood",
+    images: [
+      {
+        url: "https://refugeebrotherhood.org/images/programs-og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Refugee Brotherhood Programs - Livelihood, Psychosocial Support, Peace Building, Advocacy",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Our Programs | Refugee Brotherhood",
+    description: "Discover Refugee Brotherhood's four core programs empowering refugees in Nairobi, Kenya.",
+    images: ["https://refugeebrotherhood.org/images/programs-og.jpg"],
+  },
+  alternates: {
+    canonical: "https://refugeebrotherhood.org/programs",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+};
 
-  // Scroll to and highlight the card when hash changes
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const hash = window.location.hash.replace('#', '');
-      if (hash) {
-        const el = document.getElementById(hash);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          el.classList.add('programCardActive');
-          setTimeout(() => el.classList.remove('programCardActive'), 2000);
-        }
-      }
-    }
-  }, [typeof window !== 'undefined' && window.location.hash]);
-
-  return (
-    <main className={styles.programsContainer}>
-      <section className={styles.header + ' fadeIn'}>
-        <h1 className={styles.title}>Our Programs</h1>
-        <p className={styles.subtitle}>
-          Explore our core programs designed to empower refugees and foster community well-being. Click a program in the menu to jump to its details below.
-        </p>
-      </section>
-
-      <div ref={gridRef} className={styles.programsFlexGrid} style={{ scrollBehavior: 'smooth' }}>
-        {Object.values(programData).map((program, idx) => {
-          let iconSrc = '';
-          let iconAlt = '';
-          if (program.id === 'peace') { iconSrc = '/globe.svg'; iconAlt = 'Peace Icon'; }
-          if (program.id === 'advocacy') { iconSrc = '/window.svg'; iconAlt = 'Advocacy Icon'; }
-          if (program.id === 'livelihood') { iconSrc = '/file.svg'; iconAlt = 'Livelihood Icon'; }
-          if (program.id === 'psychosocial') { iconSrc = '/next.svg'; iconAlt = 'Psychosocial Icon'; }
-          return (
-            <div key={program.id} className={styles.programCardWrapper}>
-              <a id={program.id} style={{ position: 'absolute', top: '-110px', display: 'block', height: 0, scrollMarginTop: '120px' }} aria-hidden="true"></a>
-              <div
-                id={program.id + '-card'}
-                className={
-                  styles.programCard +
-                  ' fadeInUp' +
-                  (styles[program.id] ? ' ' + styles[program.id] : '')
-                }
-                style={{ animationDelay: `${0.1 + idx * 0.1}s` }}
-              >
-                <div className={styles.imageContainer}>
-                  <Image
-                    src={program.image}
-                    alt={program.title}
-                    fill
-                    className={styles.cardImage}
-                  />
-                  {iconSrc && (
-                    <span className={styles.iconOverlay} aria-hidden="true">
-                      <Image src={iconSrc} width={36} height={36} alt={iconAlt} />
-                    </span>
-                  )}
-                </div>
-                <div className={styles.cardContent}>
-                  <h2>{program.title}</h2>
-                  <p>{program.description}</p>
-                  <ul className={styles.featuresList}>
-                    {program.features.map((feature, i) => (
-                      <li key={i}>{feature}</li>
-                    ))}
-                  </ul>
-                  <div className={styles.statsRow}>
-                    <div className={styles.statBlock}>
-                      <span className={styles.statValue}>{program.stats.beneficiaries}</span>
-                      <span className={styles.statLabel}>Beneficiaries</span>
-                    </div>
-                    <div className={styles.statBlock}>
-                      <span className={styles.statValue}>{program.stats.successRate}</span>
-                      <span className={styles.statLabel}>Success Rate</span>
-                    </div>
-                    <div className={styles.statBlock}>
-                      <span className={styles.statValue}>{program.stats.partnerships}</span>
-                      <span className={styles.statLabel}>Partnerships</span>
-                    </div>
-                  </div>
-                  <Link href={`/programs/${program.id}`} className={styles.learnMore}>
-                    Learn More
-                  </Link>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </main>
-  );
+export default function Programs() {
+  return <ProgramsClient />;
 }
