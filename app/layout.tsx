@@ -232,6 +232,38 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <meta name="google-site-verification" content="4mJ8j2dSbExbW-RSv5jo2mqOYzyeEKRRdeaa-t8G5U8" />
+        
+        {/* Additional SEO Meta Tags */}
+        <meta name="author" content="Refugee Brotherhood" />
+        <meta name="copyright" content="Refugee Brotherhood" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        
+        {/* Social Media Meta Tags */}
+        <meta property="og:site_name" content="Refugee Brotherhood" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale:alternate" content="sw_KE" />
+        
+        {/* Twitter Additional Tags */}
+        <meta name="twitter:site" content="@RefugeeBrotherhood" />
+        <meta name="twitter:creator" content="@RefugeeBrotherhood" />
+        
+        {/* Mobile and Performance Meta Tags */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="theme-color" content="#3674B5" />
+        <meta name="msapplication-TileColor" content="#3674B5" />
+        
+        {/* Preload Critical Resources */}
+        <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/images/logo.jpg" as="image" />
+        
+        {/* Canonical and Alternate Links */}
+        <link rel="canonical" href="https://www.refugeebrotherhood.org" />
+        <link rel="alternate" href="https://www.refugeebrotherhood.org" hrefLang="en" />
+        <link rel="alternate" href="https://www.refugeebrotherhood.org" hrefLang="x-default" />
       </head>
       <body suppressHydrationWarning>
         <Navbar />
