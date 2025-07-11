@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Footer from "./Footer/page";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Refugee Brotherhood | Refugee Led Organisation in Nairobi, Kenya",
@@ -81,14 +82,15 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* JSON-LD Structured Data for Organization */}
-        <script
+        <Script
+          id="organization-ld"
           type="application/ld+json"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "Refugee Brotherhood",
-              "alternateName": "Refugee Led Organisation Nairobi Kenya",
               "url": "https://www.refugeebrotherhood.org/",
               "logo": "https://www.refugeebrotherhood.org/images/logo.jpg",
               "description": "Refugee Brotherhood is a refugee-led organisation empowering communities in Nairobi, Embakasi, Patanisho, and Kayole through livelihood, psychosocial support, peace building, and advocacy programs.",
