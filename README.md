@@ -87,8 +87,8 @@ A modern, responsive website for Refugee Brotherhood, a refugee-led organisation
    ```
 
 4. **Start Sanity Studio**
-   ```bash
-   npm run dev
+```bash
+npm run dev
    ```
 
 5. **Access Studio**
