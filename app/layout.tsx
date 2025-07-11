@@ -231,6 +231,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <meta name="google-site-verification" content="4mJ8j2dSbExbW-RSv5jo2mqOYzyeEKRRdeaa-t8G5U8" />
       </head>
       <body suppressHydrationWarning>
         <Navbar />
