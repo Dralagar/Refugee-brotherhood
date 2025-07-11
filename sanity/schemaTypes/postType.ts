@@ -10,13 +10,16 @@ export const postType = defineType({
     defineField({
       name: 'title',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'slug',
       type: 'slug',
       options: {
         source: 'title',
+        maxLength: 96,
       },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'author',
@@ -45,6 +48,13 @@ export const postType = defineType({
     defineField({
       name: 'publishedAt',
       type: 'datetime',
+    }),
+    defineField({
+      name: 'excerpt',
+      title: 'Excerpt',
+      type: 'text',
+      rows: 3,
+      description: 'A brief summary of the post (appears in blog listing)',
     }),
     defineField({
       name: 'body',

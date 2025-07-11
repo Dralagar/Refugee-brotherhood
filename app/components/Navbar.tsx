@@ -180,7 +180,7 @@ const NavBar: React.FC = () => {
                         className={styles.dropdownLink + (activeAboutSection === section.id ? ' ' + styles.active : '')}
                         onClick={(e) => {
                           e.preventDefault();
-                          setAboutDropdownOpen(false);
+                          closeAll();
                           if (!pathname.startsWith('/about')) {
                             router.push(`/about#${section.id}`);
                           } else {
@@ -235,7 +235,7 @@ const NavBar: React.FC = () => {
                         <Link
                           href={`/programs/${program.id}`}
                           className={styles.dropdownLink + ' ' + styles.programsDropdownCard + (pathname === `/programs/${program.id}` ? ' ' + styles.active : '')}
-                          onClick={() => setProgramsDropdownOpen(false)}
+                          onClick={closeAll}
                           role="menuitem"
                         >
                           {iconSrc && (
@@ -257,8 +257,9 @@ const NavBar: React.FC = () => {
                 href="/news"
                 className={styles.navLink}
                 aria-current={pathname === '/news' ? 'page' : undefined}
+                onClick={closeAll}
               >
-                News
+                Blog
               </Link>
             </li>
             <li>
@@ -266,6 +267,7 @@ const NavBar: React.FC = () => {
                 href="/partners"
                 className={styles.navLink}
                 aria-current={pathname === '/partners' ? 'page' : undefined}
+                onClick={closeAll}
               >
                 Partners
               </Link>
@@ -275,6 +277,7 @@ const NavBar: React.FC = () => {
                 href="/contact"
                 className={styles.navLink}
                 aria-current={pathname === '/contact' ? 'page' : undefined}
+                onClick={closeAll}
               >
                 Contact
               </Link>

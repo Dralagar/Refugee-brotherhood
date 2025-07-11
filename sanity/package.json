@@ -1,0 +1,23 @@
+{
+  "name": "refugee-brotherhood-cms",
+  "version": "1.0.0",
+  "description": "Sanity CMS for Refugee Brotherhood",
+  "main": "index.js",
+  "scripts": {
+    "dev": "sanity dev",
+    "start": "sanity start",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "deploy-graphql": "sanity graphql deploy"
+  },
+  "dependencies": {
+    "@sanity/vision": "^3.72.1",
+    "sanity": "^3.98.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "@types/react-dom": "^19"
+  }
+} 
