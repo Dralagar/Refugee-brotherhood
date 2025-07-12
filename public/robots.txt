@@ -1,4 +1,2 @@
 User-agent: *
-Allow: /
-
-Sitemap: https://www.refugeebrotherhood.org/sitemap.xml 
+Allow: / 
