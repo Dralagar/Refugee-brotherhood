@@ -27,9 +27,9 @@ const TopContactBar: React.FC = () => (
       </a>
       <a href="https://instagram.com/refugeebrotherhood" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
       <a href="https://youtube.com/@refugeebrotherhood" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><FaYoutube /></a>
-      <a href="https://www.refugeebrotherhood.org/done" className={styles.donateButton} aria-label="Donate">
+      <Link href="/donate" className={styles.donateButton} aria-label="Donate">
         Donate
-      </a>
+      </Link>
     </div>
   </div>
 );
