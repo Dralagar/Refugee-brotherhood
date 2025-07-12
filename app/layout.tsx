@@ -94,7 +94,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code",
+    google: "4mJ8j2dSbExbW-RSv5jo2mqOYzyeEKRRdeaa-t8G5U8",
   },
   category: "Non-Profit Organization",
 };
@@ -179,7 +179,29 @@ export default function RootLayout({
                   "name": "Advocacy",
                   "description": "Policy advocacy for refugee rights and integration"
                 }
-              ]
+              ],
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Refugee Support Services",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Livelihood Training",
+                      "description": "Vocational skills training and employment support"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Mental Health Support",
+                      "description": "Counseling and psychosocial services"
+                    }
+                  }
+                ]
+              }
             })
           }}
         />
@@ -200,7 +222,97 @@ export default function RootLayout({
                 "@type": "SearchAction",
                 "target": "https://www.refugeebrotherhood.org/search?q={search_term_string}",
                 "query-input": "required name=search_term_string"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "Refugee Brotherhood"
               }
+            })
+          }}
+        />
+
+        {/* JSON-LD FAQ Schema for Common Questions */}
+        <Script
+          id="faq-ld"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "What is Refugee Brotherhood?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Refugee Brotherhood is a refugee-led organisation based in Nairobi, Kenya, that empowers refugees and host communities through livelihood programs, psychosocial support, peace building, and advocacy initiatives."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Where does Refugee Brotherhood operate?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We operate in Nairobi, specifically in Embakasi, Patanisho, and Kayole areas, serving both refugee and host communities."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What programs does Refugee Brotherhood offer?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We offer four main programs: Livelihood (USLA, waste management, vocational training), Psychosocial Support, Peace Building, and Advocacy for refugee rights."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How can I get help from Refugee Brotherhood?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You can contact us through our website, social media channels, or visit our office in Nairobi. We provide services to both refugees and host community members."
+                  }
+                }
+              ]
+            })
+          }}
+        />
+
+        {/* JSON-LD Breadcrumb Schema */}
+        <Script
+          id="breadcrumb-ld"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://www.refugeebrotherhood.org"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Programs",
+                  "item": "https://www.refugeebrotherhood.org/programs"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "About",
+                  "item": "https://www.refugeebrotherhood.org/about"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 4,
+                  "name": "Contact",
+                  "item": "https://www.refugeebrotherhood.org/contact"
+                }
+              ]
             })
           }}
         />
