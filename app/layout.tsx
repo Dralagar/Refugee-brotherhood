@@ -363,9 +363,24 @@ export default function RootLayout({
         <link rel="alternate" href="https://www.refugeebrotherhood.org" hrefLang="x-default" />
       </head>
       <body suppressHydrationWarning>
+        <div id="scroll-progress-bar"></div>
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <Script id="scroll-progress-bar-script" strategy="afterInteractive">{`
+          (function(){
+            function updateScrollBar() {
+              var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+              var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+              var scrolled = (winScroll / height) * 100;
+              var bar = document.getElementById('scroll-progress-bar');
+              if(bar) bar.style.width = scrolled + '%';
+            }
+            window.addEventListener('scroll', updateScrollBar);
+            window.addEventListener('resize', updateScrollBar);
+            document.addEventListener('DOMContentLoaded', updateScrollBar);
+          })();
+        `}</Script>
       </body>
     </html>
   );

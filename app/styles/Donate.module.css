@@ -1,6 +1,6 @@
 .container {
   min-height: 100vh;
-  background-color: #f8f9fa;
+  background-color: var(--color-light);
 }
 
 .main {
@@ -12,23 +12,27 @@
 .heroSection {
   text-align: center;
   padding: 4rem 2rem;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-              url('/images/hero-background.jpg');
-  background-size: cover;
-  background-position: center;
-  color: white;
+  background: linear-gradient(120deg, var(--color-main) 0%, var(--color-light) 100%);
+  color: #fff;
   margin-bottom: 3rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 32px rgba(54, 116, 181, 0.18);
 }
 
 .heroSection h1 {
   font-size: clamp(2.5rem, 5vw, 4rem);
   margin-bottom: 1rem;
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: 0.5px;
 }
 
 .heroSection p {
   font-size: clamp(1.1rem, 2vw, 1.5rem);
   max-width: 600px;
   margin: 0 auto;
+  color: var(--color-footer);
+  font-weight: 500;
 }
 
 .contentWrapper {
@@ -39,10 +43,10 @@
 }
 
 .donationSection {
-  background: white;
-  border-radius: 12px;
+  background: #fff;
+  border-radius: var(--border-radius);
   padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(54, 116, 181, 0.10);
 }
 
 .impactGrid {
@@ -53,21 +57,23 @@
 }
 
 .impactCard {
-  background: #f8f9fa;
+  background: var(--color-footer);
   padding: 1.5rem;
   border-radius: 8px;
   text-align: center;
-  transition: transform 0.2s;
+  transition: transform var(--transition-duration);
+  box-shadow: 0 2px 8px rgba(54, 116, 181, 0.08);
 }
 
 .impactCard:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 24px var(--color-light);
 }
 
 .impactAmount {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #007bff;
+  color: var(--color-main);
   display: block;
   margin-bottom: 1rem;
 }
@@ -82,18 +88,21 @@
 .donationButton {
   padding: 1rem;
   font-size: 1.2rem;
-  background: white;
-  border: 2px solid #007bff;
-  color: #007bff;
+  background: #fff;
+  border: 2px solid var(--color-main);
+  color: var(--color-main);
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all var(--transition-duration);
+  font-weight: 700;
 }
 
 .donationButton:hover,
 .donationButton.selected {
-  background: #007bff;
-  color: white;
+  background: var(--color-main);
+  color: #fff;
+  border-color: var(--color-main);
+  box-shadow: 0 2px 8px var(--color-light);
 }
 
 .customAmount {
@@ -104,8 +113,11 @@
   width: 100%;
   padding: 1rem;
   font-size: 1.2rem;
-  border: 2px solid #ddd;
+  border: 2px solid var(--color-light);
   border-radius: 8px;
+  background: #fff;
+  color: var(--color-main);
+  font-weight: 600;
 }
 
 .paymentMethods {
@@ -122,7 +134,17 @@
 
 .paymentIcon {
   font-size: 2rem;
-  color: #6c757d;
+  color: var(--color-secondary);
+  background: var(--color-footer);
+  border-radius: 50%;
+  padding: 0.5rem;
+  box-shadow: 0 1px 4px var(--color-light);
+  transition: background var(--transition-duration), color var(--transition-duration);
+}
+
+.paymentIcon:hover {
+  background: var(--color-main);
+  color: #fff;
 }
 
 .formRow {
@@ -138,32 +160,35 @@
 .formGroup label {
   display: block;
   margin-bottom: 0.5rem;
-  font-weight: 500;
+  font-weight: 600;
+  color: var(--color-main);
 }
 
 .formGroup input,
 .formGroup textarea {
   width: 100%;
   padding: 0.8rem;
-  border: 2px solid #ddd;
+  border: 2px solid var(--color-light);
   border-radius: 8px;
   font-size: 1rem;
-  transition: all 0.3s ease;
+  transition: all var(--transition-duration) ease;
+  background: #fff;
+  color: var(--color-main);
 }
 
 .formGroup input:focus, 
 .formGroup textarea:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px rgba(87, 143, 202, 0.15);
   outline: none;
 }
 
 .cardElement {
   margin-bottom: 1.5rem;
   padding: 1rem;
-  border: 2px solid #ddd;
+  border: 2px solid var(--color-light);
   border-radius: 8px;
-  background: white;
+  background: #fff;
 }
 
 .donationFrequency {
@@ -175,30 +200,34 @@
 
 .frequencyButton {
   padding: 1rem;
-  background: white;
-  border: 2px solid #ddd;
+  background: #fff;
+  border: 2px solid var(--color-light);
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all var(--transition-duration);
+  font-weight: 700;
+  color: var(--color-main);
 }
 
 .frequencyButton:hover,
 .frequencyButton.selected {
-  border-color: #007bff;
-  color: #007bff;
+  border-color: var(--color-main);
+  color: #fff;
+  background: var(--color-main);
 }
 
 .submitButton {
   width: 100%;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
-  background: #28a745;
-  color: white;
+  background: var(--color-success);
+  color: #fff;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color var(--transition-duration);
   margin-top: 1rem;
+  font-weight: 700;
 }
 
 .submitButton:hover {
@@ -206,15 +235,17 @@
 }
 
 .sidebar {
-  background: white;
-  border-radius: 12px;
+  background: #fff;
+  border-radius: var(--border-radius);
   padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(54, 116, 181, 0.10);
   height: fit-content;
 }
 
 .impactStory {
   text-align: center;
+  color: var(--color-main);
+  font-weight: 600;
 }
 
 .impactImage {
@@ -225,16 +256,16 @@
 }
 
 .error {
-  color: #dc3545;
+  color: var(--color-error);
   margin-bottom: 1rem;
   text-align: center;
+  font-weight: 700;
 }
 
 @media (max-width: 1024px) {
   .contentWrapper {
     grid-template-columns: 1fr;
   }
-  
   .sidebar {
     order: -1;
   }
@@ -244,28 +275,29 @@
   .main {
     padding-top: 60px;
   }
-  
   .formRow {
     grid-template-columns: 1fr;
   }
-  
-  .donationSection,
-  .sidebar {
-    padding: 1.5rem;
+  .contentWrapper {
+    padding: 0 0.5rem;
+    gap: 1rem;
+  }
+  .donationSection, .sidebar {
+    padding: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .heroSection {
-    padding: 3rem 1rem;
+    padding: 2rem 0.5rem;
+    font-size: 1rem;
   }
-  
   .contentWrapper {
-    padding: 0 1rem;
+    padding: 0 0.2rem;
+    gap: 0.5rem;
   }
-  
-  .donationGrid {
-    grid-template-columns: 1fr 1fr;
+  .donationSection, .sidebar {
+    padding: 0.5rem;
   }
 }
 

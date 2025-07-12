@@ -59,6 +59,7 @@ html {
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -342,4 +343,19 @@ button:focus {
 /* Ensure the body does not overflow */
 body {
   overflow-x: hidden;
+}
+
+/* Custom Scroll Progress Bar */
+#scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-main), var(--color-secondary), var(--color-light));
+  z-index: 9999;
+  transition: width 0.2s cubic-bezier(0.4,0,0.2,1);
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 2px 8px rgba(54,116,181,0.15);
+  pointer-events: none;
 }
