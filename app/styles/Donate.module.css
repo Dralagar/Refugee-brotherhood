@@ -268,3 +268,39 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+@media (max-width: 600px) {
+  .main {
+    padding-top: 40px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .heroSection {
+    padding: 2rem 0.5rem;
+    font-size: 1.2rem;
+  }
+  .contentWrapper {
+    padding: 0 0.5rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .donationSection {
+    padding: 1rem;
+  }
+  .impactGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .donationGrid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .submitButton {
+    font-size: 1.1rem;
+    padding: 1rem;
+  }
+}

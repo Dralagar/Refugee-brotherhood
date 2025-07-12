@@ -293,30 +293,10 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "BreadcrumbList",
               "itemListElement": [
-                {
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": "Home",
-                  "item": "https://www.refugeebrotherhood.org"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 2,
-                  "name": "Programs",
-                  "item": "https://www.refugeebrotherhood.org/programs"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 3,
-                  "name": "About",
-                  "item": "https://www.refugeebrotherhood.org/about"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 4,
-                  "name": "Contact",
-                  "item": "https://www.refugeebrotherhood.org/contact"
-                }
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.refugeebrotherhood.org" },
+                { "@type": "ListItem", "position": 2, "name": "Programs", "item": "https://www.refugeebrotherhood.org/programs" },
+                { "@type": "ListItem", "position": 3, "name": "Donate", "item": "https://www.refugeebrotherhood.org/donate" },
+                { "@type": "ListItem", "position": 4, "name": "Contact", "item": "https://www.refugeebrotherhood.org/contact" }
               ]
             })
           }}

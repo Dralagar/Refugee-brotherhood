@@ -414,20 +414,26 @@
 @media (max-width: 900px) {
   .programsFlexGrid {
     flex-direction: column;
+    align-items: center;
     gap: 1.5rem;
   }
   .programCardWrapper {
-    max-width: 100%;
+    max-width: 98vw;
     min-width: 0;
-    margin: 0 0 1.5rem 0;
+    margin: 0 auto 1.5rem auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
   .programCard {
-    min-height: 320px;
-    max-height: none;
-    padding: 1rem 0.5rem;
+    min-width: 0;
+    max-width: 420px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem 0.7rem 1rem 0.7rem;
   }
   .statsRow {
-    flex-direction: column;
+    flex-direction: row;
     gap: 0.5rem;
   }
 }
@@ -442,20 +448,48 @@
     padding: 0.5rem 0.1rem 1rem 0.1rem;
     min-height: calc(100vh - 90px);
   }
+  .programsFlexGrid {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .programCardWrapper {
+    max-width: 100vw;
+    min-width: 0;
+    margin: 0 auto 1rem auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
   .programCard {
-    padding: 0.7rem 0.3rem 0.5rem 0.3rem;
-    gap: 0.4rem;
-    min-height: 220px;
-    max-height: none;
-  }
-  .featuresList li {
-    padding: 0.8rem 1rem;
-  }
-  .cardContent {
-    padding: 0.5rem;
+    min-width: 0;
+    max-width: 98vw;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0.7rem 0.3rem 0.7rem 0.3rem;
+    box-sizing: border-box;
   }
   .imageContainer {
-    height: 180px;
+    min-height: 120px;
+    max-height: 160px;
+  }
+  .cardContent h2 {
+    font-size: 1.2rem;
+  }
+  .cardContent p {
+    font-size: 1rem;
+  }
+  .featuresList {
+    padding-left: 1rem;
+  }
+  .statsRow {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+  .statBlock {
+    width: 100%;
+    text-align: left;
   }
 }
 

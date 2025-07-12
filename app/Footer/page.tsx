@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import styles from '../styles/Footer.module.css';
 import { FaFacebookF, FaInstagram, FaYoutube, FaMapMarkerAlt, FaEnvelope, FaPhone } from 'react-icons/fa';
+import Image from 'next/image';
 
 const XIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true" {...props}>
@@ -38,10 +39,14 @@ const Footer: React.FC = () => {
             </div>
           </div>
           <div className={styles.icons}>
-            <a href="https://facebook.com/refugeebrotherhood" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF className={styles.icon} /></a>
-            <a href="https://twitter.com/refugeebrother" target="_blank" rel="noopener noreferrer" aria-label="X"><XIcon className={styles.icon} /></a>
-            <a href="https://instagram.com/refugeebrotherhood" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram className={styles.icon} /></a>
-            <a href="https://youtube.com/@refugeebrotherhood" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><FaYoutube className={styles.icon} /></a>
+            <a href="https://facebook.com/refugeebrotherhood" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF className={styles.icon} style={{width:24, height:24}} /></a>
+            <a href="https://twitter.com/refugeebrother" target="_blank" rel="noopener noreferrer" aria-label="X">
+              <span className={styles.icon} style={{width:24, height:24, display:'inline-flex', alignItems:'center', justifyContent:'center'}}>
+                <Image src="/images/X logo.png" alt="X (formerly Twitter) Logo - Refugee Brotherhood" width={24} height={24} style={{objectFit: 'contain', width:24, height:24}} />
+              </span>
+            </a>
+            <a href="https://instagram.com/refugeebrotherhood" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram className={styles.icon} style={{width:24, height:24}} /></a>
+            <a href="https://youtube.com/@refugeebrotherhood" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><FaYoutube className={styles.icon} style={{width:24, height:24}} /></a>
           </div>
         </div>
         <div className={styles.column}>

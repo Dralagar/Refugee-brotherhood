@@ -22,7 +22,9 @@ const TopContactBar: React.FC = () => (
     </div>
     <div className={styles.topContactRight}>
       <a href="https://facebook.com/refugeebrotherhood" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF /></a>
-      <a href="https://twitter.com/refugeebrother" target="_blank" rel="noopener noreferrer" aria-label="X"><XIcon /></a>
+      <a href="https://twitter.com/refugeebrother" target="_blank" rel="noopener noreferrer" aria-label="X">
+        <Image src="/images/X logo.png" alt="X (formerly Twitter) Logo" width={24} height={24} style={{objectFit: 'contain'}} />
+      </a>
       <a href="https://instagram.com/refugeebrotherhood" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
       <a href="https://youtube.com/@refugeebrotherhood" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><FaYoutube /></a>
       <a href="https://www.refugeebrotherhood.org/done" className={styles.donateButton} aria-label="Donate">

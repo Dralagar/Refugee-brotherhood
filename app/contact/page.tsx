@@ -79,27 +79,21 @@ const ContactPage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!validateForm()) {
-      return;
-    }
-
     setIsLoading(true);
     setSubmitStatus('idle');
-
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      console.log('Form submitted:', formData);
-      setSubmitStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: ''
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       });
+      if (res.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+      }
     } catch (error) {
-      console.error('Error submitting form:', error);
       setSubmitStatus('error');
     } finally {
       setIsLoading(false);

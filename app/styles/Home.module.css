@@ -432,6 +432,14 @@
 .partnersSection {
   padding: 4rem 2rem;
   background: var(--color-footer, #D1F8EF);
+  text-align: left;
+  padding-left: 2.5rem;
+}
+
+.partnersSection h2, .partnersSection .sectionTitle {
+  text-align: left;
+  margin-left: 0.1rem;
+  padding-left: 0.2rem;
 }
 
 .partnersWrapper {
@@ -821,4 +829,118 @@
   line-height: 1.5;
   border: 2px solid #A1E3F9;
   font-family: 'Montserrat', 'Poppins', sans-serif;
+}
+
+@media (max-width: 900px) {
+  .mainContent {
+    padding: 0 0.5rem;
+  }
+  .hero {
+    min-height: 60vh;
+    padding: 1.5rem 0.5rem;
+  }
+  .heroContent {
+    padding: 1.5rem 0.5rem;
+    width: 98%;
+  }
+  .aboutSection {
+    padding: 2.5rem 0.5rem;
+  }
+  .videoDescriptionSection {
+    flex-direction: column;
+    padding: 1.5rem 0.5rem;
+    gap: 1.5rem;
+  }
+  .descriptionContainer {
+    padding: 1.2rem 0.5rem;
+  }
+  .programsSection {
+    padding: 2.5rem 0.5rem;
+  }
+  .programsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    padding: 0;
+  }
+  .programCard {
+    max-width: 100%;
+    min-width: 0;
+    margin: 0 0 1.2rem 0;
+    padding: 0.8rem 0.5rem 0.7rem 0.5rem;
+  }
+  .teamSection {
+    padding: 2rem 0.5rem;
+  }
+  .teamGrid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .partnersSection {
+    padding: 2rem 0.5rem;
+    padding-left: 1.2rem;
+  }
+  .partnersSection h2, .partnersSection .sectionTitle {
+    padding-left: 0.1rem;
+    margin-left: 0;
+  }
+  .partnersWrapper {
+    gap: 1rem;
+  }
+  .contactSection {
+    padding: 2rem 0.5rem;
+  }
+}
+@media (max-width: 600px) {
+  .hero {
+    min-height: 40vh;
+    padding: 1rem 0.2rem;
+  }
+  .heroContent {
+    padding: 1rem 0.2rem;
+    width: 100%;
+  }
+  .aboutSection {
+    padding: 1.2rem 0.2rem;
+  }
+  .videoDescriptionSection {
+    padding: 1rem 0.2rem;
+    gap: 1rem;
+  }
+  .descriptionContainer {
+    padding: 0.7rem 0.2rem;
+  }
+  .programsSection {
+    padding: 1.2rem 0.2rem;
+  }
+  .programsGrid {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+    padding: 0;
+  }
+  .programCard {
+    padding: 0.5rem 0.1rem 0.4rem 0.1rem;
+    gap: 0.3rem;
+    min-height: 120px;
+  }
+  .teamSection {
+    padding: 1.2rem 0.2rem;
+  }
+  .teamGrid {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+  .partnersSection {
+    padding: 1.2rem 0.2rem;
+    padding-left: 0.5rem;
+  }
+  .partnersSection h2, .partnersSection .sectionTitle {
+    padding-left: 0;
+    margin-left: 0;
+  }
+  .partnersWrapper {
+    gap: 0.5rem;
+  }
+  .contactSection {
+    padding: 1.2rem 0.2rem;
+  }
 }
