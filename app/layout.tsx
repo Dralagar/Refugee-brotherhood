@@ -160,9 +160,9 @@ export default function RootLayout({
                 {
                   "@type": "City",
                   "name": "Kayole"
-                }
+                },
                 {
-                  "@type": "district",
+                  "@type": "District",
                   "name": "Embakasi West"
                 }
               ],
