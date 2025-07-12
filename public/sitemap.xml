@@ -12,5 +12,5 @@
   <url><loc>https://www.refugeebrotherhood.org/alumni</loc></url>
   <url><loc>https://www.refugeebrotherhood.org/donate</loc></url>
   <url><loc>https://www.refugeebrotherhood.org/partners</loc></url>
-  <!-- Add more blog/news URLs as needed, e.g. /blog/post-title -->
+  <!-- To add new blog or news posts, insert a new <url><loc>https://www.refugeebrotherhood.org/blog/your-post-slug</loc></url> or <url><loc>https://www.refugeebrotherhood.org/news/your-news-slug</loc></url> here. -->
 </urlset> 

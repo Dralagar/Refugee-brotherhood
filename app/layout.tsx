@@ -138,8 +138,11 @@ export default function RootLayout({
                 "availableLanguage": ["English", "Swahili"]
               },
               "sameAs": [
-                "https://www.facebook.com/RefugeeBrotherhood/",
-                "https://www.instagram.com/RefugeeBrotherhood/"
+                "https://www.facebook.com/refugeebrotherhood",
+                "https://x.com/br_refugee",
+                "https://www.instagram.com/refugeebrotherhood",
+                "https://www.youtube.com/@refugeebrotherhood",
+                "https://ke.linkedin.com/company/refugee-brotherhood"
               ],
               "areaServed": [
                 {
@@ -157,6 +160,10 @@ export default function RootLayout({
                 {
                   "@type": "City",
                   "name": "Kayole"
+                }
+                {
+                  "@type": "district",
+                  "name": "Embakasi West"
                 }
               ],
               "serviceArea": {
@@ -276,6 +283,14 @@ export default function RootLayout({
                   "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "You can contact us through our website, social media channels, or visit our office in Nairobi. We provide services to both refugees and host community members."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How can I support Refugee Brotherhood?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You can support Refugee Brotherhood by donating, volunteering, or partnering with us. Visit our Donate page or contact us for more information."
                   }
                 }
               ]
