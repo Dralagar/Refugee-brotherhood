@@ -1,9 +1,13 @@
 /* Base Styles */
 :root {
-  --color-main: #3674B5;
-  --color-secondary: #578FCA;
+  --color-main: #2563eb;         /* Deep blue */
+  --color-secondary: #38bdf8;    /* Sky blue */
+  --color-accent: #fbbf24;       /* Gold accent */
+  --color-bg: #f7fafc;           /* Light background */
+  --color-footer: #e0e7ef;       /* Footer background */
+  --color-white: #fff;
+  --color-dark: #1e293b;
   --color-light: #A1E3F9;
-  --color-footer: #D1F8EF;
   --font-sans: 'Arial', 'Helvetica', sans-serif;
   --font-serif: 'Georgia', 'Times New Roman', serif;
   --primary-bg: var(--color-light);
@@ -21,7 +25,6 @@
   --primary-color: var(--color-main);
   --secondary-color: var(--color-secondary);
   --background-color: var(--color-light);
-  --white-color: #ffffff;
   --text-color: #222;
   --text-light: #555555;
   --dark-overlay: rgba(54, 116, 181, 0.5);
@@ -63,8 +66,8 @@ html {
 }
 
 body {
-  color: var(--text-color);
-  background: var(--background-color);
+  background: var(--color-bg);
+  color: var(--color-dark);
   font-family: var(--font-sans);
   line-height: 1.6;
   margin: 0;

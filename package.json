@@ -34,7 +34,8 @@
     "react-router-dom": "^7.0.2",
     "react-toastify": "^10.0.6",
     "stripe": "^17.4.0",
-    "styled-components": "^6.1.14"
+    "styled-components": "^6.1.14",
+    "swiper": "^11.2.10"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

@@ -5,6 +5,8 @@ import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import Image from "next/image";
 import { useInView } from 'react-intersection-observer';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
 // Dynamically import CountUp with no SSR
 const CountUp = dynamic(() => import('react-countup'), { ssr: false });
@@ -41,6 +43,12 @@ const HomeClient: React.FC = () => {
       label: 'Partner Organizations',
       icon: '/icons/partners.svg'
     }
+  ];
+
+  const heroImages = [
+    '/images/rb12.jpg',
+    '/images/hero2.jpg',
+    '/images/hero3.jpg',
   ];
 
   useEffect(() => {
