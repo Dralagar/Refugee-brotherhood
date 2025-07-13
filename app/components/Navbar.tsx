@@ -51,7 +51,8 @@ const TopContactBar: React.FC = () => (
         </svg>
       </a>
       <Link href="/donate" className={styles.donateButton} aria-label="Donate">
-        Donate
+        <span className={styles.donateIcon}>❤️</span>
+        <span className={styles.donateText}>Donate</span>
       </Link>
     </div>
   </div>
@@ -155,13 +156,23 @@ const NavBar: React.FC = () => {
         <nav className={styles.navbar} aria-label="Main Navigation">
           <div className={styles.navbarTop}>
             <Link href="/" className={styles.logoImage} aria-label="Home">
-              <Image
-                src="/images/logo.jpg"
-                alt="Refugee Brotherhood Logo"
-                width={100}
-                height={50}
-                priority
-              />
+              <div className={styles.logoContainer}>
+                <Image
+                  src="/images/logo.jpg"
+                  alt="Refugee Brotherhood Logo"
+                  width={120}
+                  height={60}
+                  priority
+                  className={styles.logoImage}
+                  style={{
+                    objectFit: 'contain',
+                    transition: 'transform 0.3s ease, filter 0.3s ease'
+                  }}
+                />
+                <div className={styles.logoOverlay}>
+                  <span className={styles.logoText}>Refugee Brotherhood</span>
+                </div>
+              </div>
             </Link>
 
             <button
