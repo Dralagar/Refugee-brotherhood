@@ -8,7 +8,7 @@ export default function AdvocacyProgramPage() {
       <section className={styles.heroSection + ' fadeInUp'}>
         <div className={styles.heroImage}>
           <Image
-            src="/images/Advocate.jpg"
+            src="/images/rb14.jpg"
             alt="Advocacy Program"
             width={800}
             height={400}

@@ -150,6 +150,16 @@ const HomeClient: React.FC = () => {
               <div className={styles.programCard}>
                 <div className={styles.programContent}>
                   <h3 className={styles.fontResponsiveH3}>Psycho Social Support</h3>
+                  <div className={styles.programImageContainer}>
+                    <Image
+                      src="/images/psychosocial.jpg"
+                      alt="Psycho Social Support Program - Refugee Brotherhood"
+                      width={400}
+                      height={250}
+                      className={styles.programCardImage}
+                      style={{ objectFit: 'cover', borderRadius: '8px' }}
+                    />
+                  </div>
                   <p className={styles.fontResponsiveP}>Refugee Brotherhood has an embedded psycho social support program complementing the other programs, where our main goal is self reliance. We believe for a person to be self-reliant their mental being has to be clear from their experience as refugees and vulnerable host community facing any form of abuse. We run six sessions on mental well being in a year, one session every two months. Here we provide a safe space for the community to express their feelings and emotions, and experiences. After the identification of those with dire problems beyond Refugee Brotherhood&apos;s capacity, we refer them to NGOs within our network for further intervention.</p>
                   <Link href="/programs/psychosocial" className={styles.programLink}>
                     Learn More →
@@ -160,6 +170,16 @@ const HomeClient: React.FC = () => {
               <div className={styles.programCard}>
                 <div className={styles.programContent}>
                   <h3 className={styles.fontResponsiveH3}>Peace Building</h3>
+                  <div className={styles.programImageContainer}>
+                    <Image
+                      src="/images/rb66.jpg"
+                      alt="Peace Building Program - Refugee Brotherhood"
+                      width={400}
+                      height={250}
+                      className={styles.programCardImage}
+                      style={{ objectFit: 'cover', borderRadius: '8px' }}
+                    />
+                  </div>
                   <p className={styles.fontResponsiveP}>We create awareness on peace building, we have peace clubs in our project areas, and we run peace walks in the community to create awareness on peace building through sports - Soccer, where we have a tournament: Community Social Cohesion and Peace Cup- Starts from 6th April- International Day of Sport for Development and Peace, where we do quarters and 20th June, World Refugee Day, we play the semi finals and subsequently on 21st September we conclude with the finals of the community social cohesion and peace cup.</p>
                   <Link href="/programs/peace" className={styles.programLink}> 
                     Learn More →
@@ -170,6 +190,16 @@ const HomeClient: React.FC = () => {
               <div className={styles.programCard}>
                 <div className={styles.programContent}>
                   <h3 className={styles.fontResponsiveH3}>Advocacy</h3>
+                  <div className={styles.programImageContainer}>
+                    <Image
+                      src="/images/Advocate.jpg"
+                      alt="Advocacy Program - Refugee Brotherhood"
+                      width={400}
+                      height={250}
+                      className={styles.programCardImage}
+                      style={{ objectFit: 'cover', borderRadius: '8px' }}
+                    />
+                  </div>
                   <p className={styles.fontResponsiveP}>We advocate for policy, laws, programs and systems that affect refugees. Our advocacy effort is to advance the self reliance of refugees and vulnerable host community by recommending policies on existing frameworks like Shirika Plan, 2021 Refugee Act and Global Agenda, through running a ten weeks advocacy campaign through compiling stories, blogs, voices of community, and collaborating with other refugee Led Organizations and other local host community organizations. We have united under one consortium of six refugee led organizations for collective action on &quot;Beyond my status&quot;, a project we do during the world refugee week. We have been actively engaged in the drafting of Nairobi City County Sport policy where we are proud and grateful to be part of the process.</p>
                   <Link href="/programs/advocacy" className={styles.programLink}>
                     Learn More →
@@ -210,53 +240,66 @@ const HomeClient: React.FC = () => {
                 <div className={styles.teamImageWrapper}>
                   <Image
                     src="/images/profile.jpeg"
-                    alt="Hassan Kazungu"
+                    alt="Hassan Kazungu - Executive Director of Refugee Brotherhood"
                     width={200}
                     height={200}
                     className={styles.teamImage}
                   />
                 </div>
                 <h3 className={styles.fontResponsiveH3}>Hassan Kazungu</h3>
-                <p className={styles.fontResponsiveP}>CEO</p>
+                <p className={styles.fontResponsiveP}>Executive Director</p>
               </div>
               <div className={styles.teamCard}>
                 <div className={styles.teamImageWrapper}>
                   <Image
                     src="/images/profile2.jpeg"
-                    alt="Luke"
+                    alt="Luke Karema - Deputy Director of Refugee Brotherhood"
                     width={200}
                     height={200}
                     className={styles.teamImage}
                   />
                 </div>
                 <h3 className={styles.fontResponsiveH3}>Luke Karema</h3>
-                <p className={styles.fontResponsiveP}>CTO</p>
+                <p className={styles.fontResponsiveP}>Deputy Director</p>
               </div>
               <div className={styles.teamCard}>
                 <div className={styles.teamImageWrapper}>
                   <Image
                     src="/images/profile3.jpeg"
-                    alt="Emily Johnson"
+                    alt="Linda Kaunda - Lead Peace Building at Refugee Brotherhood"
                     width={200}
                     height={200}
                     className={styles.teamImage}
                   />
                 </div>
                 <h3 className={styles.fontResponsiveH3}>Linda Kaunda</h3>
-                <p className={styles.fontResponsiveP}>Lead Developer</p>
+                <p className={styles.fontResponsiveP}>Lead Peace Building</p>
               </div>
               <div className={styles.teamCard}>
                 <div className={styles.teamImageWrapper}>
                   <Image
                     src="/images/profile4.jpeg"
-                    alt="Michael Brown"
+                    alt="Asnath Kabatesi - Lead Advocacy at Refugee Brotherhood"
                     width={200}
                     height={200}
                     className={styles.teamImage}
                   />
                 </div>
                 <h3 className={styles.fontResponsiveH3}>Asnath Kabatesi</h3>
-                <p className={styles.fontResponsiveP}>Community Manager</p>
+                <p className={styles.fontResponsiveP}>Lead Advocacy</p>
+              </div>
+              <div className={styles.teamCard}>
+                <div className={styles.teamImageWrapper}>
+                  <Image
+                    src="/images/profile5.jpeg"
+                    alt="Christel Bakayomo - Communication Lead at Refugee Brotherhood"
+                    width={200}
+                    height={200}
+                    className={styles.teamImage}
+                  />
+                </div>
+                <h3 className={styles.fontResponsiveH3}>Christel Bakayomo</h3>
+                <p className={styles.fontResponsiveP}>Communication Lead</p>
               </div>
             </div>
           </section>

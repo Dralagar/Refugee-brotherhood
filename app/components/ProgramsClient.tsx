@@ -110,10 +110,10 @@ export default function ProgramsClient() {
         {Object.values(programData).map((program, idx) => {
           let iconSrc = '';
           let iconAlt = '';
-          if (program.id === 'peace') { iconSrc = '/globe.svg'; iconAlt = 'Peace Icon'; }
-          if (program.id === 'advocacy') { iconSrc = '/window.svg'; iconAlt = 'Advocacy Icon'; }
-          if (program.id === 'livelihood') { iconSrc = '/file.svg'; iconAlt = 'Livelihood Icon'; }
-          if (program.id === 'psychosocial') { iconSrc = '/next.svg'; iconAlt = 'Psychosocial Icon'; }
+          if (program.id === 'peace') { iconSrc = '/icons/peace.svg'; iconAlt = 'Peace Building Icon'; }
+          if (program.id === 'advocacy') { iconSrc = '/icons/advocacy.svg'; iconAlt = 'Advocacy Icon'; }
+          if (program.id === 'livelihood') { iconSrc = '/icons/livelihood.svg'; iconAlt = 'Livelihood Icon'; }
+          if (program.id === 'psychosocial') { iconSrc = '/icons/psychosocial.svg'; iconAlt = 'Psychosocial Support Icon'; }
           return (
             <div key={program.id} className={styles.programCardWrapper}>
               <a id={program.id} style={{ position: 'absolute', top: '-110px', display: 'block', height: 0, scrollMarginTop: '120px' }} aria-hidden="true"></a>
@@ -135,7 +135,7 @@ export default function ProgramsClient() {
                   />
                   {iconSrc && (
                     <span className={styles.iconOverlay} aria-hidden="true">
-                      <Image src={iconSrc} width={36} height={36} alt={iconAlt} />
+                      <Image src={iconSrc} width={40} height={40} alt={iconAlt} />
                     </span>
                   )}
                 </div>

@@ -9,7 +9,7 @@ export default function Livelihood() {
       <section className={styles.heroSection + ' fadeInUp'}>
         <div className={styles.heroImage}>
           <Image
-            src="/images/education.jpg"
+            src="/images/rb1.jpg"
             alt="Livelihood Program"
             width={800}
             height={400}

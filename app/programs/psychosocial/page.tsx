@@ -9,11 +9,10 @@ export default function Psychosocial() {
       <section className={styles.hero + ' fadeInUp'}>
         <div className={styles.heroImage}>
           <Image
-            src="/images/psychosocial.jpg"
+            src="/images/psycho.png"
             alt="Psycho Social Support"
             width={400}
             height={320}
-            style={{ objectFit: 'cover', borderRadius: '12px' }}
             priority
           />
         </div>
@@ -41,18 +40,18 @@ export default function Psychosocial() {
       </section>
       <section className={styles.details + ' fadeInUp'}>
         <h2>Program Stats</h2>
-        <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-          <div style={{ textAlign: 'center' }}>
-            <span style={{ fontSize: '2rem', fontWeight: 'bold', color: '#578FCA' }}>200+</span>
-            <div style={{ color: '#666' }}>Beneficiaries</div>
+        <div className={styles.programStats}>
+          <div className={styles.statItem}>
+            <span className={styles.statValue}>50+</span>
+            <div className={styles.statLabel}>Beneficiaries</div>
           </div>
-          <div style={{ textAlign: 'center' }}>
-            <span style={{ fontSize: '2rem', fontWeight: 'bold', color: '#578FCA' }}>90%</span>
-            <div style={{ color: '#666' }}>Success Rate</div>
+          <div className={styles.statItem}>
+            <span className={styles.statValue}>90%</span>
+            <div className={styles.statLabel}>Success Rate</div>
           </div>
-          <div style={{ textAlign: 'center' }}>
-            <span style={{ fontSize: '2rem', fontWeight: 'bold', color: '#578FCA' }}>10+</span>
-            <div style={{ color: '#666' }}>Partnerships</div>
+          <div className={styles.statItem}>
+            <span className={styles.statValue}>3+</span>
+            <div className={styles.statLabel}>Partnerships</div>
           </div>
         </div>
       </section>

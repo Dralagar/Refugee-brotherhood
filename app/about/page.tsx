@@ -46,7 +46,7 @@ export default function About() {
     {
       id: 1,
       name: "Niyogera Nkunda",
-      image: "/images/rb10.jpg",
+      image: "/images/rb17.jpg",
       quote: "Through the Brotherhood&apos;s support, I was able to start my own business.",
       story: "After fleeing Syria, Sarah found hope through our entrepreneurship program..."
 

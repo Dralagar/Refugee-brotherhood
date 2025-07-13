@@ -10,7 +10,7 @@ const programData = {
     title: 'Livelihood Program',
     description:
       'Empowering refugees through vocational training, micro-enterprise development, and sustainable income generation.',
-    image: '/images/programs/livelihood.jpg',
+    image: '/images/programs/rb28.jpg',
     stats: {
       beneficiaries: '500+',
       successRate: '85%',
@@ -28,7 +28,7 @@ const programData = {
     title: 'Psychosocial Support',
     description:
       'Providing mental health support and counseling services to help refugees rebuild their lives.',
-    image: '/images/programs/psychosocial.jpg',
+    image: '/images/programs/psycho.jpg',
     stats: {
       beneficiaries: '200+',
       successRate: '90%',

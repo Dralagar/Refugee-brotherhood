@@ -1,0 +1,13 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Traditional Megaphone/Announcing Speaker for Advocacy -->
+  <path d="M6 8L12 4H16L18 6L22 6V18L18 18L16 20H12L6 16V8Z" stroke="#7B1FA2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M22 6V18" stroke="#7B1FA2" stroke-width="2" stroke-linecap="round"/>
+  <path d="M18 6V18" stroke="#7B1FA2" stroke-width="2" stroke-linecap="round"/>
+  <path d="M12 4V20" stroke="#7B1FA2" stroke-width="2" stroke-linecap="round"/>
+  <path d="M6 8L6 16" stroke="#7B1FA2" stroke-width="2" stroke-linecap="round"/>
+  <!-- Sound waves coming from megaphone -->
+  <path d="M24 8C24 8 26 9 26 12C26 15 24 16 24 16" stroke="#7B1FA2" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M24 10C24 10 25 10.5 25 12C25 13.5 24 14 24 14" stroke="#7B1FA2" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Speaker cone detail -->
+  <ellipse cx="14" cy="12" rx="2" ry="1.5" fill="#9C27B0" opacity="0.8"/>
+</svg> 
