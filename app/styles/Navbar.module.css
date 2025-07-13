@@ -737,9 +737,9 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 0.08rem;
     width: 100%;
-    margin-top: 0.05rem;
+    flex-wrap: nowrap;
+    min-width: 0;
   }
   
   .topContactRight {
