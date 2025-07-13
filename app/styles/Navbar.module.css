@@ -2,7 +2,7 @@
 .header {
   background-color: var(--color-light, #A1E3F9);
   backdrop-filter: blur(10px);
-  padding: 0.85rem 2rem;
+  padding: 0.4rem 1rem;
   box-shadow: 0 2px 12px rgba(54, 116, 181, 0.10);
   position: sticky;
   top: 0;
@@ -17,15 +17,15 @@
   justify-content: space-between;
   max-width: 1400px;
   margin: 0 auto;
-  gap: 1.5rem;
+  gap: 0.8rem;
 }
 
 .logoImage {
-  border-radius: 14px;
+  border-radius: 8px;
   box-shadow: 0 2px 8px rgba(54, 116, 181, 0.10);
   background: #fff;
   border: 2px solid var(--color-light, #A1E3F9);
-  padding: 0.25rem 0.5rem;
+  padding: 0.15rem 0.3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,7 +34,7 @@
 
 .logoImage:hover, .logoImage:focus {
   box-shadow: 0 4px 16px #A1E3F9;
-  border-radius: 18px;
+  border-radius: 10px;
   border: 2.5px solid var(--color-main, #3674B5);
   outline: none;
 }
@@ -50,22 +50,22 @@
 }
 
 .bar {
-  width: 28px;
-  height: 3.5px;
+  width: 22px;
+  height: 2.5px;
   background-color: var(--color-main, #3674B5);
-  margin: 4px 0;
+  margin: 2.5px 0;
   transition: transform 0.3s, opacity 0.3s;
   border-radius: 2px;
 }
 
 .hamburgerOpen .bar:nth-child(1) {
-  transform: rotate(-45deg) translate(-6px, 7px);
+  transform: rotate(-45deg) translate(-4px, 5px);
 }
 .hamburgerOpen .bar:nth-child(2) {
   opacity: 0;
 }
 .hamburgerOpen .bar:nth-child(3) {
-  transform: rotate(45deg) translate(-6px, -7px);
+  transform: rotate(45deg) translate(-4px, -5px);
 }
 
 .navLinks {
@@ -73,7 +73,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 1.2rem;
+  gap: 0.6rem;
   align-items: center;
 }
 
@@ -81,11 +81,11 @@
   background: none;
   border: none;
   color: var(--color-main, #3674B5);
-  font-size: 1.08rem;
+  font-size: 0.95rem;
   text-decoration: none;
-  padding: 0.6rem 1.2rem;
+  padding: 0.4rem 0.8rem;
   cursor: pointer;
-  border-radius: 7px;
+  border-radius: 5px;
   font-weight: 600;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s;
   outline: none;
@@ -112,7 +112,7 @@
 }
 
 .dropdownIcon {
-  margin-left: 0.3rem;
+  margin-left: 0.15rem;
   transition: transform 0.2s;
   color: var(--color-main, #3674B5);
 }
@@ -126,13 +126,13 @@
   top: 100%;
   left: 0;
   background: #fff;
-  border-radius: 10px;
+  border-radius: 6px;
   box-shadow: 0 6px 24px rgba(54, 116, 181, 0.15);
-  padding: 0.5rem 0;
+  padding: 0.3rem 0;
   z-index: 1000;
-  min-width: 210px;
+  min-width: 160px;
   border: 1.5px solid #A1E3F9;
-  margin-top: 0.2rem;
+  margin-top: 0.15rem;
   animation: fadeIn 0.2s;
 }
 
@@ -143,10 +143,10 @@
 
 .dropdownLink {
   display: block;
-  padding: 0.85rem 1.2rem;
+  padding: 0.5rem 0.8rem;
   color: #3674B5;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 4px;
   font-weight: 500;
   transition: background 0.2s, color 0.2s;
 }
@@ -171,14 +171,14 @@
 @media (max-width: 900px) {
   .navbar {
     max-width: 100vw;
-    padding: 0 0.5rem;
+    padding: 0 0.4rem;
   }
 }
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
     align-items: stretch;
-    padding: 0 0.5rem;
+    padding: 0 0.4rem;
   }
   .hamburger {
     display: flex;
@@ -190,9 +190,9 @@
     position: relative;
     background: var(--color-light, #A1E3F9);
     width: 100%;
-    margin-top: 0.5rem;
+    margin-top: 0.2rem;
     display: none;
-    padding: 0.5rem 0;
+    padding: 0.2rem 0;
     z-index: 999;
     box-shadow: 0 2px 8px #A1E3F9;
   }
@@ -203,7 +203,7 @@
     width: 100%;
     text-align: center;
     color: #3674B5;
-    padding: 1rem 0;
+    padding: 0.6rem 0;
   }
   .navLink:hover {
     background-color: #D1F8EF;
@@ -215,13 +215,13 @@
     background: #fff;
     width: 100%;
     text-align: center;
-    margin-top: 0.3rem;
+    margin-top: 0.15rem;
     box-shadow: none;
     border: 1.5px solid #A1E3F9;
   }
   .dropdownLink {
     color: #3674B5;
-    padding: 1rem 0;
+    padding: 0.6rem 0;
   }
   .dropdownLink:hover, .dropdownLink.active {
     background-color: #A1E3F9;
@@ -232,79 +232,80 @@
   /* Mobile-specific programs dropdown */
   .programsDropdownGrid {
     grid-template-columns: 1fr;
-    gap: 0.3rem;
-    padding: 0.5rem;
+    gap: 0.15rem;
+    padding: 0.3rem;
     min-width: auto;
     max-width: none;
-    border-radius: 12px;
+    border-radius: 8px;
     box-shadow: none;
     border: 1px solid #A1E3F9;
   }
   
   .programsDropdownItem .dropdownLink {
-    padding: 0.8rem 1rem;
-    font-size: 1rem;
-    border-radius: 8px;
+    padding: 0.5rem 0.6rem;
+    font-size: 0.9rem;
+    border-radius: 5px;
   }
   
   .programsDropdownIcon {
-    width: 28px;
-    height: 28px;
-    margin-right: 0.6rem;
+    width: 22px;
+    height: 22px;
+    margin-right: 0.4rem;
   }
   
   .programsDropdownLabel {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   
   .topContactBar {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 0.6rem 1rem;
-    font-size: 0.8rem;
-    gap: 0.6rem;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.6rem;
+    gap: 0.2rem;
     min-height: auto;
   }
   
   .topContactLeft {
-    gap: 0.8rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 0.4rem;
+    gap: 0.3rem;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    margin-bottom: 0;
     flex: 1;
     min-width: 0;
+    flex-direction: row;
+    align-items: center;
   }
   
   .topContactCenter {
-    order: -1;
-    margin-bottom: 0.4rem;
-    flex-shrink: 0;
-    display: flex;
-    justify-content: center;
+    display: none;
   }
   
   .topContactRight {
-    gap: 0.5rem;
+    gap: 0.2rem;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-end;
     flex-shrink: 0;
+    align-items: center;
   }
   
   .topContactItem {
-    font-size: 0.75rem;
-    gap: 0.25rem;
-    padding: 0.2rem 0;
+    font-size: 0.6rem;
+    gap: 0.1rem;
+    padding: 0.05rem 0;
     white-space: nowrap;
     min-width: 0;
-    flex-shrink: 1;
+    flex-shrink: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
+    display: flex;
+    align-items: center;
   }
   
   .topContactItem svg {
-    width: 0.8rem;
-    height: 0.8rem;
+    width: 0.6rem;
+    height: 0.6rem;
     flex-shrink: 0;
   }
   
@@ -320,73 +321,81 @@
   }
   
   .donateButton {
-    padding: 0.3rem 0.8rem;
-    font-size: 0.75rem;
-    border-radius: 15px;
-    min-width: 60px;
+    padding: 0.15rem 0.5rem;
+    font-size: 0.6rem;
+    border-radius: 8px;
+    min-width: 45px;
+    margin-left: 0.2rem;
   }
   
   .topContactRight a {
-    width: 2.2rem;
-    height: 2.2rem;
+    width: 1.6rem;
+    height: 1.6rem;
   }
   
   .topContactRight a img, .topContactRight a svg {
-    width: 1rem !important;
-    height: 1rem !important;
+    width: 0.7rem !important;
+    height: 0.7rem !important;
   }
 }
 
 @media (max-width: 600px) {
   .header {
-    padding: 0.5rem 0.5rem;
+    padding: 0.3rem 0.3rem;
   }
   .navbar {
     flex-direction: column;
-    gap: 0.5rem;
-    padding: 0 0.25rem;
+    gap: 0.3rem;
+    padding: 0 0.15rem;
   }
   .logoImage {
-    width: 80px !important;
-    height: 40px !important;
-    padding: 0.1rem 0.2rem;
+    width: 65px !important;
+    height: 32px !important;
+    padding: 0.1rem 0.15rem;
   }
   .navLinks {
-    gap: 0.5rem;
+    gap: 0.2rem;
   }
   .navLink {
-    font-size: 1rem;
-    padding: 0.7rem 0;
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
   }
   .dropdownMenu {
-    min-width: 100px;
-    font-size: 1rem;
+    min-width: 80px;
+    font-size: 0.9rem;
   }
   .topContactBar {
-    padding: 0.5rem 0.8rem;
-    font-size: 0.7rem;
-    gap: 0.5rem;
+    padding: 0.15rem 0.4rem;
+    font-size: 0.55rem;
+    gap: 0.15rem;
     min-height: auto;
   }
   .topContactLeft {
-    gap: 0.6rem;
-    justify-content: center;
-    margin-bottom: 0.3rem;
+    gap: 0.2rem;
+    justify-content: flex-start;
+    margin-bottom: 0;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
   }
   .topContactRight {
-    gap: 0.4rem;
+    gap: 0.15rem;
   }
   .topContactItem {
-    font-size: 0.7rem;
-    gap: 0.2rem;
+    font-size: 0.55rem;
+    gap: 0.08rem;
     text-align: center;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    padding: 0.03rem 0;
   }
   .topContactItem svg {
-    width: 0.7rem;
-    height: 0.7rem;
+    width: 0.5rem;
+    height: 0.5rem;
   }
   .desktopText {
     display: none;
@@ -398,67 +407,69 @@
     max-width: calc(100vw - 6rem);
   }
   .donateButton {
-    padding: 0.25rem 0.7rem;
-    font-size: 0.7rem;
-    border-radius: 12px;
-    min-width: 55px;
+    padding: 0.1rem 0.4rem;
+    font-size: 0.55rem;
+    border-radius: 6px;
+    min-width: 40px;
+    margin-left: 0.15rem;
   }
   .topContactRight a {
-    width: 2rem;
-    height: 2rem;
+    width: 1.4rem;
+    height: 1.4rem;
   }
   .topContactRight a img, .topContactRight a svg {
-    width: 0.9rem !important;
-    height: 0.9rem !important;
+    width: 0.6rem !important;
+    height: 0.6rem !important;
   }
 }
 
 @media (max-width: 480px) {
   .topContactBar {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 0.5rem 0.8rem;
-    font-size: 0.75rem;
-    gap: 0.5rem;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.15rem 0.3rem;
+    font-size: 0.6rem;
+    gap: 0.15rem;
     min-height: auto;
   }
   
   .topContactLeft {
-    gap: 0.5rem;
-    flex-direction: column;
+    gap: 0.15rem;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 0.3rem;
+    justify-content: flex-start;
+    margin-bottom: 0;
     flex-wrap: nowrap;
   }
   
   .topContactCenter {
-    order: -1;
-    margin-bottom: 0.3rem;
-    display: flex;
-    justify-content: center;
+    display: none;
   }
   
   .topContactRight {
-    gap: 0.4rem;
-    justify-content: center;
+    gap: 0.15rem;
+    justify-content: flex-end;
   }
   
   .topContactItem {
-    font-size: 0.7rem;
-    gap: 0.2rem;
+    font-size: 0.55rem;
+    gap: 0.08rem;
     white-space: nowrap;
     text-align: center;
-    width: 100%;
+    width: auto;
     justify-content: center;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    padding: 0.03rem 0;
   }
   
   .topContactItem svg {
-    width: 0.7rem;
-    height: 0.7rem;
+    width: 0.5rem;
+    height: 0.5rem;
   }
   
   .desktopText {
@@ -473,48 +484,54 @@
   }
   
   .donateButton {
-    padding: 0.3rem 1rem;
-    font-size: 0.75rem;
-    border-radius: 15px;
-    min-width: 70px;
+    padding: 0.15rem 0.5rem;
+    font-size: 0.6rem;
+    border-radius: 8px;
+    min-width: 45px;
+    margin-left: 0.15rem;
   }
   
   .topContactRight a {
-    width: 2.2rem;
-    height: 2.2rem;
+    width: 1.4rem;
+    height: 1.4rem;
   }
   
   .topContactRight a img, .topContactRight a svg {
-    width: 1rem !important;
-    height: 1rem !important;
+    width: 0.6rem !important;
+    height: 0.6rem !important;
   }
 }
 
 @media (max-width: 360px) {
   .topContactBar {
-    padding: 0.4rem 0.5rem;
-    font-size: 0.65rem;
-    gap: 0.4rem;
+    padding: 0.1rem 0.25rem;
+    font-size: 0.5rem;
+    gap: 0.1rem;
   }
   
   .topContactLeft {
-    gap: 0.4rem;
-    flex-direction: column;
+    gap: 0.1rem;
+    flex-direction: row;
     align-items: center;
+    flex-wrap: nowrap;
   }
   
   .topContactItem {
-    font-size: 0.65rem;
-    gap: 0.15rem;
+    font-size: 0.5rem;
+    gap: 0.05rem;
     text-align: center;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    padding: 0.02rem 0;
   }
   
   .topContactItem svg {
-    width: 0.6rem;
-    height: 0.6rem;
+    width: 0.4rem;
+    height: 0.4rem;
   }
   
   .desktopText {
@@ -529,34 +546,35 @@
   }
   
   .donateButton {
-    padding: 0.25rem 0.8rem;
-    font-size: 0.65rem;
-    border-radius: 10px;
-    min-width: 60px;
+    padding: 0.1rem 0.4rem;
+    font-size: 0.5rem;
+    border-radius: 6px;
+    min-width: 35px;
+    margin-left: 0.1rem;
   }
   
   .topContactRight a {
-    width: 1.8rem;
-    height: 1.8rem;
+    width: 1.2rem;
+    height: 1.2rem;
   }
   
   .topContactRight a img, .topContactRight a svg {
-    width: 0.8rem !important;
-    height: 0.8rem !important;
+    width: 0.5rem !important;
+    height: 0.5rem !important;
   }
 }
 
 .programsDropdownGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.5rem 0.8rem;
-  padding: 0.8rem 1rem;
-  min-width: 280px;
-  max-width: 420px;
-  max-height: 360px;
+  gap: 0.3rem 0.5rem;
+  padding: 0.5rem 0.6rem;
+  min-width: 220px;
+  max-width: 320px;
+  max-height: 280px;
   overflow-y: auto;
   background: #fff;
-  border-radius: 16px;
+  border-radius: 10px;
   box-shadow: 0 12px 40px rgba(54, 116, 181, 0.18);
   border: 2px solid #A1E3F9;
   align-items: start;
@@ -574,16 +592,16 @@
 .programsDropdownItem .dropdownLink {
   width: 100%;
   text-align: left;
-  padding: 0.9rem 1.2rem;
-  border-radius: 12px;
-  font-size: 1.1rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
   font-weight: 600;
   color: #3674B5;
   background: #f8fafc;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 0.5rem;
   border: 1px solid transparent;
   position: relative;
   overflow: hidden;
@@ -594,7 +612,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 4px;
+  width: 3px;
   height: 100%;
   background: var(--color-main, #3674B5);
   transition: all 0.2s ease;
@@ -628,13 +646,13 @@
 
 .programsDropdownCard {
   background: #f8fafc;
-  border-radius: 12px;
+  border-radius: 8px;
   box-shadow: 0 2px 8px rgba(54,116,181,0.08);
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  padding: 0.9rem 1.2rem;
-  margin-bottom: 0.2rem;
+  gap: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 0.1rem;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid transparent;
   position: relative;
@@ -646,7 +664,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 4px;
+  width: 3px;
   height: 100%;
   background: var(--color-main, #3674B5);
   transition: all 0.2s ease;
@@ -684,12 +702,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 26px;
+  height: 26px;
   background: #fff;
-  border-radius: 8px;
+  border-radius: 5px;
   box-shadow: 0 2px 8px rgba(54,116,181,0.12);
-  margin-right: 0.8rem;
+  margin-right: 0.5rem;
   transition: all 0.2s ease;
   border: 1px solid rgba(54, 116, 181, 0.1);
   flex-shrink: 0;
@@ -704,8 +722,8 @@
 .programsDropdownLabel {
   font-weight: 600;
   color: #3674B5;
-  font-size: 1.1rem;
-  line-height: 1.3;
+  font-size: 0.95rem;
+  line-height: 1.2;
   flex: 1;
 }
 
@@ -729,74 +747,90 @@
 
 @media (max-width: 600px) {
   .header {
-    padding: 0.5rem 0.5rem;
+    padding: 0.3rem 0.3rem;
   }
   .navbar {
     flex-direction: column;
-    gap: 0.5rem;
-    padding: 0 0.25rem;
+    gap: 0.3rem;
+    padding: 0 0.15rem;
   }
   .logoImage {
-    width: 80px !important;
-    height: 40px !important;
-    padding: 0.1rem 0.2rem;
+    width: 65px !important;
+    height: 32px !important;
+    padding: 0.1rem 0.15rem;
   }
   .navLinks {
-    gap: 0.5rem;
-  }
-  .navLink {
-    font-size: 1rem;
-    padding: 0.7rem 0;
-  }
-  .dropdownMenu {
-    min-width: 100px;
-    font-size: 1rem;
-  }
-  .topContactBar {
-    padding: 0.3rem 0.8rem;
-    font-size: 0.7rem;
-    gap: 0.4rem;
-    min-height: 36px;
-  }
-  .topContactLeft {
-    gap: 0.6rem;
-    justify-content: flex-start;
-  }
-  .topContactRight {
-    gap: 0.3rem;
-  }
-  .topContactItem {
-    font-size: 0.7rem;
     gap: 0.2rem;
   }
+  .navLink {
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+  }
+  .dropdownMenu {
+    min-width: 80px;
+    font-size: 0.9rem;
+  }
+  .topContactBar {
+    padding: 0.15rem 0.4rem;
+    font-size: 0.55rem;
+    gap: 0.15rem;
+    min-height: auto;
+  }
+  .topContactLeft {
+    gap: 0.2rem;
+    justify-content: flex-start;
+    margin-bottom: 0;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .topContactRight {
+    gap: 0.15rem;
+  }
+  .topContactItem {
+    font-size: 0.55rem;
+    gap: 0.08rem;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    padding: 0.03rem 0;
+  }
   .topContactItem svg {
-    width: 0.7rem;
-    height: 0.7rem;
+    width: 0.5rem;
+    height: 0.5rem;
   }
   .desktopText {
     display: none;
   }
   .mobileText {
     display: inline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100vw - 6rem);
   }
   .donateButton {
-    padding: 0.25rem 0.7rem;
-    font-size: 0.7rem;
-    border-radius: 12px;
-    min-width: 55px;
+    padding: 0.1rem 0.4rem;
+    font-size: 0.55rem;
+    border-radius: 6px;
+    min-width: 40px;
+    margin-left: 0.15rem;
   }
   .topContactRight a {
-    width: 2rem;
-    height: 2rem;
+    width: 1.4rem;
+    height: 1.4rem;
   }
   .topContactRight a img, .topContactRight a svg {
-    width: 0.9rem !important;
-    height: 0.9rem !important;
+    width: 0.6rem !important;
+    height: 0.6rem !important;
   }
 }
 
 .programsDropdownLabel {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .topContactBar {
@@ -806,19 +840,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 2rem;
-  font-size: 0.95rem;
+  padding: 0.25rem 0.8rem;
+  font-size: 0.7rem;
   border-bottom: 1.5px solid #A1E3F9;
   z-index: 1200;
-  min-height: 48px;
+  min-height: 32px;
 }
 
 .topContactLeft {
   display: flex;
-  gap: 2rem;
+  gap: 0.5rem;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   flex: 1;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 .topContactCenter {
@@ -830,7 +866,7 @@
 
 .topContactRight {
   display: flex;
-  gap: 0.8rem;
+  gap: 0.4rem;
   align-items: center;
   flex-shrink: 0;
 }
@@ -838,12 +874,15 @@
 .topContactItem {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.15rem;
   color: #3674B5;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s, transform 0.2s;
   white-space: nowrap;
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  padding: 0.1rem 0;
 }
 
 .topContactItem:hover {
@@ -853,8 +892,8 @@
 }
 
 .topContactItem svg {
-  width: 1rem;
-  height: 1rem;
+  width: 0.75rem;
+  height: 0.75rem;
   flex-shrink: 0;
 }
 
@@ -869,10 +908,10 @@
 .donateButton {
   background: linear-gradient(135deg, #3674B5 0%, #578FCA 100%);
   color: #ffffff;
-  padding: 0.5rem 1.2rem;
-  border-radius: 20px;
+  padding: 0.3rem 0.8rem;
+  border-radius: 14px;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(54, 116, 181, 0.2);
@@ -892,13 +931,13 @@
 
 .topContactRight a {
   color: #3674B5;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.8rem;
-  height: 2.8rem;
+  width: 2.2rem;
+  height: 2.2rem;
   border: 2px solid #3674B5;
   border-radius: 50%;
   background: #ffffff;
@@ -915,8 +954,8 @@
 }
 
 .topContactRight a img, .topContactRight a svg {
-  width: 1.3rem !important;
-  height: 1.3rem !important;
+  width: 1rem !important;
+  height: 1rem !important;
   object-fit: contain;
   display: block;
 }

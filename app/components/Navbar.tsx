@@ -18,7 +18,7 @@ const TopContactBar: React.FC = () => (
     <div className={styles.topContactLeft}>
       <span className={styles.topContactItem}>
         <FaMapMarkerAlt /> 
-        <span className={styles.desktopText}>Patanisho Kayole, Embakasi West, Nairobi</span>
+        <span className={styles.desktopText}>Patanisho Kayole, Nairobi</span>
         <span className={styles.mobileText}>Kayole, Nairobi</span>
       </span>
       <a href="mailto:info@refugeebrotherhood.org" className={styles.topContactItem}>
@@ -51,11 +51,9 @@ const TopContactBar: React.FC = () => (
         </svg>
       </a>
     </div>
-    <div className={styles.topContactCenter}>
-      <Link href="/donate" className={styles.donateButton} aria-label="Donate">
+    <Link href="/donate" className={styles.donateButton} aria-label="Donate">
         Donate
       </Link>
-    </div>
   </div>
 );
 
