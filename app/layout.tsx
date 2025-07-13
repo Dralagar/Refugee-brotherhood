@@ -389,7 +389,9 @@ export default function RootLayout({
               var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
               var scrolled = (winScroll / height) * 100;
               var bar = document.getElementById('scroll-progress-bar');
-              if(bar) bar.style.width = scrolled + '%';
+              if (bar && bar.contains(bar)) {
+                bar.style.width = scrolled + '%';
+              }
             }
             window.addEventListener('scroll', updateScrollBar);
             window.addEventListener('resize', updateScrollBar);

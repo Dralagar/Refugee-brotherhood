@@ -16,7 +16,9 @@ export default function AdvocacyProgramPage() {
             priority
           />
         </div>
-        <div className={styles.heroContent + ' fadeIn'}>
+      </section>
+      <section className={styles.programIntroSection}>
+        <div className={styles.programIntroContent}>
           <h1>Advocacy</h1>
           <p>
             Our Advocacy program advances refugee rights and self-reliance through policy change, community storytelling, and collaboration with other organizations.

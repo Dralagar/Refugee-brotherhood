@@ -18,8 +18,8 @@ const TopContactBar: React.FC = () => (
     <div className={styles.topContactLeft}>
       <span className={styles.topContactItem}>
         <FaMapMarkerAlt /> 
-        <span className={styles.desktopText}>Patanisho Kayole, Nairobi</span>
-        <span className={styles.mobileText}>Kayole, Nairobi</span>
+        <span className={styles.desktopText}>Patanisho Kayole, Nairobi Kenya</span>
+        <span className={styles.mobileText}> Panisho, Kayole, Nairobi</span>
       </span>
       <a href="mailto:info@refugeebrotherhood.org" className={styles.topContactItem}>
         <FaEnvelope /> 
@@ -32,29 +32,33 @@ const TopContactBar: React.FC = () => (
         <span className={styles.mobileText}>+254 794 693898</span>
       </a>
     </div>
-    <div className={styles.topContactRight}>
-      <a href="https://www.facebook.com/refugeebrotherhood" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-        <FaFacebookF />
-      </a>
-      <a href="https://x.com/br_refugee" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
-        <Image src="/images/X logo.png" alt="X (formerly Twitter) Logo" width={24} height={24} style={{objectFit: 'contain'}} />
-      </a>
-      <a href="https://www.instagram.com/refugeebrotherhood" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <FaInstagram />
-      </a>
-      <a href="https://www.youtube.com/@refugeebrotherhood" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-        <FaYoutube />
-      </a>
-      <a href="https://ke.linkedin.com/company/refugee-brotherhood" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/>
-        </svg>
-      </a>
+    <div className={styles.topContactRow}>
+      <div className={styles.topContactRight}>
+        <a href="https://www.facebook.com/refugeebrotherhood" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <FaFacebookF />
+        </a>
+        <a href="https://x.com/br_refugee" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+          <Image src="/images/X logo.png" alt="X (formerly Twitter) Logo" width={24} height={24} style={{objectFit: 'contain'}} />
+        </a>
+        <a href="https://www.instagram.com/refugeebrotherhood" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <FaInstagram />
+        </a>
+        <a href="https://www.youtube.com/@refugeebrotherhood" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <FaYoutube />
+        </a>
+        <a href="https://ke.linkedin.com/company/refugee-brotherhood" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/>
+          </svg>
+        </a>
+      </div>
+      <div className={styles.topContactDonate}>
+        <Link href="/donate" className={styles.donateButton} aria-label="Donate">
+          <span className={styles.donateIcon}>❤️</span>
+          <span className={styles.donateText}>Donate</span>
+        </Link>
+      </div>
     </div>
-    <Link href="/donate" className={styles.donateButton} aria-label="Donate">
-        <span className={styles.donateIcon}>❤️</span>
-        <span className={styles.donateText}>Donate</span>
-      </Link>
   </div>
 );
 
@@ -193,7 +197,7 @@ const NavBar: React.FC = () => {
             id="main-nav-links"
             role="menubar"
           >
-            <li className={styles.dropdown} ref={aboutDropdownRef}>
+            <li className={styles.dropdown + ' ' + styles.navItem} ref={aboutDropdownRef}>
               <button
                 className={styles.navLink + (isAboutActive ? ' ' + styles.active : '')}
                 onClick={toggleAboutDropdown}
@@ -210,9 +214,10 @@ const NavBar: React.FC = () => {
                 </span>
               </button>
               {aboutDropdownOpen && (
-                <ul className={styles.dropdownMenu} id="about-dropdown-menu" role="menu">
+                <ul className={styles.dropdownMenu + ' ' + styles.aboutDropdownMenu} id="about-dropdown-menu" role="menu">
                   {aboutSections.map((section) => (
                     <li key={section.id}>
+                      <span className={styles.aboutDropdownBullet} aria-hidden="true"></span>
                       <a
                         href={`/about#${section.id}`}
                         className={styles.dropdownLink + (activeAboutSection === section.id ? ' ' + styles.active : '')}
@@ -239,7 +244,7 @@ const NavBar: React.FC = () => {
               )}
             </li>
 
-            <li className={styles.dropdown} ref={programsDropdownRef}>
+            <li className={styles.dropdown + ' ' + styles.navItem} ref={programsDropdownRef}>
               <button
                 className={styles.navLink + (isProgramsActive ? ' ' + styles.active : '')}
                 onClick={toggleProgramsDropdown}
@@ -290,7 +295,7 @@ const NavBar: React.FC = () => {
               )}
             </li>
 
-            <li>
+            <li className={styles.navItem}>
               <Link
                 href="/news"
                 className={styles.navLink}
@@ -300,7 +305,7 @@ const NavBar: React.FC = () => {
                 Blog
               </Link>
             </li>
-            <li>
+            <li className={styles.navItem}>
               <Link
                 href="/partners"
                 className={styles.navLink}
@@ -310,7 +315,7 @@ const NavBar: React.FC = () => {
                 Partners
               </Link>
             </li>
-            <li>
+            <li className={styles.navItem}>
               <Link
                 href="/contact"
                 className={styles.navLink}

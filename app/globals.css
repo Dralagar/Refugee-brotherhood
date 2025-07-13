@@ -362,3 +362,13 @@ body {
   box-shadow: 0 2px 8px rgba(54,116,181,0.15);
   pointer-events: none;
 }
+
+.hero {
+  background: var(--color-bg);
+  background-image: linear-gradient(135deg, var(--color-light) 0%, var(--color-footer) 100%), url('/images/rb12.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--color-main);
+}

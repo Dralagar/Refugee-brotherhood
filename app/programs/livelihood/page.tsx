@@ -17,7 +17,9 @@ export default function Livelihood() {
             priority
           />
         </div>
-        <div className={styles.heroContent + ' fadeIn'}>
+      </section>
+      <section className={styles.programIntroSection}>
+        <div className={styles.programIntroContent}>
           <h1>Livelihood</h1>
           <p>
             Our Livelihood program empowers refugees through vocational training, business development, and sustainable income generation, in partnership with local organizations and NGOs.

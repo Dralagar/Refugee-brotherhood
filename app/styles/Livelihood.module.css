@@ -201,6 +201,39 @@
   cursor: pointer;
 }
 
+.programIntroSection {
+  background: var(--color-footer, #D1F8EF);
+  padding: 1.5rem 1rem 1.2rem 1rem;
+  text-align: center;
+  border-radius: 0 0 24px 24px;
+  margin-top: -1.5rem;
+  box-shadow: 0 4px 24px rgba(54, 116, 181, 0.08);
+  position: relative;
+  z-index: 2;
+}
+
+.programIntroContent {
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--color-dark, #1e293b);
+}
+
+.programIntroContent h2 {
+  font-size: 1.5rem;
+  color: var(--color-main, #3674B5);
+  font-weight: 800;
+  margin-bottom: 0.7rem;
+  letter-spacing: 0.2px;
+}
+
+.programIntroContent p {
+  font-size: 1.05rem;
+  color: var(--color-dark, #1e293b);
+  line-height: 1.7;
+  font-weight: 500;
+  margin: 0 auto;
+}
+
 @media (max-width: 768px) {
   .heroSection {
     height: 40vh;
@@ -220,5 +253,28 @@
   .ctaButtons {
     flex-direction: column;
     gap: 0.5rem;
+  }
+  .programIntroSection {
+    padding: 1.1rem 0.5rem 0.9rem 0.5rem;
+    border-radius: 0 0 16px 16px;
+    margin-top: -1rem;
+  }
+  .programIntroContent h2 {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+  }
+  .programIntroContent p {
+    font-size: 0.98rem;
+  }
+  .heroContent p {
+    display: none;
+  }
+  .programIntroSection {
+    display: block;
+  }
+}
+@media (min-width: 769px) {
+  .programIntroSection {
+    display: none;
   }
 } 
