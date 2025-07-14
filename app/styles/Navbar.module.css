@@ -296,11 +296,11 @@
 }
 
 .topContactRight {
-  flex: 1 1 0;
-  min-width: 0;
   display: flex;
   align-items: center;
-  gap: 0.08rem;
+  gap: 0.18rem;
+  flex-wrap: nowrap;
+  min-width: 0;
 }
 
 .topContactItem {
@@ -349,249 +349,36 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex: 0 0 auto;
-  min-width: 60px;
+  min-width: 44px;
   max-width: 100vw;
-  padding: 0.18rem 0.6rem;
   font-size: 0.7rem;
+  padding: 0.18rem 0.6rem;
   border-radius: 16px;
   margin-left: 0.2rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  height: 2.2rem;
   background: linear-gradient(135deg, #3674B5 0%, #578FCA 100%);
   color: #fff;
   border: 2px solid #3674B5;
   font-weight: 700;
   box-shadow: 0 4px 12px rgba(54, 116, 181, 0.3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, font-size 0.2s, padding 0.2s;
 }
 
 .donateIcon {
-  font-size: 0.9rem;
-  animation: pulse 2s infinite;
+  font-size: 1rem;
+  margin-right: 0.3em;
   display: inline-block;
-  transition: transform 0.3s ease;
 }
 
 .donateText {
+  font-size: 0.95em;
   font-weight: 700;
   letter-spacing: 0.5px;
-  transition: transform 0.3s ease;
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.donateButton::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-  transition: left 0.6s;
-}
-
-.donateButton:hover {
-  background: linear-gradient(135deg, #578FCA 0%, #3674B5 100%);
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 25px rgba(54, 116, 181, 0.5);
-  border-color: #A1E3F9;
-  color: #ffffff;
-}
-
-.donateButton:hover .donateIcon {
-  animation: bounce 0.6s ease;
-  transform: scale(1.2);
-}
-
-.donateButton:hover .donateText {
-  transform: scale(1.05);
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-5px);
-  }
-  60% {
-    transform: translateY(-3px);
-  }
-}
-
-.donateButton:hover::before {
-  left: 100%;
-}
-
-.donateButton:active {
-  transform: translateY(-1px) scale(1.02);
-  box-shadow: 0 6px 20px rgba(54, 116, 181, 0.4);
-}
-
-.donateButton:focus {
-  outline: 2px solid #A1E3F9;
-  outline-offset: 2px;
-}
-
-.topContactRight a {
-  color: #3674B5;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.2rem;
-  height: 2.2rem;
-  border: 2px solid #3674B5;
-  border-radius: 50%;
-  background: #ffffff;
-  box-sizing: border-box;
-  box-shadow: 0 2px 6px rgba(54, 116, 181, 0.1);
-}
-
-.topContactRight a:hover, .topContactRight a:focus {
-  color: #ffffff;
-  background: #3674B5;
-  border-color: #3674B5;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(54, 116, 181, 0.2);
-}
-
-.topContactRight a:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(54, 116, 181, 0.1);
-}
-
-.topContactRight a img, .topContactRight a svg {
-  width: 1rem !important;
-  height: 1rem !important;
-  object-fit: contain;
-  display: block;
-}
-
-/* Programs Dropdown Styles */
-.programsDropdownGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem 1rem;
-  padding: 0.8rem 1.2rem;
-  min-width: 320px;
-  max-width: 420px;
-  max-height: none;
-  overflow-y: visible;
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 16px 48px rgba(54, 116, 181, 0.18), 0 2px 8px #A1E3F9;
-  border: 2px solid #A1E3F9;
-  align-items: start;
-  backdrop-filter: blur(12px);
-}
-
-.programsDropdownItem {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  min-height: 0;
-}
-
-.programsDropdownItem .dropdownLink {
-  width: 100%;
-  text-align: left;
-  padding: 0.6rem 0.8rem;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #3674B5;
-  background: #f8fafc;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  border: 1px solid transparent;
-  position: relative;
-  overflow: hidden;
-}
-
-.programsDropdownItem .dropdownLink::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 3px;
-  height: 100%;
-  background: var(--color-main, #3674B5);
-  transition: all 0.2s ease;
-  opacity: 0;
-}
-
-.programsDropdownItem .dropdownLink:hover,
-.programsDropdownItem .dropdownLink:focus {
-  background: var(--color-light, #A1E3F9);
-  border-color: var(--color-main, #3674B5);
-}
-
-.programsDropdownItem .dropdownLink:hover::before,
-.programsDropdownItem .dropdownLink:focus::before {
-  background: var(--color-main, #3674B5);
-}
-
-.programsDropdownItem .dropdownLink.active {
-  background: #A1E3F9 !important;
-  color: #3674B5 !important;
-  font-weight: bold;
-  border: 2px solid #3674B5 !important;
-  box-shadow: 0 4px 20px rgba(54, 116, 181, 0.2) !important;
-  outline: none;
-}
-
-.programsDropdownItem .dropdownLink.active::before {
-  opacity: 1;
-  background: #3674B5;
-}
-
-.programsDropdownIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 26px;
-  height: 26px;
-  background: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 8px rgba(54,116,181,0.12);
-  margin-right: 0.5rem;
-  transition: all 0.2s ease;
-  border: 1px solid rgba(54, 116, 181, 0.1);
-  flex-shrink: 0;
-}
-
-.programsDropdownItem .dropdownLink:hover .programsDropdownIcon,
-.programsDropdownItem .dropdownLink:focus .programsDropdownIcon {
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(54,116,181,0.2);
-}
-
-.programsDropdownLabel {
-  font-weight: 600;
-  color: #3674B5;
-  font-size: 0.95rem;
-  line-height: 1.2;
-  flex: 1;
-}
-
-/* Responsive Design */
 @media (max-width: 900px) {
   .navbar {
     max-width: 100vw;
@@ -618,6 +405,18 @@
   .logoOverlay {
     font-size: 0.45rem;
     padding: 0.1rem 0.25rem;
+  }
+  .topContactRight {
+    gap: 0.12rem;
+  }
+  .donateButton {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 14px;
+    height: 1.8rem;
+  }
+  .donateIcon {
+    font-size: 0.9rem;
   }
 }
 
@@ -736,17 +535,17 @@
   }
   
   /* Mobile Top Contact Bar */
-  .topContactBar {
+.topContactBar {
     flex-direction: column;
     align-items: stretch;
     gap: 0.05rem;
-    width: 100%;
+  width: 100%;
     flex-wrap: wrap;
     padding: 0.2rem 0.2rem;
-  }
-  
-  .topContactLeft {
-    display: flex;
+}
+
+.topContactLeft {
+  display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
@@ -760,15 +559,15 @@
   .topContactRow {
     display: flex;
     flex-direction: row;
-    align-items: center;
+  align-items: center;
     width: 100%;
     flex-wrap: nowrap;
     min-width: 0;
-  }
-  
-  .topContactRight {
-    display: flex;
-    align-items: center;
+}
+
+.topContactRight {
+  display: flex;
+  align-items: center;
     gap: 0.08rem;
     margin-bottom: 0;
   }
@@ -777,9 +576,9 @@
     flex: 1 1 0;
     min-width: 0;
     max-width: 100%;
-  }
-  
-  .topContactItem {
+}
+
+.topContactItem {
     font-size: 0.58rem;
     gap: 0.08rem;
     padding: 0.03rem 0.1rem;
@@ -791,8 +590,8 @@
     background: none;
     border: none;
     white-space: nowrap;
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
     justify-content: center;
   }
   
@@ -844,9 +643,9 @@
   
   .donateButton:hover .donateText {
     transform: scale(1.05);
-  }
-  
-  .topContactRight a {
+}
+
+.topContactRight a {
     width: 1.6rem;
     height: 1.6rem;
   }
@@ -905,7 +704,7 @@
     flex: none;
     display: flex;
     align-items: center;
-    gap: 0.15rem;
+    gap: 0.08rem;
     margin-bottom: 0;
   }
   .topContactDonate {
@@ -1217,21 +1016,42 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex: 0 0 auto;
-  min-width: 60px;
+  min-width: 44px;
   max-width: 100vw;
-  padding: 0.18rem 0.6rem;
   font-size: 0.7rem;
+  padding: 0.18rem 0.6rem;
   border-radius: 16px;
   margin-left: 0.2rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  height: 2.2rem;
   background: linear-gradient(135deg, #3674B5 0%, #578FCA 100%);
   color: #fff;
   border: 2px solid #3674B5;
   font-weight: 700;
   box-shadow: 0 4px 12px rgba(54, 116, 181, 0.3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, font-size 0.2s, padding 0.2s;
+}
+
+.donateButton:hover {
+  background: linear-gradient(135deg, #578FCA 0%, #3674B5 100%);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(54, 116, 181, 0.5);
+  border-color: #A1E3F9;
+  color: #ffffff;
+}
+
+.donateIcon {
+  font-size: 1rem;
+  margin-right: 0.3em;
+  display: inline-block;
+}
+
+.donateText {
+  font-size: 0.95em;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 @media (max-width: 900px), (max-width: 768px), (max-width: 600px), (max-width: 480px), (max-width: 360px) {
@@ -1249,11 +1069,77 @@
   }
   .donateButton {
     flex: 0 0 auto;
-    min-width: 60px;
+    min-width: 44px;
     max-width: 100vw;
     font-size: 0.7rem;
     padding: 0.18rem 0.6rem;
     border-radius: 16px;
     margin-left: 0.2rem;
+  }
+}
+
+.topContactInfoRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  width: 100%;
+  margin-bottom: 0.1rem;
+}
+
+.topContactSocialRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 0.2rem;
+}
+
+.topContactDonateRow {
+  display: flex;
+  align-items: center;
+  margin-left: 0.3rem;
+}
+
+@media (max-width: 900px) {
+  .topContactInfoRow {
+    gap: 0.7rem;
+    font-size: 0.65rem;
+  }
+  .topContactSocialRow {
+    gap: 0.12rem;
+  }
+  .topContactDonateRow {
+    margin-left: 0.18rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .topContactInfoRow {
+    gap: 0.3rem;
+    font-size: 0.6rem;
+    flex-wrap: wrap;
+  }
+  .topContactSocialRow {
+    gap: 0.08rem;
+  }
+  .topContactDonateRow {
+    margin-left: 0.12rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .topContactInfoRow {
+    gap: 0.15rem;
+    font-size: 0.55rem;
+    flex-wrap: wrap;
+  }
+  .topContactSocialRow {
+    gap: 0.05rem;
+  }
+  .topContactDonateRow {
+    margin-left: 0.08rem;
   }
 } 

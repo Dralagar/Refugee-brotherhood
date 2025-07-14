@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Refugee Brotherhood is a refugee-led organization empowering refugees and host communities in Nairobi, Embakasi, Patanisho, and Kayole through livelihood, psychosocial support, peace building, and advocacy programs.",
   keywords: [
     "refugee led organisation",
-    "refugee-led organization",
+    "refugee-led organization", 
     "refugee led organisations",
     "refugee-led organisations",
     "RLO",

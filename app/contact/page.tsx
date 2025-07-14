@@ -88,7 +88,7 @@ const ContactPage = () => {
         body: JSON.stringify(formData),
       });
       if (res.ok) {
-        setSubmitStatus('success');
+      setSubmitStatus('success');
         setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
       } else {
         setSubmitStatus('error');
