@@ -33,7 +33,7 @@ const TopContactBar: React.FC = () => (
       </a>
     </div>
     <div className={styles.topContactSocialRow}>
-      <div className={styles.topContactRight}>
+    <div className={styles.topContactRight}>
         <a href="https://www.facebook.com/refugeebrotherhood" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
           <FaFacebookF />
         </a>
@@ -159,37 +159,37 @@ const NavBar: React.FC = () => {
       <header className={styles.header}>
         <nav className={styles.navbar} aria-label="Main Navigation">
           <div className={styles.navbarTop}>
-            <Link href="/" className={styles.logoImage} aria-label="Home">
+          <Link href="/" className={styles.logoImage} aria-label="Home">
               <div className={styles.logoContainer}>
-                <Image
-                  src="/images/logo.jpg"
-                  alt="Refugee Brotherhood Logo"
+            <Image
+              src="/images/logo.jpg"
+              alt="Refugee Brotherhood Logo"
                   width={90}
                   height={45}
-                  priority
+              priority
                   className={styles.logoImage}
                   style={{
                     objectFit: 'contain',
                     transition: 'transform 0.3s ease, filter 0.3s ease'
                   }}
-                />
+            />
                 <div className={styles.logoOverlay}>
                   <span className={styles.logoText}>Refugee Brotherhood</span>
                 </div>
               </div>
-            </Link>
+          </Link>
 
-            <button
-              className={`${styles.hamburger} ${isOpen ? styles.hamburgerOpen : ""}`}
-              onClick={toggleMenu}
-              aria-label="Toggle navigation menu"
-              aria-expanded={isOpen}
-              aria-controls="main-nav-links"
-            >
-              <span className={styles.bar}></span>
-              <span className={styles.bar}></span>
-              <span className={styles.bar}></span>
-            </button>
+          <button
+            className={`${styles.hamburger} ${isOpen ? styles.hamburgerOpen : ""}`}
+            onClick={toggleMenu}
+            aria-label="Toggle navigation menu"
+            aria-expanded={isOpen}
+            aria-controls="main-nav-links"
+          >
+            <span className={styles.bar}></span>
+            <span className={styles.bar}></span>
+            <span className={styles.bar}></span>
+          </button>
           </div>
 
           <ul

@@ -38,7 +38,7 @@ const Partners: React.FC = () => {
     {
       id: 4,
       name: "Embakasi Sub-County Peace Committee",
-      logo: "/images/EmbakasiPeace.jpg",
+      logo: "/images/peacecomit.jpg",
       description: "Promoting peace and community cohesion.",
       website: "#",
     },
@@ -59,7 +59,7 @@ const Partners: React.FC = () => {
     {
       id: 7,
       name: "Namati",
-      logo: "/images/Namati.jpg",
+      logo: "/images/namati.png",
       description: "Legal empowerment for communities.",
       website: "https://namati.org",
     },
