@@ -56,15 +56,9 @@ export default function About() {
 
   // Sample team data
   const teamMembers = [
-    { 
-      name: 'Hassan Kazungu', 
-      position: 'Executive Director', 
-      image: '/images/team1.jpg',
-      bio: 'Leading our mission with 10+ years of experience in refugee support and community development.'
-    },
-    { 
+        { 
       name: 'Luke Karema', 
-      position: 'Deputy Director', 
+      position: 'Executive Director', 
       image: '/images/team2.jpg',
       bio: 'Overseeing program implementation and community partnerships.'
     },
@@ -76,13 +70,13 @@ export default function About() {
     },
     { 
       name: 'Asnath Kabatesi', 
-      position: 'Lead Advocacy', 
+      position: 'Deputy Executive Director and Lead Advocacy', 
       image: '/images/team4.jpg',
       bio: 'Developing strategic partnerships for sustainable impact.'
     },
     { 
       name: 'Christel Bakayomo', 
-      position: 'Communcation Lead', 
+      position: 'Communication Lead', 
       image: '/images/team5.jpg',
       bio: 'Managing our communication and media strategies.'
     }

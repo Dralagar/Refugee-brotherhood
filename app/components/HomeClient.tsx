@@ -94,6 +94,14 @@ const HomeClient: React.FC = () => {
               <h1 className={styles.fontResponsiveH1}>
                 Empowering Refugees, Strengthening Communities
               </h1>
+              
+              <p className={styles.heroSubtitle}>
+                Refugee Brotherhood is a community-based, refugee-led organization dedicated
+                to supporting displaced individuals and vulnerable host communities. Through
+                innovative programs and strong partnerships with leading NGOs, we foster
+                resilience, promote self-reliance, and create opportunities for all.
+              </p>
+              
               <div className={styles.heroButtons}>
                 <Link href="/programs">
                   <button className={styles.learnMore}>Learn More</button>

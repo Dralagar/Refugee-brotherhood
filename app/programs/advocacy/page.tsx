@@ -6,19 +6,19 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const heroImages = [
   "/images/brotherhood1.jpg",
-  "/images/brotherhood2",
-  "/images/brotherhood3",
-  "/images/brotherhood4",
-  "/images/brotherhood5",
+  "/images/brotherhood2.jpg",
+  "/images/brotherhood3.jpg",
+  "/images/brotherhood4.jpg",
+  "/images/brotherhood5.jpg",
 ];
 
 const galleryItems = [
-  { src: "/images/brotherhood6", title: "Empowering Communities" },
-  { src: "/images/brotherhood7", title: "Innovative Solutions" },
-  { src: "/images/brotherhood8", title: "Youth Engagement" },
-  { src: "/images/brotherhood9", title: "Digital Inclusion" },
-  { src: "/images/brotherhood10", title: "Collaboration in Action" },
-  { src: "/images/brotherhood11", title: "Sustainable Growth" },
+  { src: "/images/brotherhood6.jpg", title: "Empowering Communities" },
+  { src: "/images/brotherhood7.jpg", title: "Innovative Solutions" },
+  { src: "/images/brotherhood8.jpg", title: "Youth Engagement" },
+  { src: "/images/brotherhood9.jpg", title: "Digital Inclusion" },
+  { src: "/images/brotherhood10.jpg", title: "Collaboration in Action" },
+  { src: "/images/brotherhood11.jpg", title: "Sustainable Growth" },
 ];
 
 export default function HeroAndGallery() {
@@ -48,34 +48,15 @@ export default function HeroAndGallery() {
         <div className="absolute inset-0 bg-black/30 flex flex-col items-center justify-center text-center px-4">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-white text-3xl md:text-5xl font-bold drop-shadow-lg"
-          >
-            Building a Better Future Together
-          </motion.h1>
-          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
             className="text-white text-lg md:text-xl mt-4 max-w-2xl"
-          >
-            Empowering youth, fostering innovation, and bridging the digital divide.
-          </motion.p>
-        </div>
-      </section>
-
-      {/* Gallery Grid */}
+*You seem to be using an outdated version of Cursor. Please upgrade to the latest version by [downloading Cursor again from our website](https://www.cursor.com/). All your settings will be preserved.*
       <section className="px-4 md:px-12">
         <motion.div
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {galleryItems.map((item, index) => (
-            <motion.div
-              key={index}
+*You seem to be using an outdated version of Cursor. Please upgrade to the latest version by [downloading Cursor again from our website](https://www.cursor.com/). All your settings will be preserved.*
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 200 }}
               className="bg-white shadow-lg rounded-xl overflow-hidden group"
