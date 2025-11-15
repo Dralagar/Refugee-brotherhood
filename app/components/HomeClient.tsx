@@ -323,19 +323,6 @@ const HomeClient: React.FC = () => {
               <div className={styles.teamCard}>
                 <div className={styles.teamImageWrapper}>
                   <Image
-                    src="/images/profile.jpeg"
-                    alt="Hassan Kazungu - Executive Director of Refugee Brotherhood"
-                    width={200}
-                    height={200}
-                    className={styles.teamImage}
-                  />
-                </div>
-                <h3 className={styles.fontResponsiveH3}>Hassan Kazungu</h3>
-                <p className={styles.fontResponsiveP}>Executive Director</p>
-              </div>
-              <div className={styles.teamCard}>
-                <div className={styles.teamImageWrapper}>
-                  <Image
                     src="/images/profile2.jpeg"
                     alt="Luke Karema - Deputy Director of Refugee Brotherhood"
                     width={200}
@@ -344,7 +331,7 @@ const HomeClient: React.FC = () => {
                   />
                 </div>
                 <h3 className={styles.fontResponsiveH3}>Luke Karema</h3>
-                <p className={styles.fontResponsiveP}>Deputy Director</p>
+                <p className={styles.fontResponsiveP}>Executive Director</p>
               </div>
               <div className={styles.teamCard}>
                 <div className={styles.teamImageWrapper}>

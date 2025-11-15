@@ -85,13 +85,13 @@ export default function ProgramsOverviewPage() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className={styles.programsContainer}
+      {...({ className: styles.programsContainer } as any)}
     >
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
-        className={styles.header}
+        {...({ className: styles.header } as any)}
       >
         <h1 className={styles.title}>Our Programs</h1>
         <p className={styles.subtitle}>
@@ -103,7 +103,7 @@ export default function ProgramsOverviewPage() {
         {Object.values(programData).map((program) => (
           <motion.div
             key={program.id}
-            className={styles.programCard}
+            {...({ className: styles.programCard } as any)}
             whileHover={{ scale: 1.03, boxShadow: '0 4px 24px rgba(51,132,208,0.12)' }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
