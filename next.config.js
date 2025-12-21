@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // experimental: {
-  //   appDir: true,
-  // },
+  // Disable features that use too much memory
+  compress: false, // DISABLE compression temporarily
+  swcMinify: true,
   
   // Image optimization
   images: {
@@ -12,9 +12,9 @@ const nextConfig = {
         hostname: 'www.refugeebrotherhood.org',
       },
     ],
-    formats: ['image/webp', 'image/avif'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    formats: ['image/webp'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 64, 96, 128, 256],
   },
 
   // Headers for SEO and security
@@ -30,40 +30,6 @@ const nextConfig = {
           {
             key: 'X-Content-Type-Options',
             value: 'nosniff',
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin',
-          },
-          {
-            key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=()',
-          },
-        ],
-      },
-      {
-        source: '/sitemap.xml',
-        headers: [
-          {
-            key: 'Content-Type',
-            value: 'application/xml',
-          },
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=3600, s-maxage=86400',
-          },
-        ],
-      },
-      {
-        source: '/robots.txt',
-        headers: [
-          {
-            key: 'Content-Type',
-            value: 'text/plain',
-          },
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=3600, s-maxage=86400',
           },
         ],
       },
@@ -86,58 +52,54 @@ const nextConfig = {
     ];
   },
 
-  // Compression and optimization
-  compress: true,
-  
-  // Enable SWC minification
-  swcMinify: true,
-
   // Environment variables
   env: {
     SITE_URL: 'https://www.refugeebrotherhood.org',
     SITE_NAME: 'Refugee Brotherhood',
   },
 
-  // Webpack configuration for optimization
+  // Webpack configuration for memory optimization
   webpack: (config, { dev, isServer }) => {
-    // Optimize bundle size
-    if (!dev && !isServer) {
-      config.optimization.splitChunks = {
-        chunks: 'all',
-        cacheGroups: {
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            chunks: 'all',
+    // Disable cache to save memory
+    config.cache = false;
+    
+    // Reduce memory usage
+    if (!dev) {
+      config.optimization = {
+        ...config.optimization,
+        splitChunks: {
+          chunks: 'all',
+          maxSize: 200000, // 200KB chunks
+          cacheGroups: {
+            defaultVendors: {
+              test: /[\\/]node_modules[\\/]/,
+              priority: -10,
+              reuseExistingChunk: true,
+            },
+            default: {
+              minChunks: 2,
+              priority: -20,
+              reuseExistingChunk: true,
+            },
           },
         },
       };
     }
-
+    
     return config;
   },
 
-  // PWA support (optional)
-  // pwa: {
-  //   dest: 'public',
-  //   register: true,
-  //   skipWaiting: true,
-  // },
-
-  // Internationalization (if needed in future)
-  // i18n: {
-  //   locales: ['en', 'sw'],
-  //   defaultLocale: 'en',
-  // },
+  // Disable some memory-intensive features
+  experimental: {
+    optimizeCss: false,
+    webpackMemoryOptimizations: false,
+  },
 
   // Output configuration
   output: 'standalone',
 
   // Trailing slash configuration
   trailingSlash: false,
-
-  // Asset prefix (if using CDN)
-  // assetPrefix: process.env.NODE_ENV === 'production' ? 'https://cdn.refugeebrotherhood.org' : '',
 };
 
-module.exports = nextConfig; 
+module.exports = nextConfig;

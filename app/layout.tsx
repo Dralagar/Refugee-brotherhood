@@ -195,7 +195,7 @@ export default function RootLayout({
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
                 "name": "Refugee Support Services",
-                "itemListElement": [
+                "it emListElement": [
                   {
                     "@type": "Offer",
                     "itemOffered": {

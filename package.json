@@ -4,11 +4,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "set NODE_OPTIONS=--max-old-space-size=8192 && next dev",
+    "build": "set NODE_OPTIONS=--max-old-space-size=8192 && next build",
     "start": "next start",
-    "lint": "next lint",
-    "postbuild": "next-sitemap"
+    "lint": "set NODE_OPTIONS=--max-old-space-size=8192 && next lint",
+    "postbuild": "next-sitemap",
+    "clean": "rmdir /s /q .next && rmdir /s /q node_modules\\.cache"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -55,16 +56,5 @@
   },
   "optionalDependencies": {
     "@next/swc-win32-x64-msvc": "14.2.3"
-  },
-  "plugins": [
-    "@typescript-eslint"
-  ],
-  "extends": [
-    "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended"
-  ],
-  "rules": {
-    "@typescript-eslint/no-unused-vars": "warn",
-    "@typescript-eslint/no-explicit-any": "warn"
   }
 }
