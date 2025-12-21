@@ -369,7 +369,7 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#3674B5" />
         
         {/* Preload Critical Resources */}
-        <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        {/* <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossOrigin="anonymous" /> */}
         <link rel="preload" href="/images/logo.jpg" as="image" />
         
         {/* Canonical and Alternate Links */}

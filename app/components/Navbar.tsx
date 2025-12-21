@@ -26,21 +26,21 @@ const TopContactBar: React.FC = () => (
         <span className={styles.desktopText}>info@refugeebrotherhood.org</span>
         <span className={styles.mobileText}>info@refugeebrotherhood.org</span>
       </a>
-      <a href="tel:+254794693898" className={styles.topContactItem}>
-        <FaPhone /> 
-        <span className={styles.desktopText}>+254 794 693898</span>
-        <span className={styles.mobileText}>+254 794 693898</span>
+      <a href="tel:+254111449564" className={styles.topContactItem}>
+        <FaPhone aria-label="Phone" /> 
+        <span className={styles.desktopText}>+254 111449564</span>
+        <span className={styles.mobileText}>+254 111449564</span>
       </a>
     </div>
     <div className={styles.topContactSocialRow}>
     <div className={styles.topContactRight}>
-        <a href="https://www.facebook.com/refugeebrotherhood" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <a href="https://www.facebook.com/profile.php?id=100065034750333" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
           <FaFacebookF />
         </a>
         <a href="https://x.com/br_refugee" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
           <Image src="/images/X logo.png" alt="X (formerly Twitter) Logo" width={24} height={24} style={{objectFit: 'contain'}} />
         </a>
-        <a href="https://www.instagram.com/refugeebrotherhood" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <a href="https://www.instagram.com/refugeebrotherhood7?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <FaInstagram />
         </a>
         <a href="https://www.youtube.com/@refugeebrotherhood" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
@@ -133,12 +133,16 @@ const NavBar: React.FC = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  const toggleAboutDropdown = () => {
+  const toggleAboutDropdown = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     setAboutDropdownOpen((prev) => !prev);
     setProgramsDropdownOpen(false);
   };
 
-  const toggleProgramsDropdown = () => {
+  const toggleProgramsDropdown = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     setProgramsDropdownOpen((prev) => !prev);
     setAboutDropdownOpen(false);
   };
@@ -159,24 +163,21 @@ const NavBar: React.FC = () => {
       <header className={styles.header}>
         <nav className={styles.navbar} aria-label="Main Navigation">
           <div className={styles.navbarTop}>
-          <Link href="/" className={styles.logoImage} aria-label="Home">
-              <div className={styles.logoContainer}>
-            <Image
-              src="/images/logo.jpg"
-              alt="Refugee Brotherhood Logo"
-                  width={90}
-                  height={45}
-              priority
-                  className={styles.logoImage}
-                  style={{
-                    objectFit: 'contain',
-                    transition: 'transform 0.3s ease, filter 0.3s ease'
-                  }}
-            />
-                <div className={styles.logoOverlay}>
-                  <span className={styles.logoText}>Refugee Brotherhood</span>
-                </div>
-              </div>
+          <Link href="/" className={styles.logoLink} aria-label="Refugee Brotherhood Home">
+            <div className={styles.logoContainer}>
+              <Image
+                src="/images/RB-logo.jpeg"
+                alt=""
+                width={120}
+                height={60}
+                priority
+                className={styles.logoImage}
+                sizes="(max-width: 768px) 90px, (max-width: 1024px) 110px, 120px"
+              />
+              <span className={styles.logoText} aria-hidden="false">
+                Refugee Brotherhood
+              </span>
+            </div>
           </Link>
 
           <button
@@ -199,6 +200,7 @@ const NavBar: React.FC = () => {
           >
             <li className={styles.dropdown + ' ' + styles.navItem} ref={aboutDropdownRef}>
               <button
+                type="button"
                 className={styles.navLink + (isAboutActive ? ' ' + styles.active : '')}
                 onClick={toggleAboutDropdown}
                 aria-expanded={aboutDropdownOpen}
@@ -246,6 +248,7 @@ const NavBar: React.FC = () => {
 
             <li className={styles.dropdown + ' ' + styles.navItem} ref={programsDropdownRef}>
               <button
+                type="button"
                 className={styles.navLink + (isProgramsActive ? ' ' + styles.active : '')}
                 onClick={toggleProgramsDropdown}
                 aria-expanded={programsDropdownOpen}

@@ -47,14 +47,14 @@ const HomeClient: React.FC = () => {
       { id: "1", name: "Refugepoint", logo: "/images/refugepoint.png" },
       { id: "2", name: "Mr. Green Africa", logo: "/images/GreenAfrica.png" },
       { id: "3", name: "Nairobi Industrial Institute", logo: "/images/NairobiIndustrial.jpg" },
-      { id: "4", name: "Embakasi Sub-County Peace Committee", logo: "/images/EmbakasiPeace.jpg" },
+      { id: "4", name: "Embakasi Sub-County Peace Committee", logo: "/images/peacecomit.jpg" },
       { id: "5", name: "Kenya Association of Waste Recyclers", logo: "/images/KAWR.jpg" },
       { id: "6", name: "Positive Young Women Voices", logo: "/images/Positivewomen.jpg" },
       { id: "7", name: "Youth Voices Community", logo: "/images/YVC.png" },
       { id: "8", name: "Pamoja Trust", logo: "/images/Pamojatrust.png" },
       { id: "9", name: "Umoja Refugees", logo: "/images/Umoja.png" },
       { id: "10", name: "Danish Refugee Council", logo: "/images/DRC.jpg" },
-      { id: "11", name: "Family Bridges of Hope", logo: "/images/Namati.jpg" },
+      { id: "11", name: "Family Bridges of Hope", logo: "/images/namati.png" },
     ];
 
     setPartners(mockPartners);
@@ -323,8 +323,8 @@ const HomeClient: React.FC = () => {
               <div className={styles.teamCard}>
                 <div className={styles.teamImageWrapper}>
                   <Image
-                    src="/images/profile2.jpeg"
-                    alt="Luke Karema - Deputy Director of Refugee Brotherhood"
+                    src="/images/logo.jpg"
+                    alt="Luke Karema - Executive Director of Refugee Brotherhood"
                     width={200}
                     height={200}
                     className={styles.teamImage}
@@ -336,7 +336,7 @@ const HomeClient: React.FC = () => {
               <div className={styles.teamCard}>
                 <div className={styles.teamImageWrapper}>
                   <Image
-                    src="/images/profile3.jpeg"
+                    src="/images/logo.jpg"
                     alt="Linda Kaunda - Lead Peace Building at Refugee Brotherhood"
                     width={200}
                     height={200}
@@ -349,7 +349,7 @@ const HomeClient: React.FC = () => {
               <div className={styles.teamCard}>
                 <div className={styles.teamImageWrapper}>
                   <Image
-                    src="/images/profile4.jpeg"
+                    src="/images/logo.jpg"
                     alt="Asnath Kabatesi - Lead Advocacy at Refugee Brotherhood"
                     width={200}
                     height={200}
@@ -362,7 +362,7 @@ const HomeClient: React.FC = () => {
               <div className={styles.teamCard}>
                 <div className={styles.teamImageWrapper}>
                   <Image
-                    src="/images/profile5.jpeg"
+                    src="/images/logo.jpg"
                     alt="Christel Bakayomo - Communication Lead at Refugee Brotherhood"
                     width={200}
                     height={200}
