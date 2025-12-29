@@ -186,7 +186,10 @@ const NavBar: React.FC = () => {
                 About <span className={`${styles.dropdownIcon} ${aboutDropdownOpen ? styles.open : ""}`}>▼</span>
               </button>
               {aboutDropdownOpen && (
-                <ul className={`${styles.dropdownMenu} ${styles.aboutDropdownMenu}`} role="menu">
+                <ul
+                  className={`${styles.dropdownMenu} ${styles.aboutDropdownMenu} ${aboutDropdownOpen ? styles.open : ''}`}
+                  role="menu"
+                >
                   {aboutSections.map((section) => (
                     <li key={section.id}>
                       <a
@@ -226,7 +229,10 @@ const NavBar: React.FC = () => {
                 Programs <span className={`${styles.dropdownIcon} ${programsDropdownOpen ? styles.open : ""}`}>▼</span>
               </button>
               {programsDropdownOpen && (
-                <ul className={`${styles.dropdownMenu} ${styles.programsDropdownGrid}`} role="menu">
+                <ul
+                  className={`${styles.dropdownMenu} ${styles.programsDropdownGrid} ${programsDropdownOpen ? styles.open : ''}`}
+                  role="menu"
+                >
                   {programsList.map(program => {
                     let iconSrc = `/icons/${program.id}.svg`;
                     let iconAlt = `${program.label} Icon`;
